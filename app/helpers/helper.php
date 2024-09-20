@@ -7,9 +7,9 @@ class Helper {
    */
   static public function import_styles(): string {
     return '
-      <link rel="stylesheet" href="' . self::get_resource_path('/style/bootstrap.css') . '">
-      <script src="' . self::get_resource_path('/style/bootstrap.bundle.js') . '"></script>
-      <link rel="stylesheet" href="' . self::get_resource_path('/style/styles.css') . '">
+      <script src="' . self::get_resource_path('/js/bootstrap.bundle.js') . '"></script>
+      <link rel="stylesheet" href="' . self::get_resource_path('/css/bootstrap.css') . '">
+      <link rel="stylesheet" href="' . self::get_resource_path('/css/styles.css') . '">
     ';
   }
 
