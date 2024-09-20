@@ -13,8 +13,13 @@ include '../helpers/database_manager.php';
   <body>
     <img class="w-100 h-auto fixed-top z-n1" src="../../assets/login_signup_background.png" alt="">
     <div class="container w-20 flex vh-100 align-content-center">
+      <?php
+      if (isset($_GET['e'])) {
+        echo Helper::alert_danger($_GET['e']);
+      }
+      ?>
       <div class="bg-white rounded-2 p-4">
-        <h3 class="text-center py-4">登録</h3>
+        <h3 class="text-center pt-3 pb-4">登録</h3>
         <form action="" method="post">
           <div class="form-floating pb-2 position-relative">
             <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
