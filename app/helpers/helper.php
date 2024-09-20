@@ -10,6 +10,7 @@ class Helper {
       <script src="' . self::get_resource_path('/js/bootstrap.bundle.js') . '"></script>
       <link rel="stylesheet" href="' . self::get_resource_path('/css/bootstrap.css') . '">
       <link rel="stylesheet" href="' . self::get_resource_path('/css/styles.css') . '">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     ';
   }
 

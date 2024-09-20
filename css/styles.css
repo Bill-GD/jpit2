@@ -1,0 +1,23 @@
+/* size */
+.w-20 {
+  width: 20%;
+}
+
+/* position */
+.bottom-30 {
+  bottom: 30%;
+}
+.bottom-35 {
+  bottom: 35%;
+}
+.bottom-40 {
+  bottom: 40%;
+}
+.end-5 {
+  right: 5%;
+}
+
+/* text color */
+.text-grey {
+  color: #666;
+}
