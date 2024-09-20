@@ -12,8 +12,9 @@ class DatabaseManager {
     if (empty(Globals::$aiven_username)) {
       Globals::init();
     }
+    
     if (self::$instance != null) {
-      throw new Exception("Instance already exists");
+      throw new Exception("DatabaseManager instance already exists");
     }
 
     $aiven_username = Globals::$aiven_username;
@@ -47,8 +48,9 @@ class DatabaseManager {
 
     if (!empty($inp) && is_string($inp)) {
       return str_replace(
-        array('\\', "\0", "\n", "\r", "'", '"', "\x1a"), array('\\\\', '\\0', '\\n', '\\r', "\\'", '\\"', '\\Z'),
         $inp,
+        ['\\', "\0", "\n", "\r", "'", '"', "\x1a"],
+        ['\\\\', '\\0', '\\n', '\\r', "\\'", '\\"', '\\Z'],
       );
     }
     return $inp;
@@ -70,7 +72,7 @@ class DatabaseManager {
   // * needs improvement: check for named param, if no, force param binds to be empty
   function query(string $query_string, array $params = []): PDOStatement {
     if (!$this->starts_with($query_string, ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'CALL'], false)) {
-      throw new Exception("Invalid query string, must start with SELECT, INSERT, UPDATE or DELETE");
+      throw new Exception("Invalid query string, must start with SELECT, INSERT, UPDATE, DELETE or CALL");
     }
 
     // filter all token starts with `:`

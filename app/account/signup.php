@@ -1,5 +1,5 @@
 <?php
-include '../helpers/helper.php';
+include '../helpers/database_manager.php';
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +11,6 @@ include '../helpers/helper.php';
     <title>Sign Up</title>
   </head>
   <body>
-
+    <?= DatabaseManager::instance()->get_version() ?>
   </body>
 </html>
