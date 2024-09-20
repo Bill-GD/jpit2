@@ -19,24 +19,24 @@ include '../helpers/database_manager.php';
       }
       ?>
       <div class="bg-white rounded-2 p-4">
-        <h3 class="text-center pt-3 pb-4">登録</h3>
-        <form action="" method="post">
+        <h3 class="text-center pt-4 pb-4">登録</h3>
+        <form action="signup_handler.php" method="post">
           <div class="form-floating pb-2 position-relative">
-            <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
-            <label for="username">Username</label>
+            <input type="text" class="form-control rounded-0 border-0 border-bottom border-dark-subtle" id="username" name="username" placeholder="" required>
+            <label for="username">ウーザーネーム</label>
             <i class="position-absolute end-5 bottom-40 fa-solid fa-user text-grey"></i>
           </div>
           <div class="form-floating pb-2 position-relative">
-            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-            <label for="email">Email address</label>
+            <input type="email" class="form-control rounded-0 border-0 border-bottom border-dark-subtle" id="email" name="email" placeholder="" required>
+            <label for="email">メールアドレス</label>
             <i class="position-absolute end-5 bottom-40 fa-solid fa-envelope text-grey"></i>
           </div>
           <div class="form-floating pb-2 position-relative">
-            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-            <label for="password">Password</label>
+            <input type="password" class="form-control rounded-0 border-0 border-bottom border-dark-subtle" id="password" name="password" placeholder="" required>
+            <label for="password">パスワード</label>
             <i class="position-absolute end-5 bottom-40 fa-solid fa-eye text-grey" id="password_toggle"></i>
           </div>
-          <button type="submit" class="btn btn-dark rounded-5 w-100 mt-3">Sign up</button>
+          <button type="submit" class="btn btn-dark rounded-5 w-100 my-4">登録</button>
         </form>
       </div>
     </div>

@@ -1,23 +1,23 @@
 create table if not exists `user` (
-	user_id int not null primary key,
+	user_id int not null primary key auto_increment,
     username nvarchar(100) not null,
     email nvarchar(100) not null unique,
-    `password` nvarchar(32) not null
+    `password` nvarchar(60) not null
 );
 
 create table if not exists lesson (
-	lesson_id int not null primary key,
+	lesson_id int not null primary key auto_increment,
     lesson_name varchar(50) not null,
     lesson_content text
 );
 
 create table if not exists test (
-	test_id int not null primary key,
+	test_id int not null primary key auto_increment,
     test_results int
 );
 
 create table if not exists notification (
-	notification_id int not null primary key,
+	notification_id int not null primary key auto_increment,
     user_id int not null,
     message text not null,
     `type` nvarchar(32),
@@ -27,7 +27,7 @@ create table if not exists notification (
 );
 
 create table if not exists listen_speak_practice (
-	practice_id int not null primary key,
+	practice_id int not null primary key auto_increment,
     user_id int not null,
     lesson_id int not null,
     audio_url text,
@@ -37,7 +37,7 @@ create table if not exists listen_speak_practice (
 );
 
 create table if not exists vocab (
-	vocab_id int not null primary key,
+	vocab_id int not null primary key auto_increment,
     lesson_id int not null,
     word nvarchar(32) not null,
     pronunciation nvarchar(50),
@@ -49,7 +49,7 @@ create table if not exists vocab (
 );
 
 create table if not exists learning_path (
-	path_id int not null primary key,
+	path_id int not null primary key auto_increment,
     user_id int null null,
     default_path bool,
     progress int,
@@ -60,7 +60,7 @@ create table if not exists learning_path (
 );
 
 create table if not exists quick_learn_topic (
-	topic_id int not null primary key,
+	topic_id int not null primary key auto_increment,
     topic_name nvarchar(50) not null,
     `description` text,
     created_at date,
@@ -68,7 +68,7 @@ create table if not exists quick_learn_topic (
 );
 
 create table if not exists quick_learn_content (
-	ql_content_id int not null primary key,
+	ql_content_id int not null primary key auto_increment,
     topic_id int not null,
     japanese_sentence text not null,
     vietnamese_sentence text not null,

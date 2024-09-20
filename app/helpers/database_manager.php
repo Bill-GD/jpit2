@@ -41,19 +41,19 @@ class DatabaseManager {
   }
 
   // https://www.php.net/manual/en/function.mysql-real-escape-string.php#101248
-  static function mysql_escape(string|array $inp): string|array {
-    if (is_array($inp)) {
-      return array_map(__METHOD__, $inp);
+  static function mysql_escape(string|array $in): string|array {
+    if (is_array($in)) {
+      return array_map(__METHOD__, $in);
     }
 
-    if (!empty($inp) && is_string($inp)) {
+    if (!empty($in) && is_string($in)) {
       return str_replace(
-        $inp,
-        ['\\', "\0", "\n", "\r", "'", '"', "\x1a"],
-        ['\\\\', '\\0', '\\n', '\\r', "\\'", '\\"', '\\Z'],
+        search: ['\\\\', '\\0', '\\n', '\\r', "\\'", '\\"', '\\Z'],
+        replace: ['\\', "\0", "\n", "\r", "'", '"', "\x1a"],
+        subject: $in,
       );
     }
-    return $inp;
+    return $in;
   }
 
   function get_version(): string {
@@ -66,8 +66,8 @@ class DatabaseManager {
 
   /**
    * Wraps the PDO query calls in a single function.
-   * @param string $query_string The query string to execute, can use `:param_name` for named parameters, or plain query string.
-   * @param array $params The parameters to bind to the query string.
+   * @param string $query_string The query string to execute, can use `:param_name` for named parameters (requires param list), or plain query string (empty param list).
+   * @param array $params The parameters to bind to the query string, `'param_name' => 'param_value'`.
    */
   // * needs improvement: check for named param, if no, force param binds to be empty
   function query(string $query_string, array $params = []): PDOStatement {
