@@ -4,7 +4,7 @@ A project for JPIT2 at school.
 
 ### Details
 
-- Spec [here](https://docs.google.com/spreadsheets/d/1BZ9ZkzIwuOhqXMhiqxjLZtDD4v_KQwzjYH7rhtkwxqQ/edit?usp=sharing)
+- Spec [here](https://docs.google.com/spreadsheets/d/1zKF-ncEAsqOzxUUS-hna7WYB2SYGaonA3xstNhMjMds/edit?usp=sharing)
 
 ### Develop
 
@@ -12,7 +12,7 @@ A project for JPIT2 at school.
 - `app`: stores all the php folders/files
 - `css`, `js`: stores bootstrap and a custom css file, add any custom style in `css/styles.css`
 - `assets`: stores 'built-in' images, audio files
-- .env: stores private keys, don't add to git, ask the lead dev for it
+- `.env`: stores private keys, don't add to git, ask the lead dev for it
 - `index.php`: used for the run command, should be the starting point of the app, pointing to the main page
 - `db.sql`: contains all the tables to recreate somewhere else
 
