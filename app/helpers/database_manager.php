@@ -12,7 +12,7 @@ class DatabaseManager {
     if (empty(Globals::$aiven_username)) {
       Globals::init();
     }
-    
+
     if (self::$instance != null) {
       throw new Exception("DatabaseManager instance already exists");
     }
@@ -69,8 +69,7 @@ class DatabaseManager {
    * @param string $query_string The query string to execute, can use `:param_name` for named parameters (requires param list), or plain query string (empty param list).
    * @param array $params The parameters to bind to the query string, `'param_name' => 'param_value'`.
    */
-  // * needs improvement: check for named param, if no, force param binds to be empty
-  function query(string $query_string, array $params = []): PDOStatement {
+  function query(string $query_string, array $param_map = []): PDOStatement {
     if (!$this->starts_with($query_string, ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'CALL'], false)) {
       throw new Exception("Invalid query string, must start with SELECT, INSERT, UPDATE, DELETE or CALL");
     }
@@ -80,19 +79,24 @@ class DatabaseManager {
       preg_split("/[\s\(,]/", $query_string),
       fn($token) => str_starts_with($token, ':'),
     );
+
     $named_params_count = count($named_params);
-    $provided_params_count = count($params);
+    if ($named_params_count === 0) {
+      $param_map = [];
+    }
+    $provided_params_count = count($param_map);
+
     if ($named_params_count !== $provided_params_count) {
       throw new Exception(
         "Named parameters count does not match provided parameters count.<br>
         Query: {$query_string}<br>
         Named parameters ({$named_params_count}): " . implode('|', $named_params) . "<br>
-        Provided parameters ({$provided_params_count}): " . implode('|', array_keys($params)) . "<br>"
+        Provided parameters ({$provided_params_count}): " . implode('|', array_keys($param_map)) . "<br>"
       );
     }
 
     $stmt = $this->conn->prepare($query_string);
-    $stmt->execute($params);
+    $stmt->execute($param_map);
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     return $stmt;
   }
