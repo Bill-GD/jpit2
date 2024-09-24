@@ -20,7 +20,7 @@ include '../helpers/database_manager.php';
       ?>
       <div class="bg-white rounded-2 p-4">
         <h3 class="text-center pt-4 pb-4">ログイン</h3>
-        <form action="login_handler.php" method="post">
+        <form action="signin_handler.php" method="post">
           <div class="form-floating pb-2 position-relative">
             <input type="text" class="form-control rounded-0 border-0 border-bottom border-dark-subtle" id="username"
               name="username" placeholder="" required>
