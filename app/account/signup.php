@@ -41,7 +41,7 @@ include '../helpers/database_manager.php';
           </div>
           <button type="submit" class="btn btn-dark rounded-5 w-100 my-4">登録</button>
         </form>
-        <p class="text-center mt-3"><a href="signin.php">ログイン</a></p>
+        <p class="text-center mt-3"><a href="signin.php" class="text-decoration-none">ログイン</a></p>
       </div>
     </div>
   </body>

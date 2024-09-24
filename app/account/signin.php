@@ -51,7 +51,7 @@ include '../helpers/database_manager.php';
           </a>
         </div>
 
-        <p class="text-center mt-3"><a href="signup.php">登録はこちら</a></p>
+        <p class="text-center mt-3"><a href="signup.php" class="text-decoration-none">登録はこちら</a></p>
       </div>
     </div>
   </body>
