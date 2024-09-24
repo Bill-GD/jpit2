@@ -35,6 +35,22 @@ include '../helpers/database_manager.php';
           </div>
           <button type="submit" class="btn btn-dark rounded-5 w-100 my-4">ログイン</button>
         </form>
+
+    
+
+        <!-- Các nút biểu tượng đăng nhập -->
+        <div class="d-flex justify-content-center">
+          <a href="" class="btn btn-light mx-2">
+            <i class="fa-brands fa-google"></i>
+          </a>
+          <a href="" class="btn btn-light mx-2">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="" class="btn btn-light mx-2">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </div>
+
         <p class="text-center mt-3"><a href="signup.php">登録はこちら</a></p>
       </div>
     </div>
