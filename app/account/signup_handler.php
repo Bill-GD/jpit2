@@ -14,14 +14,17 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 include '../helpers/database_manager.php';
-
 $database_manager = DatabaseManager::instance();
 
-$existing_email_count = intval($database_manager->query(
-  'SELECT count(*) from `user` where email = :email',
+$existing_email = $database_manager->query(
+  'SELECT email from `user` where email = :email',
   ['email' => DatabaseManager::mysql_escape($email)],
-)->fetchAll()[0]);
+)->fetchAll();
+
+print_r($existing_email);
+$existing_email_count = count($existing_email);
 echo $existing_email_count;
+
 if ($existing_email_count > 0) {
   header('Location: signup.php?e=このメールアドレスは既に登録されています');
   exit();
@@ -51,4 +54,4 @@ $database_manager->query(
   ['username' => $username, 'email' => $email, 'password' => $hashed_password],
 );
 
-// header('Location: login.php');
+header('Location: signin.php?s=登録が完了しました');

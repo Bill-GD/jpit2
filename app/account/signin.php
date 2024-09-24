@@ -1,5 +1,5 @@
 <?php
-include '../helpers/database_manager.php';
+include '../helpers/helper.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +16,9 @@ include '../helpers/database_manager.php';
       <?php
       if (isset($_GET['e'])) {
         echo Helper::alert_danger($_GET['e']);
+      }
+      if (isset($_GET['s'])) {
+        echo Helper::alert_success($_GET['s']);
       }
       ?>
       <div class="bg-white rounded-2 p-4">
@@ -36,22 +39,21 @@ include '../helpers/database_manager.php';
           <button type="submit" class="btn btn-dark rounded-5 w-100 my-4">ログイン</button>
         </form>
 
-    
+        <p class="text-center mt-1">アカウントをお持ちない場合　<a href="signup.php" class="text-decoration-none">登録</a></p>
 
-        <!-- Các nút biểu tượng đăng nhập -->
+        <p class="text-center mt-1">他の方</p>
+
         <div class="d-flex justify-content-center">
-          <a href="" class="btn btn-light mx-2">
+          <a href="" class="btn btn-light fs-4 mx-2">
             <i class="fa-brands fa-google"></i>
           </a>
-          <a href="" class="btn btn-light mx-2">
+          <a href="" class="btn btn-light fs-4 mx-2">
             <i class="fa-brands fa-facebook"></i>
           </a>
-          <a href="" class="btn btn-light mx-2">
+          <a href="" class="btn btn-light fs-4 mx-2">
             <i class="fa-brands fa-x-twitter"></i>
           </a>
         </div>
-
-        <p class="text-center mt-3"><a href="signup.php" class="text-decoration-none">登録はこちら</a></p>
       </div>
     </div>
   </body>
