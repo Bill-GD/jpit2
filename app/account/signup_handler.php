@@ -16,14 +16,11 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 include '../helpers/database_manager.php';
 $database_manager = DatabaseManager::instance();
 
-$existing_email = $database_manager->query(
+$existing_email_count = $database_manager->query(
   'SELECT email from `user` where email = :email',
   ['email' => DatabaseManager::mysql_escape($email)],
-)->fetchAll();
-
-print_r($existing_email);
-$existing_email_count = count($existing_email);
-echo $existing_email_count;
+)->fetch(PDO::FETCH_COLUMN);
+echo 'Duplicate email: ' . ($existing_email_count == 1 ? 'true' : 'false') . '<br><br>';
 
 if ($existing_email_count > 0) {
   header('Location: signup.php?e=このメールアドレスは既に登録されています');
@@ -43,15 +40,25 @@ echo 'username: ' . $username . '<br>' .
   'password: ' . $password . '<br>' .
   'password_hash: ' . $hashed_password . '<br>' .
   'password_verify: ' . password_verify($password, password_hash($password, PASSWORD_BCRYPT)) . '<br>' .
-  'escaped_password: ' . DatabaseManager::mysql_escape($hashed_password);
+  'escaped_password: ' . DatabaseManager::mysql_escape($hashed_password) . '<br>';
 
 $username = DatabaseManager::mysql_escape($username);
 $email = DatabaseManager::mysql_escape($email);
 $hashed_password = DatabaseManager::mysql_escape($hashed_password);
 
-$database_manager->query(
-  'INSERT INTO `user` (username, email, `password`) VALUES (:username, :email, :password)',
-  ['username' => $username, 'email' => $email, 'password' => $hashed_password],
-);
 
-header('Location: signin.php?s=登録が完了しました');
+// select coalesce(max(project_id), 0) + 1 from `project` into @next_id;
+// set @alter_statement = concat('alter table project auto_increment = ', @next_id);
+try {
+  $database_manager->query('CALL reset_user_id()');
+
+  // Insert the new user
+  $database_manager->query(
+    'INSERT INTO `user` (username, email, `password`) VALUES (:username, :email, :password)',
+    ['username' => $username, 'email' => $email, 'password' => $hashed_password]
+  );
+
+  header('Location: signin.php?s=登録が完了しました');
+} catch (\Throwable $th) {
+  header('Location: signup.php?e=エラーが発生しました: ' . $th->getMessage());
+}

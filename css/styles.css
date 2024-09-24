@@ -6,6 +6,9 @@
 }
 
 /* position */
+.bottom-20 {
+  bottom: 20%;
+}
 .bottom-30 {
   bottom: 30%;
 }
@@ -14,6 +17,9 @@
 }
 .bottom-40 {
   bottom: 40%;
+}
+.start-40 {
+  left: 40%;
 }
 .end-5 {
   right: 5%;

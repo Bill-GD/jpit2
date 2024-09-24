@@ -7,6 +7,7 @@ class DatabaseManager {
   private $host = 'jpit-billgd-aiven.h.aivencloud.com';
   private $database_name = 'jpit';
   private $port = '13387';
+  private array $allowed_query_types = ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'CALL', 'ALTER'];
 
   private function __construct() {
     if (empty(Globals::$aiven_username)) {
@@ -70,8 +71,12 @@ class DatabaseManager {
    * @param array $params The parameters to bind to the query string, `'param_name' => 'param_value'`.
    */
   function query(string $query_string, array $param_map = []): PDOStatement {
-    if (!$this->starts_with($query_string, ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'CALL'], false)) {
-      throw new Exception("Invalid query string, must start with SELECT, INSERT, UPDATE, DELETE or CALL");
+    if (!$this->starts_with(
+      str: $query_string,
+      search_strings: $this->allowed_query_types,
+      case_sensitive: false,
+    )) {
+      throw new Exception("Invalid query string, must start with " . implode(", ", $this->allowed_query_types));
     }
 
     // filter all token starts with `:`

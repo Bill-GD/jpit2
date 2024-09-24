@@ -78,3 +78,19 @@ create table if not exists quick_learn_content (
     updated_at date,
     foreign key (topic_id) references quick_learn_topic (topic_id)
 );
+
+delimiter $$
+create procedure reset_user_id ()
+begin
+  select coalesce(max(user_id), -1) from `user` into @next_id;
+  
+  if @next_id <= 0 then
+    set @next_id = 0;
+  end if;
+  
+  set @alter_statement = concat('alter table `user` auto_increment = ', @next_id);
+  PREPARE stmt FROM @alter_statement;
+  EXECUTE stmt;
+  DEALLOCATE PREPARE stmt;
+end $$
+delimiter ;

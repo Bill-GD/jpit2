@@ -1,5 +1,8 @@
 <?php
-include '../helpers/helper.php';
+
+use function PHPSTORM_META\type;
+
+include '../helpers/database_manager.php';
 ?>
 
 <!DOCTYPE html>
@@ -25,10 +28,10 @@ include '../helpers/helper.php';
         <h3 class="text-center pt-4 pb-4">ログイン</h3>
         <form action="signin_handler.php" method="post">
           <div class="form-floating pb-2 position-relative">
-            <input type="text" class="form-control rounded-0 border-0 border-bottom border-dark-subtle" id="username"
-              name="username" placeholder="" required>
-            <label for="username">ウーザーネーム</label>
-            <i class="position-absolute end-5 bottom-40 fa-solid fa-user text-grey"></i>
+            <input type="email" class="form-control rounded-0 rounded-top-3 border-0 border-bottom border-dark-subtle" id="email"
+              name="email" placeholder="" required>
+            <label for="email">メールアドレス</label>
+            <i class="position-absolute end-5 bottom-40 fa-solid fa-envelope text-grey"></i>
           </div>
           <div class="form-floating pb-2 position-relative">
             <input type="password" class="form-control rounded-0 border-0 border-bottom border-dark-subtle"
@@ -39,9 +42,14 @@ include '../helpers/helper.php';
           <button type="submit" class="btn btn-dark rounded-5 w-100 my-4">ログイン</button>
         </form>
 
-        <p class="text-center mt-1">アカウントをお持ちない場合　<a href="signup.php" class="text-decoration-none">登録</a></p>
+        <p class="text-center mt-1 mb-4">アカウントをお持ちない場合　
+          <a href="signup.php" class="text-decoration-none">登録</a>
+        </p>
 
-        <p class="text-center mt-1">他の方</p>
+        <hr>
+        <div class="position-relative pt-4">
+          <pre class="position-absolute start-40 bottom-50 bg-white fs-6"> 他の方 </pre>
+        </div>
 
         <div class="d-flex justify-content-center">
           <a href="" class="btn btn-light fs-4 mx-2">
