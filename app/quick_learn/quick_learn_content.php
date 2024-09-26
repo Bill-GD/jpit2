@@ -20,13 +20,13 @@ include '../helpers/ui.php';
       <div class="col-3">
         <div class="form-floating position-relative">
           <input type="text" class="form-control rounded-5 border-dark-subtle" id="search" name="search" placeholder=""
-          required>
+            required>
           <label for="search">検索</label>
           <i class="position-absolute end-5 bottom-35 fa-solid fa-search text-grey"></i>
         </div>
       </div>
     </div>
-    
+
     <main class="container">
       <section>
         <!-- <div class="grid-item" onclick="playSound('path/to/audio1.mp3')"> -->
@@ -40,7 +40,7 @@ include '../helpers/ui.php';
               <div class="col-auto h-50"></div>
               <div class="col-auto">• シンチャオ!</div>
             </div>
-            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high"></i>
+            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high" id="play_sound"></i>
           </div>
         </div>
 
@@ -54,7 +54,7 @@ include '../helpers/ui.php';
               <div class="col-auto h-50"></div>
               <div class="col-auto">• パンクエコン?</div>
             </div>
-            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high"></i>
+            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high" id="play_sound"></i>
           </div>
         </div>
 
@@ -68,7 +68,7 @@ include '../helpers/ui.php';
               <div class="col-auto h-50"></div>
               <div class="col-auto">• バンデントゥダ?</div>
             </div>
-            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high"></i>
+            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high" id="play_sound"></i>
           </div>
         </div>
 
@@ -82,7 +82,7 @@ include '../helpers/ui.php';
               <div class="col-auto h-50"></div>
               <div class="col-auto">• トイデントゥニャットパン</div>
             </div>
-            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high"></i>
+            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high" id="play_sound"></i>
           </div>
         </div>
 
@@ -96,10 +96,16 @@ include '../helpers/ui.php';
               <div class="col-auto h-50"></div>
               <div class="col-auto">• カームオン!</div>
             </div>
-            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high"></i>
+            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high" id="play_sound"></i>
           </div>
         </div>
       </section>
     </main>
   </body>
+  <script>
+    document.getElementById('play_sound').addEventListener('click', function () {
+      const audio = new Audio('../../assets/sounds/subfortopic1/a chao.m4a');
+      audio.play();
+    });
+  </script>
 </html>
