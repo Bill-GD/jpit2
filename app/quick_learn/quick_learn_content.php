@@ -15,19 +15,20 @@ include '../helpers/ui.php';
   <body class="quick_learn_detail">
     <?= UI::navbar() ?>
 
-    <div class="container">
-      <div class="mt-7 mb-4 w-25 m-auto">
+    <div class="row flex align-items-center mt-7 mb-4 ms-5">
+      <p class="col-4 fs-5">よく使われるフレーズ > 挨拶</p>
+      <div class="col-3">
         <div class="form-floating position-relative">
           <input type="text" class="form-control rounded-5 border-dark-subtle" id="search" name="search" placeholder=""
-            required>
+          required>
           <label for="search">検索</label>
           <i class="position-absolute end-5 bottom-35 fa-solid fa-search text-grey"></i>
         </div>
       </div>
-
-      <!-- <embed src="../../assets/sounds/subfortopic1/a chao.m4a" type=""> -->
-
-      <section class="grid-container">
+    </div>
+    
+    <main class="container">
+      <section>
         <!-- <div class="grid-item" onclick="playSound('path/to/audio1.mp3')"> -->
         <div class="border border-1 border-dark-subtle rounded-2 py-3 px-4">
           <div class="row flex justify-content-between">
@@ -99,8 +100,6 @@ include '../helpers/ui.php';
           </div>
         </div>
       </section>
-    </div>
-
-    <script src="script.js"></script>
+    </main>
   </body>
 </html>
