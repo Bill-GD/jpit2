@@ -114,14 +114,16 @@ body.word_learning {
 }
 /* Navbar Styles */
 nav {
+    position: relative; /* Add this */
     display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: flex-end; /* Align items to the right */
-    background-color: #f8f8f8; /* Background color for nav */
-    padding: 5px 20px; /* Padding for nav */
-    margin: 0; /* Remove any margin */
-    border-bottom: 2px solid #007BFF; /* Add bottom border */
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #f8f8f8;
+    padding: 5px 20px;
+    margin: 0;
+    border-bottom: 2px solid #007BFF;
 }
+
 
 .search-container {
     display: flex; /* Use flexbox for alignment */
@@ -179,6 +181,7 @@ nav {
 }
 
 /* Dropdown Styles */
+/* Dropdown Styles */
 .dropdown {
     display: none; /* Hide dropdown by default */
     position: absolute; /* Position relative to user logo */
@@ -187,10 +190,6 @@ nav {
     background-color: white; /* Background color for dropdown */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow */
     z-index: 1000; /* Ensure dropdown appears on top */
-}
-
-.user-logo:hover .dropdown {
-    display: block; /* Show dropdown on hover */
 }
 
 .dropdown a {
@@ -203,6 +202,7 @@ nav {
 .dropdown a:hover {
     background-color: #f0f0f0; /* Change background on hover */
 }
+
 
 /* Main Container */
 main {
