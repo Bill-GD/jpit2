@@ -28,7 +28,7 @@ class UI {
     // <!-- <img src="logo.png" alt="Logo" class="logo"> -->
     return <<<HTML
     <header class="navbar border border-bottom-2 fixed-top p-2 bg-white">
-      <a class="nav-brand fs-4 text-decoration-none text-dark ms-3">Probeto</a>
+      <a href="../../index.php" class="nav-brand fs-4 text-decoration-none text-dark ms-3">Probeto</a>
       <ul class="nav">
         <li class="nav-item"><a class="nav-link text-dark" href="#">個人辞書</a></li>
         <li class="nav-item"><a class="nav-link text-dark" href="#">オープン辞書</a></li>
@@ -39,6 +39,39 @@ class UI {
       </ul>
     </header>
     <div class="mb-6"></div>
+    HTML;
+  }
+
+  static function account_drop_down(): string {
+    return self::dropdown(
+      '<img class="rounded-5" src=" . $user_pfp . " width=30, height=30>',
+      '',
+      [
+        '<li class="px-3 py-2">' . $_COOKIE['username'] . '</li>',
+        '<li><hr class="dropdown-divider"></li>',
+        '<li><a class="dropdown-item disabled" href="#">Profile</a></li>',
+        // '<li><a class="dropdown-item disabled" href="#">Settings</a></li>',
+        // '<li><a class="dropdown-item" target="blank" href="https://github.com/Bill-GD/jpit2">Source Code</a></li>',
+        // '<li><hr class="dropdown-divider"></li>',
+        '<li><a class="dropdown-item" href="../account/signout_handler.php">Logout</a></li>',
+      ],
+      'text-white',
+      'nav-link',
+    );
+  }
+
+  static function dropdown(string $title, string $dropdown_header = '', array $items, string $extra_dropdown_classes = '', string $extra_title_classes = ''): string {
+    $dropdown_items = implode(array_map(fn($item) => '<li>' . $item . '</li>', $items));
+    return <<<HTML
+      <div class="dropdown $extra_dropdown_classes">
+        <a class="dropdown-toggle text-decoration-none $extra_title_classes" data-bs-toggle="dropdown" role="button">
+          $title
+        </a>
+        <ul class="dropdown-menu bg-dark-subtle dropdown-menu-end border border-dark-light rounded-1">
+          <li>$dropdown_header</li>
+          $dropdown_items
+        </ul>
+      </div>
     HTML;
   }
 }

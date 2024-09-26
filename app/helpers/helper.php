@@ -15,15 +15,18 @@ class Helper {
   }
 
   static function is_user_logged_in(): bool {
-    return isset($_COOKIE['is_logged_in']) && $_COOKIE['is_logged_in'] === 'true';
+    return isset($_COOKIE['is_logged_in']) && $_COOKIE['is_logged_in'] === '1';
   }
 
   /**
    * Add cookie to the browser for 7 days.
    */
-  static function add_cookie(string $name, string $value): void {
-    setcookie($name, $value, time() + 60 * 60 * 24 * 7, '/');
+  static function set_cookies(array $cookies): void {
+    foreach ($cookies as $key => $value) {
+      setcookie($key, $value, time() + 604800, '/');
+    }
   }
+
 
   static function get_resource_path(string $relative_path): string {
     $relative_path[0] !== '/' ? $relative_path = "/{$relative_path}" : 0;

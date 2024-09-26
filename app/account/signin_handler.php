@@ -25,10 +25,11 @@ if (!password_verify($password, $user_data['password'])) {
   exit();
 }
 
-include '../helpers/helper.php';
-Helper::add_cookie('is_logged_in', 'true');
-Helper::add_cookie('user_id', $user_data['user_id']);
-Helper::add_cookie('username', $user_data['username']);
-Helper::add_cookie('email', $user_data['email']);
+Helper::set_cookies([
+  'is_logged_in' => true,
+  'user_id' => $user_data['user_id'],
+  'username' => $user_data['username'],
+  'email' => $user_data['email'],
+]);
 
 header('Location: ../homepage/dashboard.php');

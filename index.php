@@ -1,9 +1,8 @@
 <?php
 echo 'Nothing to see here';
 
-if (!$_COOKIE['is_logged_in'])
-  // should be guest page
-  header('Location: app/homepage/guest.php');
+if ($_COOKIE['is_logged_in'])
+  header('Location: app/homepage/dashboard.php');
 else
-  // add home page here
-  return;
+  header('Location: app/homepage/guest.php');
+return;

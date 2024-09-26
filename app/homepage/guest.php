@@ -20,13 +20,14 @@ if (Helper::is_user_logged_in()) {
     <?= UI::navbar(
       other_items: <<<HTML
         <li class="nav-item ms-4 me-3">
-          <a href="../account/signin.php" role="button" class="btn btn-outline-dark bg-dark-subtle nav-item">ログイン</a>
+          <a href="../account/signin.php" role="button" class="btn btn-outline-dark bg-dark-subtle">ログイン</a>
         </li>
         <li class="nav-item me-3">
-          <a href="../account/signup.php" role="button" class="btn btn-dark nav-item">登録</a>
+          <a href="../account/signup.php" role="button" class="btn btn-dark">登録</a>
         </li>
       HTML
     ) ?>
+    
     <div class="container">
       <div class="fs-2">
         <h1>Probeto - よく学び、よく理解し、外国人のためのベトナム語のナンバーワン専門家。</h1>
@@ -47,9 +48,9 @@ if (Helper::is_user_logged_in()) {
       </div>
 
       <div class="row flex justify-content-around mt-5">
-        <a class="btn btn-dark px-5 py-3 col-2">早く学ぶ</a>
-        <a class="btn btn-dark px-5 py-3 col-2">個性化</a>
-        <a class="btn btn-success px-5 py-3 col-2">勉強を続ける</a>
+        <a href="" class="btn btn-dark px-5 py-3 col-2">早く学ぶ</a>
+        <a href="../account/signin.php" class="btn btn-dark px-5 py-3 col-2">個性化</a>
+        <a href="../account/signin.php" class="btn btn-success px-5 py-3 col-2">勉強を続ける</a>
       </div>
     </div>
   </body>
