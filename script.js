@@ -18,7 +18,6 @@ function playSound(audioSrc) {
     audioPlayer.src = audioSrc; // Set the audio source
     audioPlayer.play(); // Play the audio
 }
-
 function scrollRight() {
     const container = document.querySelector('.grid-container');
     container.scrollBy({ left: 300, behavior: 'smooth' });
