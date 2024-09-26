@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
-    <title>Dropdown Menu Example</title>
 </head>
 <body class="quick_learn">
 <header>
@@ -16,48 +15,57 @@
         <div class="user-logo" onclick="toggleDropdown(event)">
             <img src="https://example.com/user-icon.png" alt="User Logo" />
             <div class="dropdown" id="userDropdown">
-                <a href="profile.html">Profile</a>
-                <a href="settings.html">Settings</a>
-                <a href="logout.html">Logout</a>
+                <a href="profile.html">会社概要</a>
+                <a href="settings.html">設定</a>
+                <a href="logout.html">ログアウト</a>
             </div>
         </div>
     </nav>
 </header>
 
+
 <main>
    <div class="search-container">
     <section class="text-bar">
-        <a href="link1.html" class="text-link">Link 1</a>
+        <a href="link1.html" class="text-link">一般的な言葉：車   </a>
      
     </section>
-    <input type="text" class="search-field" placeholder="Search..." id="searchField" />
+    <input type="text" class="search-field" placeholder="検索..." id="searchField" />
     <!-- Backend can add an event listener here to handle search queries -->
 </div>      
     <section class="grid-container">
         <button class="grid-item" onclick="handleItemClick(1)">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9mRuGFMgH2QgS9hQAr_H260XYB9M53wGV50ZiVp39m9qcTjhlhgYCGoAeNDjSjkrI9FMGNA6XK1rFF3VeP5Xj-A6vs-8AsBmjEwKU1oOAZfZYT3DoJSVAbTZEKOLxmpIuBBn2tQDHSoMJ/s400/job_kyuujinshi.png" alt="Image 1" />
-            <p>Item 1</p>
+            <img src="https://iili.io/dQFuZzP.md.png" alt="Image 1" />
+            <p>食べ物</p>
         </button>
         <button class="grid-item" onclick="handleItemClick(2)">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaKskURo7pK1NmBhyphenhyphenTMAiUqmwNLCQKZkMM-DrLQELA4Xf2e9YnBtu8K_buZvzpN2byLvYpYdUkWA62OtAI6iBt4uosOUWUIE9GPXWC2lNfejT9vM-N8qD5Hoq8RV2nPBwurnQv7Q8BzL9O/s400/food_box.png" alt="Image 2" />
-            <p>Item 2</p>
+            <img src="https://iili.io/dQFuseV.png" alt="Image 2" />
+            <p>健康</p>
         </button>
         <button class="grid-item" onclick="handleItemClick(3)">
-            <img src="https://example.com/image3.jpg" alt="Image 3" />
-            <p>Item 3</p>
+            <img src="https://iili.io/dQFui5Q.jpg" alt="Image 3" />
+            <p>ショッピング</p>
         </button>
         <button class="grid-item" onclick="handleItemClick(4)">
-            <img src="https://example.com/image4.jpg" alt="Image 4" />
-            <p>Item 4</p>
+            <img src="https://iili.io/dQFuLmB.png" alt="Image 4" />
+            <p>友達</p>
         </button>
         <button class="grid-item" onclick="handleItemClick(5)">
-            <img src="https://example.com/image5.jpg" alt="Image 5" />
-            <p>Item 5</p>
+            <img src="https://iili.io/dQFutX1.png" alt="Image 5" />
+            <p>趣味</p>
         </button>
         <button class="grid-item" onclick="handleItemClick(6)">
-            <img src="https://example.com/image6.jpg" alt="Image 6" />
-            <p>Item 6</p>
+            <img src="https://iili.io/dQFuDLF.png" alt="Image 6" />
+            <p>旅行</p>
         </button>
+        <button class="grid-item" onclick="handleItemClick(1)">
+            <img src="https://iili.io/dQFup1a.png" alt="Image 7" />
+            <p>仕事</p>
+          </button>
+        <button class="grid-item" onclick="handleItemClick(1)">
+            <img src="https://iili.io/dQFumqg.png" alt="Image 8" />
+            <p>家族</p>
+          </button>
     </section>
     
     <div class="scroll-buttons">
@@ -68,7 +76,3 @@
             &#9654; <!-- Right arrow -->
         </button>
     </div>
-
-    
-
-
