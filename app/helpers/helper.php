@@ -14,27 +14,8 @@ class Helper {
     ';
   }
 
-  /**
-   * Add a container that displays a error message.
-   * @param string $error_message
-   * @return string The component for the error container.
-   */
-  static function alert_danger(string $error_message): string {
-    return <<<HTML
-      <div class="row alert alert-danger border-2 border-danger align-items-center py-3 m-0 mb-2" role="alert">
-        <i class="col-auto h-100 mt-1 col-2 text-danger fa-solid fa-triangle-exclamation fs-3"></i>
-        <div class="col align-content-center fs-6">$error_message</div>
-      </div>
-    HTML;
-  }
-
-  static function alert_success(string $message): string {
-    return <<<HTML
-      <div class="row alert alert-success border-2 border-success align-items-center py-3 m-0 mb-2" role="alert">
-        <i class="col-auto h-100 mt-1 col-2 text-success fa-solid fa-check fs-3"></i>
-        <div class="col align-content-center fs-6">$message</div>
-      </div>
-    HTML;
+  static function is_user_logged_in(): bool {
+    return isset($_COOKIE['is_logged_in']) && $_COOKIE['is_logged_in'] === 'true';
   }
 
   /**

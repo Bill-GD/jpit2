@@ -1,8 +1,6 @@
 <?php
-
-use function PHPSTORM_META\type;
-
 include '../helpers/database_manager.php';
+include '../helpers/ui.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,14 +12,14 @@ include '../helpers/database_manager.php';
     <title>Login</title>
   </head>
   <body>
-    <img class="w-100 h-auto fixed-top z-n1" src="../../assets/login_signup_background.png" alt="">
+    <img class="w-100 h-auto fixed-top z-n1" src="../../assets/images/login_signup_background.png" alt="">
     <div class="container w-20 flex vh-100 align-content-center">
       <?php
       if (isset($_GET['e'])) {
-        echo Helper::alert_danger($_GET['e']);
+        echo UI::alert_danger($_GET['e']);
       }
       if (isset($_GET['s'])) {
-        echo Helper::alert_success($_GET['s']);
+        echo UI::alert_success($_GET['s']);
       }
       ?>
       <div class="bg-white rounded-2 p-4">

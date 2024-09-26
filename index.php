@@ -3,7 +3,7 @@ echo 'Nothing to see here';
 
 if (!$_COOKIE['is_logged_in'])
   // should be guest page
-  header('Location: app/account/signin.php');
+  header('Location: app/homepage/guest.php');
 else
   // add home page here
   return;

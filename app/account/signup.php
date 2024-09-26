@@ -1,5 +1,6 @@
 <?php
 include '../helpers/helper.php';
+include '../helpers/ui.php';
 ?>
 
 <!DOCTYPE html>
@@ -11,11 +12,11 @@ include '../helpers/helper.php';
     <title>Sign Up</title>
   </head>
   <body>
-    <img class="w-100 h-auto fixed-top z-n1" src="../../assets/login_signup_background.png" alt="">
+    <img class="w-100 h-auto fixed-top z-n1" src="../../assets/images/login_signup_background.png" alt="">
     <div class="container w-20 flex vh-100 align-content-center">
       <?php
       if (isset($_GET['e'])) {
-        echo Helper::alert_danger($_GET['e']);
+        echo UI::alert_danger($_GET['e']);
       }
       ?>
       <div class="bg-white rounded-2 p-4">

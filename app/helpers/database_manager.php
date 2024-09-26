@@ -66,7 +66,7 @@ class DatabaseManager {
   }
 
   /**
-   * Wraps the PDO query calls in a single function.
+   * Wraps the PDO query calls in a single function. Query mode is FETCH_ASSOC by default.
    * @param string $query_string The query string to execute, can use `:param_name` for named parameters (requires param list), or plain query string (empty param list).
    * @param array $params The parameters to bind to the query string, `'param_name' => 'param_value'`.
    */

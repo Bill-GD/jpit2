@@ -14,24 +14,21 @@ $database_manager = DatabaseManager::instance();
 $user_data = $database_manager->query(
   'SELECT * FROM `user` WHERE email = :email',
   ['email' => DatabaseManager::mysql_escape($email)]
-)->fetch(PDO::FETCH_ASSOC);
-
+)->fetch();
 if (!$user_data) {
-  header('Location: signin.php?e=メールアドレスが正しくありません');
+  header('Location: signin.php?e=このメールアドレスは登録されていません');
   exit();
 }
 
-// Kiểm tra mật khẩu
 if (!password_verify($password, $user_data['password'])) {
-  // Nếu mật khẩu không khớp
   header('Location: signin.php?e=パスワードが正しくありません');
   exit();
 }
 
-// Nếu đăng nhập thành công
-// Tạo session hoặc cookie tùy thuộc vào cách bạn quản lý trạng thái người dùng
-// session_start();
-// $_SESSION['email'] = $email;
+include '../helpers/helper.php';
+Helper::add_cookie('is_logged_in', 'true');
+Helper::add_cookie('user_id', $user_data['user_id']);
+Helper::add_cookie('username', $user_data['username']);
+Helper::add_cookie('email', $user_data['email']);
 
-// Chuyển hướng đến trang chính sau khi đăng nhập thành công
-header('Location: dashboard.php');
+header('Location: ../homepage/dashboard.php');
