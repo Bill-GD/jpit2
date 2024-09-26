@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Dropdown Menu Example</title>
 </head>
-<body class="quick_learn">
+<body class="quick_learn_detail">
 <header>
    <nav>
         <a class="nav-link" href="home.html">模擬試験</a>
@@ -23,7 +25,6 @@
     </nav>
 </header>
 
-
 <main>
    <div class="search-container">
     <section class="text-bar">
@@ -32,42 +33,69 @@
     </section>
     <input type="text" class="search-field" placeholder="検索..." id="searchField" />
     <!-- Backend can add an event listener here to handle search queries -->
-</div>      
+    </div>
     <section class="grid-container">
-        <button class="grid-item" onclick="handleItemClick(1)">
-            <img src="https://iili.io/dQFuZzP.md.png" alt="Image 1" />
-            <p>食べ物</p>
-        </button>
-        <button class="grid-item" onclick="handleItemClick(2)">
-            <img src="https://iili.io/dQFuseV.png" alt="Image 2" />
-            <p>健康</p>
-        </button>
-        <button class="grid-item" onclick="handleItemClick(3)">
-            <img src="https://iili.io/dQFui5Q.jpg" alt="Image 3" />
-            <p>ショッピング</p>
-        </button>
-        <button class="grid-item" onclick="handleItemClick(4)">
-            <img src="https://iili.io/dQFuLmB.png" alt="Image 4" />
-            <p>友達</p>
-        </button>
-        <button class="grid-item" onclick="handleItemClick(5)">
-            <img src="https://iili.io/dQFutX1.png" alt="Image 5" />
-            <p>趣味</p>
-        </button>
-        <button class="grid-item" onclick="handleItemClick(6)">
-            <img src="https://iili.io/dQFuDLF.png" alt="Image 6" />
-            <p>旅行</p>
-        </button>
-        <button class="grid-item" onclick="handleItemClick(1)">
-            <img src="https://iili.io/dQFup1a.png" alt="Image 7" />
-            <p>仕事</p>
-          </button>
-        <button class="grid-item" onclick="handleItemClick(1)">
-            <img src="https://iili.io/dQFumqg.png" alt="Image 8" />
-            <p>家族</p>
-          </button>
+        <div class="grid-item" onclick="playSound('path/to/audio1.mp3')">
+            <div class="item-details">
+                <div class="item-text">
+                    <b>こんにちは！</b>
+                    <p style="margin-top: 5px;">•Xin chào!</p>
+                </div>
+                <div class="nghia">
+                    <p style="margin-top: 28px;margin-left: -1px;">•シンチャオ!</p>
+                </div>
+                <span class="material-icons speaker-icon">volume_up</span>
+            </div>
+        </div>
+        <div class="grid-item" onclick="playSound('path/to/audio2.mp3')">
+            <div class="item-details">
+                <div class="item-text">
+                    <b>お元気ですか?！</b>
+                    <p style="margin-top: 5px;">• Bạn khỏe không?</p>
+                </div>
+                <div class="nghia">
+                    <p style="margin-top: 28px;margin-left: -1px;">•パンクエコン?</p>
+                </div>
+                <span class="material-icons speaker-icon">volume_up</span>
+            </div>
+        </div>
+      <div class="grid-item" onclick="playSound('path/to/audio2.mp3')">
+            <div class="item-details">
+                <div class="item-text">
+                    <b>どこから来ましたか?</b>
+                    <p style="margin-top: 5px;">• Bạn đến từ đâu??</p>
+                </div>
+                <div class="nghia">
+                    <p style="margin-top: 28px;margin-left: -1px;">•バンデントゥダ?</p>
+                </div>
+                <span class="material-icons speaker-icon">volume_up</span>
+            </div>
+        </div>
+      <div class="grid-item" onclick="playSound('path/to/audio2.mp3')">
+            <div class="item-details">
+                <div class="item-text">
+                    <b>私は日本から来ました。</b>
+                    <p style="margin-top: 5px;">• Tôi đến từ Nhật Bản</p>
+                </div>
+                <div class="nghia">
+                    <p style="margin-top: 28px;margin-left: -1px;">•トイデントゥニャットパン</p>
+                </div>
+                <span class="material-icons speaker-icon">volume_up</span>
+            </div>
+        </div>
+      <div class="grid-item" onclick="playSound('path/to/audio2.mp3')">
+            <div class="item-details">
+                <div class="item-text">
+                    <b>もありがとう!</b>
+                    <p style="margin-top: 5px;">• Cảm ơn!</p>
+                </div>
+                <div class="nghia">
+                    <p style="margin-top: 28px;margin-left: -1px;">•カームオン!</p>
+                </div>
+                <span class="material-icons speaker-icon">volume_up</span>
+            </div>
+        </div>
     </section>
-    
     <div class="scroll-buttons">
         <button class="scroll-arrow left-arrow" onclick="scrollLeft()">
             &#9664; <!-- Left arrow -->
@@ -76,3 +104,9 @@
             &#9654; <!-- Right arrow -->
         </button>
     </div>
+    <audio id="audioPlayer" src=""></audio>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
