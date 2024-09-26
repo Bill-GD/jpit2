@@ -9,104 +9,97 @@ include '../helpers/ui.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <?= Helper::import_styles() ?>
-    <title>Dropdown Menu Example</title>
+    <title>速習画面の内容 - Probeto</title>
   </head>
   <body class="quick_learn_detail">
-    <header>
-      <nav>
-        <a class="nav-link" href="home.html">模擬試験</a>
-        <a class="nav-link" href="about.html">個人辞書</a>
-        <a class="nav-link" href="services.html">オープン辞書 専門用語</a>
-        <a class="nav-link" href="contact.html">よく使われるフレーズ</a>
-        <div class="user-logo" onclick="toggleDropdown(event)">
-          <img src="https://example.com/user-icon.png" alt="User Logo" />
-          <div class="dropdown" id="userDropdown">
-            <a href="profile.html">会社概要</a>
-            <a href="settings.html">設定</a>
-            <a href="logout.html">ログアウト</a>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <?= UI::navbar() ?>
 
-    <main>
-      <div class="search-container">
-        <input type="text" class="search-field" placeholder="Search..." id="searchField" />
+    <div class="container">
+      <div class="mt-7 mb-4 w-25 m-auto">
+        <div class="form-floating position-relative">
+          <input type="text" class="form-control rounded-5 border-dark-subtle" id="search" name="search" placeholder=""
+            required>
+          <label for="search">検索</label>
+          <i class="position-absolute end-5 bottom-35 fa-solid fa-search text-grey"></i>
+        </div>
       </div>
+
+      <!-- <embed src="../../assets/sounds/subfortopic1/a chao.m4a" type=""> -->
+
       <section class="grid-container">
-        <div class="grid-item" onclick="playSound('path/to/audio1.mp3')">
-          <div class="item-details">
-            <div class="item-text">
-              <b>こんにちは！</b>
-              <p style="margin-top: 5px;">•Xin chào!</p>
+        <!-- <div class="grid-item" onclick="playSound('path/to/audio1.mp3')"> -->
+        <div class="border border-1 border-dark-subtle rounded-2 py-3 px-4">
+          <div class="row flex justify-content-between">
+            <div class="col-5">
+              <b>文の例 1: こんにちは！</b>
+              <div class="ms-5 col-auto">• Xin chào!</div>
             </div>
-            <div class="nghia">
-              <p style="margin-top: 28px;margin-left: -1px;">•シンチャオ!</p>
+            <div class="col-6">
+              <div class="col-auto h-50"></div>
+              <div class="col-auto">• シンチャオ!</div>
             </div>
-            <span class="material-icons speaker-icon">volume_up</span>
+            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high"></i>
           </div>
         </div>
-        <div class="grid-item" onclick="playSound('path/to/audio2.mp3')">
-          <div class="item-details">
-            <div class="item-text">
-              <b>お元気ですか?！</b>
-              <p style="margin-top: 5px;">• Bạn khỏe không?</p>
+
+        <div class="border border-1 border-dark-subtle rounded-2 mt-4 py-3 px-4">
+          <div class="row flex justify-content-between">
+            <div class="col-5">
+              <b>文の例 2: お元気ですか?！</b>
+              <div class="ms-5 col-auto">• Bạn khỏe không?</div>
             </div>
-            <div class="nghia">
-              <p style="margin-top: 28px;margin-left: -1px;">•パンクエコン?</p>
+            <div class="col-6">
+              <div class="col-auto h-50"></div>
+              <div class="col-auto">• パンクエコン?</div>
             </div>
-            <span class="material-icons speaker-icon">volume_up</span>
+            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high"></i>
           </div>
         </div>
-        <div class="grid-item" onclick="playSound('path/to/audio2.mp3')">
-          <div class="item-details">
-            <div class="item-text">
-              <b>どこから来ましたか?</b>
-              <p style="margin-top: 5px;">• Bạn đến từ đâu??</p>
+
+        <div class="border border-1 border-dark-subtle rounded-2 mt-4 py-3 px-4">
+          <div class="row flex justify-content-between">
+            <div class="col-5">
+              <b>文の例 3: どこから来ましたか?</b>
+              <div class="ms-5 col-auto">• Bạn đến từ đâu??</div>
             </div>
-            <div class="nghia">
-              <p style="margin-top: 28px;margin-left: -1px;">•バンデントゥダ?</p>
+            <div class="col-6">
+              <div class="col-auto h-50"></div>
+              <div class="col-auto">• バンデントゥダ?</div>
             </div>
-            <span class="material-icons speaker-icon">volume_up</span>
+            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high"></i>
           </div>
         </div>
-        <div class="grid-item" onclick="playSound('path/to/audio2.mp3')">
-          <div class="item-details">
-            <div class="item-text">
-              <b>私は日本から来ました。</b>
-              <p style="margin-top: 5px;">• Tôi đến từ Nhật Bản</p>
+
+        <div class="border border-1 border-dark-subtle rounded-2 mt-4 py-3 px-4">
+          <div class="row flex justify-content-between">
+            <div class="col-5">
+              <b>文の例 4: 私は日本から来ました。</b>
+              <div class="ms-5 col-auto">• Tôi đến từ Nhật Bản</div>
             </div>
-            <div class="nghia">
-              <p style="margin-top: 28px;margin-left: -1px;">•トイデントゥニャットパン</p>
+            <div class="col-6">
+              <div class="col-auto h-50"></div>
+              <div class="col-auto">• トイデントゥニャットパン</div>
             </div>
-            <span class="material-icons speaker-icon">volume_up</span>
+            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high"></i>
           </div>
         </div>
-        <div class="grid-item" onclick="playSound('path/to/audio2.mp3')">
-          <div class="item-details">
-            <div class="item-text">
-              <b>もありがとう!</b>
-              <p style="margin-top: 5px;">• Cảm ơn!</p>
+
+        <div class="border border-1 border-dark-subtle rounded-2 mt-4 py-3 px-4">
+          <div class="row flex justify-content-between">
+            <div class="col-5">
+              <b>文の例 5: もありがとう!</b>
+              <div class="ms-5 col-auto">• Cảm ơn!</div>
             </div>
-            <div class="nghia">
-              <p style="margin-top: 28px;margin-left: -1px;">•カームオン!</p>
+            <div class="col-6">
+              <div class="col-auto h-50"></div>
+              <div class="col-auto">• カームオン!</div>
             </div>
-            <span class="material-icons speaker-icon">volume_up</span>
+            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high"></i>
           </div>
         </div>
       </section>
-      <div class="scroll-buttons">
-        <button class="scroll-arrow left-arrow" onclick="scrollLeft()">
-          &#9664; <!-- Left arrow -->
-        </button>
-        <button class="scroll-arrow right-arrow" onclick="scrollRight()">
-          &#9654; <!-- Right arrow -->
-        </button>
-      </div>
-      <audio id="audioPlayer" src=""></audio>
-    </main>
+    </div>
 
     <script src="script.js"></script>
   </body>

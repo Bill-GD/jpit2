@@ -17,12 +17,7 @@ if (!Helper::is_user_logged_in()) {
     <title>Probeto</title>
   </head>
   <body>
-    <?= UI::navbar(
-      other_items: UI::account_drop_down()
-      // <li class="nav-item ms-4 me-3">
-      //   <a href="../account/signout_handler.php" role="button" class="btn btn-outline-dark bg-dark-subtle">ログアウト</a>
-      // </li>
-    ) ?>
+    <?= UI::navbar() ?>
 
     <div class="container">
       <p class="fs-3">学習の進捗状況:</p>

@@ -7,9 +7,9 @@ class Helper {
    */
   static public function import_styles(): string {
     return '
-      <script src="' . self::get_resource_path('/js/bootstrap.bundle.js') . '"></script>
-      <link rel="stylesheet" href="' . self::get_resource_path('/css/bootstrap.css') . '">
-      <link rel="stylesheet" href="' . self::get_resource_path('/css/styles.css') . '">
+      <script src="../../js/bootstrap.bundle.js"></script>
+      <link rel="stylesheet" href="../../css/bootstrap.css">
+      <link rel="stylesheet" href="../../css/styles.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     ';
   }
@@ -29,10 +29,5 @@ class Helper {
 
   static function alert(string $message): void {
     echo "<script>alert('{$message}')</script>";
-  }
-
-  static function get_resource_path(string $relative_path): string {
-    $relative_path[0] !== '/' ? $relative_path = "/{$relative_path}" : 0;
-    return 'http://' . $_SERVER['HTTP_HOST'] . $relative_path;
   }
 }

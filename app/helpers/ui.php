@@ -24,22 +24,31 @@ class UI {
     HTML;
   }
 
-  static function navbar(string $other_items): string {
+  static function navbar(): string {
     // <!-- <img src="logo.png" alt="Logo" class="logo"> -->
-    return <<<HTML
-    <header class="navbar border border-bottom-2 fixed-top p-2 bg-white">
-      <a href="../../index.php" class="nav-brand fs-4 text-decoration-none text-dark ms-3">Probeto</a>
-      <ul class="nav">
-        <li class="nav-item"><a class="nav-link text-dark" href="#">個人辞書</a></li>
-        <li class="nav-item"><a class="nav-link text-dark" href="#">オープン辞書</a></li>
-        <li class="nav-item"><a class="nav-link text-dark" href="#">専門用語</a></li>
-        <li class="nav-item"><a class="nav-link text-dark" href="#">よく使われるフレーズ</a></li>
-        <li class="nav-item"><a class="nav-link text-dark" href="#">模擬試験</a></li>
-        {$other_items}
-      </ul>
+    return "
+    <header class='navbar border border-bottom-2 fixed-top p-2'>
+      <a href='../../index.php' class='nav-brand fs-4 text-decoration-none text-dark ms-3'>Probeto</a>
+      <ul class='nav'>
+        <li class='nav-item'><a class='nav-link text-dark' href='#'>個人辞書</a></li>
+        <li class='nav-item'><a class='nav-link text-dark' href='#'>オープン辞書</a></li>
+        <li class='nav-item'><a class='nav-link text-dark' href='#'>専門用語</a></li>
+        <li class='nav-item'><a class='nav-link text-dark' href='#'>よく使われるフレーズ</a></li>
+        <li class='nav-item'><a class='nav-link text-dark' href='#'>模擬試験</a></li>"
+      . (Helper::is_user_logged_in()
+        ? self::account_drop_down()
+        : <<<HTML
+            <li class="nav-item ms-4 me-3">
+              <a href="../account/signin.php" role="button" class="btn btn-outline-dark bg-dark-subtle">ログイン</a>
+            </li>
+            <li class="nav-item me-3">
+              <a href="../account/signup.php" role="button" class="btn btn-dark">登録</a>
+            </li>
+          HTML) .
+      "</ul>
     </header>
-    <div class="mb-6"></div>
-    HTML;
+    <div class='mb-6'></div>
+    ";
   }
 
   static function account_drop_down(): string {

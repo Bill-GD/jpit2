@@ -17,16 +17,7 @@ if (Helper::is_user_logged_in()) {
     <?= Helper::import_styles() ?>
   </head>
   <body>
-    <?= UI::navbar(
-      other_items: <<<HTML
-        <li class="nav-item ms-4 me-3">
-          <a href="../account/signin.php" role="button" class="btn btn-outline-dark bg-dark-subtle">ログイン</a>
-        </li>
-        <li class="nav-item me-3">
-          <a href="../account/signup.php" role="button" class="btn btn-dark">登録</a>
-        </li>
-      HTML
-    ) ?>
+    <?= UI::navbar() ?>
     
     <div class="container">
       <div class="fs-2">
