@@ -27,6 +27,9 @@ class Helper {
     }
   }
 
+  static function alert(string $message): void {
+    echo "<script>alert('{$message}')</script>";
+  }
 
   static function get_resource_path(string $relative_path): string {
     $relative_path[0] !== '/' ? $relative_path = "/{$relative_path}" : 0;

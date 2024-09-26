@@ -26,8 +26,8 @@ include '../helpers/ui.php';
         <h3 class="text-center pt-4 pb-4">ログイン</h3>
         <form action="signin_handler.php" method="post">
           <div class="form-floating pb-2 position-relative">
-            <input type="email" class="form-control rounded-0 rounded-top-3 border-0 border-bottom border-dark-subtle" id="email"
-              name="email" placeholder="" required>
+            <input type="email" class="form-control rounded-0 rounded-top-3 border-0 border-bottom border-dark-subtle"
+              id="email" name="email" placeholder="" required>
             <label for="email">メールアドレス</label>
             <i class="position-absolute end-5 bottom-40 fa-solid fa-envelope text-grey"></i>
           </div>
@@ -53,10 +53,10 @@ include '../helpers/ui.php';
           <a href="" class="btn btn-light fs-4 mx-2">
             <i class="fa-brands fa-google"></i>
           </a>
-          <a href="" class="btn btn-light fs-4 mx-2">
+            <a href="" onclick="alert('この機能はまだサポートされていません')" class="btn btn-light fs-4 mx-2">
             <i class="fa-brands fa-facebook"></i>
           </a>
-          <a href="" class="btn btn-light fs-4 mx-2">
+          <a href="" onclick="alert('この機能はまだサポートされていません')" class="btn btn-light fs-4 mx-2">
             <i class="fa-brands fa-x-twitter"></i>
           </a>
         </div>

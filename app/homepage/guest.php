@@ -48,7 +48,7 @@ if (Helper::is_user_logged_in()) {
       </div>
 
       <div class="row flex justify-content-around mt-5">
-        <a href="" class="btn btn-dark px-5 py-3 col-2">早く学ぶ</a>
+        <a href="../quick_learn/quick_learn_topic.php" class="btn btn-dark px-5 py-3 col-2">早く学ぶ</a>
         <a href="../account/signin.php" class="btn btn-dark px-5 py-3 col-2">個性化</a>
         <a href="../account/signin.php" class="btn btn-success px-5 py-3 col-2">勉強を続ける</a>
       </div>
