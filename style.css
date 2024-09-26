@@ -94,7 +94,6 @@ body.word_learning {
     align-items: flex-start; /* Align text to the left */
     margin-left: 10px; /* Space between image and text */
 }
-
 .speaker-icon {
     width: 20px; /* Set desired width for the icon */
     height: auto; /* Maintain aspect ratio */
@@ -238,11 +237,7 @@ main {
     align-items: center; /* Center items vertically */
 }
 
-.item-text {
-    flex-grow: 1; /* Allow text to grow and take available space */
-    white-space: normal; /* Allow text to wrap */
-    overflow-wrap: break-word; /* Break long words if necessary */
-}
+
 
 .speaker-icon {
     font-size: 24px; /* Adjust size of the icon */
