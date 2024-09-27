@@ -16,10 +16,17 @@ $chars = [
 $words = [
   '魚', '月', '曇り', '飛行機', 'キツネ', 'ヤギ', '時計', '赤ちゃん', 'カエル', 'パンダ', 'イルカ', 'テレビ', 'サル', '恐竜', '蚊', 'キノコ', '牛', 'くるま', 'アボカド', '宇宙飛行士', '紙扇風機', 'ヘビ', 'ライオン', '潜水艦', 'フクロウ', '羊', 'オウム', '自転車', '看護師',
 ];
+$sounds = [
+  'A.mp3', 'A_ngan.mp3', 'A_dai.mp3', 'B.mp3', 'C.mp3', 'D.mp3', 'Dac_biet_D.mp3', 
+  'E.mp3', 'E_ngan.mp3', 'G.mp3', 'H.mp3', 'I.mp3', 'K.mp3', 'L.mp3', 'M.mp3', 
+  'N.mp3', 'O.mp3', 'O1.mp3','O2.mp3', 'P.mp3', 'Q.mp3', 'R.mp3', 'S.mp3', 'T.mp3', 
+  'U.mp3', 'U_dai.mp3', 'V.mp3', 'X.mp3', 'Y.mp3'
+];
 if (isset($_GET['s'])) {
   $images = array_reverse($images);
   $chars = array_reverse($chars);
   $words = array_reverse($words);
+  $sounds = array_reverse($sounds); 
 }
 ?>
 
@@ -65,7 +72,7 @@ if (isset($_GET['s'])) {
               <div class="col-2 pt-4">
                 <p class="fw-bold fs-4">' . $chars[$i] . '</p>
                 <p>'. $words[$i] . '</p>
-                <a class="text-decoration-none icon-link link-secondary fs-3 mt-4 fa-solid fa-volume-high" id="play_sound"></a>
+                <a class="text-decoration-none icon-link link-secondary fs-3 mt-4 fa-solid fa-volume-high" onclick="playSound(\'' . $sounds[$i] . '\')"></a>
               </div>
             </div>
           </div>';
@@ -77,10 +84,15 @@ if (isset($_GET['s'])) {
       ?>
     </div>
     <script>
-      document.getElementById('play_sound').addEventListener('click', function () {
-        const audio = new Audio('../../assets/sounds/subfortopic1/a chao.m4a');
-        audio.play();
-      });
-    </script>
+  function playSound(fileName) {
+    const audio = new Audio('../../assets/sounds/alphabetsound/' + fileName);
+    audio.play().then(() => {
+        console.log('Phát thành công');
+    }).catch(error => {
+        console.error('Có lỗi khi phát âm thanh:', error);
+    });
+  }
+</script>
+
   </body>
 </html>
