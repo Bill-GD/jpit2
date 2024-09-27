@@ -40,3 +40,6 @@
 .text-grey {
   color: #666;
 }
+.link-secondary:hover, .link-secondary:focus {
+  color: #111 !important;
+}

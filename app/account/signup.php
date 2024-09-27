@@ -23,20 +23,21 @@ include '../helpers/ui.php';
         <h3 class="text-center pt-4 pb-4">登録</h3>
         <form action="signup_handler.php" method="post">
           <div class="form-floating pb-2 position-relative">
-            <input type="text" class="form-control rounded-0 rounded-top-3 border-0 border-bottom border-dark-subtle" id="username"
-              name="username" placeholder="" required>
+            <input type="text" class="form-control rounded-0 rounded-top-3 border-0 border-bottom border-dark-subtle"
+              id="username" name="username" placeholder="" required>
             <label for="username">ウーザーネーム</label>
             <i class="position-absolute end-5 bottom-40 fa-solid fa-user text-grey"></i>
           </div>
           <div class="form-floating pb-2 position-relative">
-            <input type="email" class="form-control rounded-0 rounded-top-3 border-0 border-bottom border-dark-subtle" id="email"
-              name="email" placeholder="" required>
+            <input type="email" class="form-control rounded-0 rounded-top-3 border-0 border-bottom border-dark-subtle"
+              id="email" name="email" placeholder="" required>
             <label for="email">メールアドレス</label>
             <i class="position-absolute end-5 bottom-40 fa-solid fa-envelope text-grey"></i>
           </div>
           <div class="form-floating pb-2 position-relative">
-            <input type="password" class="form-control rounded-0 rounded-top-3 border-0 border-bottom border-dark-subtle"
-              id="password" name="password" placeholder="" required>
+            <input type="password"
+              class="form-control rounded-0 rounded-top-3 border-0 border-bottom border-dark-subtle" id="password"
+              name="password" placeholder="" required>
             <label for="password">パスワード</label>
             <i class="position-absolute end-5 bottom-40 fa-solid fa-eye text-grey" id="password_toggle"></i>
           </div>

@@ -18,7 +18,7 @@ include '../helpers/ui.php';
       <p class="col-4 fs-5">よく使われるフレーズ > 挨拶</p>
       <div class="col-3">
         <div class="form-floating position-relative">
-          <input type="text" class="form-control rounded-5 border-dark-subtle" id="search" name="search" placeholder=""
+          <input type="text" class="form-control rounded-4 border-dark-subtle" id="search" name="search" placeholder=""
             required>
           <label for="search">検索</label>
           <i class="position-absolute end-5 bottom-35 fa-solid fa-search text-grey"></i>
@@ -39,7 +39,8 @@ include '../helpers/ui.php';
               <div class="col-auto h-50"></div>
               <div class="col-auto">• シンチャオ!</div>
             </div>
-            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high" id="play_sound"></i>
+            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
+              id="play_sound"></a>
           </div>
         </div>
 
@@ -53,7 +54,8 @@ include '../helpers/ui.php';
               <div class="col-auto h-50"></div>
               <div class="col-auto">• パンクエコン?</div>
             </div>
-            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high" id="play_sound"></i>
+            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
+              id="play_sound"></a>
           </div>
         </div>
 
@@ -67,7 +69,8 @@ include '../helpers/ui.php';
               <div class="col-auto h-50"></div>
               <div class="col-auto">• バンデントゥダ?</div>
             </div>
-            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high" id="play_sound"></i>
+            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
+              id="play_sound"></a>
           </div>
         </div>
 
@@ -81,7 +84,8 @@ include '../helpers/ui.php';
               <div class="col-auto h-50"></div>
               <div class="col-auto">• トイデントゥニャットパン</div>
             </div>
-            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high" id="play_sound"></i>
+            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
+              id="play_sound"></a>
           </div>
         </div>
 
@@ -95,7 +99,8 @@ include '../helpers/ui.php';
               <div class="col-auto h-50"></div>
               <div class="col-auto">• カームオン!</div>
             </div>
-            <i class="col-1 fs-3 mt-3 fa-solid fa-volume-high" id="play_sound"></i>
+            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
+              id="play_sound"></a>
           </div>
         </div>
       </section>

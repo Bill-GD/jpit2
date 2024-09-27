@@ -53,7 +53,7 @@ include '../helpers/ui.php';
           <a href="" class="btn btn-light fs-4 mx-2">
             <i class="fa-brands fa-google"></i>
           </a>
-            <a href="" onclick="alert('この機能はまだサポートされていません')" class="btn btn-light fs-4 mx-2">
+          <a href="" onclick="alert('この機能はまだサポートされていません')" class="btn btn-light fs-4 mx-2">
             <i class="fa-brands fa-facebook"></i>
           </a>
           <a href="" onclick="alert('この機能はまだサポートされていません')" class="btn btn-light fs-4 mx-2">

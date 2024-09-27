@@ -18,7 +18,7 @@ include '../helpers/ui.php';
       <p class="col-4 fs-5">よく使われるフレーズ</p>
       <div class="col-3">
         <div class="form-floating position-relative">
-          <input type="text" class="form-control rounded-5 border-dark-subtle" id="search" name="search" placeholder=""
+          <input type="text" class="form-control rounded-4 border-dark-subtle" id="search" name="search" placeholder=""
             required>
           <label for="search">検索</label>
           <i class="position-absolute end-5 bottom-35 fa-solid fa-search text-grey"></i>

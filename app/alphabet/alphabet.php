@@ -14,7 +14,7 @@ if (!Helper::is_user_logged_in()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?= Helper::import_styles() ?>
-    <title>Document</title>
+    <title>アルファベット - Probeto</title>
   </head>
   <body>
     <?= UI::navbar() ?>
@@ -24,7 +24,7 @@ if (!Helper::is_user_logged_in()) {
         <p class="col-4 fs-5">アルファベット</p>
         <div class="col-3">
           <div class="form-floating position-relative">
-            <input type="text" class="form-control rounded-5 border-dark-subtle" id="search" name="search"
+            <input type="text" class="form-control rounded-4 border-dark-subtle" id="search" name="search"
               placeholder="" required>
             <label for="search">検索</label>
             <i class="position-absolute end-5 bottom-35 fa-solid fa-search text-grey"></i>
@@ -36,6 +36,7 @@ if (!Helper::is_user_logged_in()) {
         </div>
       </div>
     </div>
+
     <div class="container w-75">
       <div class="row">
         <div class="col text-decoration-none text-center">
@@ -44,8 +45,8 @@ if (!Helper::is_user_logged_in()) {
             <div class="col-2 flex align-content-center">
               <p class="">dasda</p>
               <p class="">dasda</p>
-              <a class="text-decoration-none icon-link icon-link-hover fs-3 mt-3 fa-solid fa-volume-high"
-                id="play_sound" href="#"></a>
+              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
+                id="play_sound"></a>
             </div>
           </div>
         </div>
@@ -55,32 +56,8 @@ if (!Helper::is_user_logged_in()) {
             <div class="col-2 flex align-content-center">
               <p class="">dasda</p>
               <p class="">dasda</p>
-              <a class="text-decoration-none icon-link icon-link-hover fs-3 mt-3 fa-solid fa-volume-high"
-                id="play_sound" href="#"></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col text-decoration-none text-center">
-          <div class="row border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-            <div class="col-auto"><img src="../../assets/images/quick_learn/family.png" width="200" height="200"></div>
-            <div class="col-2 flex align-content-center">
-              <p class="">dasda</p>
-              <p class="">dasda</p>
-              <a class="text-decoration-none icon-link icon-link-hover fs-3 mt-3 fa-solid fa-volume-high"
-                id="play_sound" href="#"></a>
-            </div>
-          </div>
-        </div>
-        <div class="col text-decoration-none text-center">
-          <div class="row border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-            <div class="col-auto"><img src="../../assets/images/quick_learn/family.png" width="200" height="200"></div>
-            <div class="col-2 flex align-content-center">
-              <p class="">dasda</p>
-              <p class="">dasda</p>
-              <a class="text-decoration-none icon-link icon-link-hover fs-3 mt-3 fa-solid fa-volume-high"
-                id="play_sound" href="#"></a>
+              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
+                id="play_sound"></a>
             </div>
           </div>
         </div>
@@ -92,8 +69,32 @@ if (!Helper::is_user_logged_in()) {
             <div class="col-2 flex align-content-center">
               <p class="">dasda</p>
               <p class="">dasda</p>
-              <a class="text-decoration-none icon-link icon-link-hover fs-3 mt-3 fa-solid fa-volume-high"
-                id="play_sound" href="#"></a>
+              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
+                id="play_sound"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col text-decoration-none text-center">
+          <div class="row border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
+            <div class="col-auto"><img src="../../assets/images/quick_learn/family.png" width="200" height="200"></div>
+            <div class="col-2 flex align-content-center">
+              <p class="">dasda</p>
+              <p class="">dasda</p>
+              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
+                id="play_sound"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-decoration-none text-center">
+          <div class="row border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
+            <div class="col-auto"><img src="../../assets/images/quick_learn/family.png" width="200" height="200"></div>
+            <div class="col-2 flex align-content-center">
+              <p class="">dasda</p>
+              <p class="">dasda</p>
+              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
+                id="play_sound"></a>
             </div>
           </div>
         </div>
@@ -104,7 +105,7 @@ if (!Helper::is_user_logged_in()) {
               <p class="">dasda</p>
               <p class="">dasda</p>
               <a class="text-decoration-none icon-link icon-link-hover fs-3 mt-3 fa-solid fa-volume-high"
-                id="play_sound" path="" href="#"></a>
+                id="play_sound" path=""></a>
             </div>
           </div>
         </div>
