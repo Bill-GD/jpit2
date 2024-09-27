@@ -28,59 +28,57 @@ include '../helpers/ui.php';
     </div>
 
     <main class="container">
-      <div class="">
-        <div class="row">
-          <a href="quick_learn_content.php" class="col text-decoration-none text-center">
-            <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-              <img src="../../assets/images/quick_learn/iconhiany.png" width="200" height="200">
-              <p class="text-dark pt-2 pb-3 ps-4 text-start">挨拶</p>
-            </div>
-          </a>
-          <a href="" class="col text-decoration-none text-center">
-            <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-              <img src="../../assets/images/quick_learn/family.png" width="200" height="200">
-              <p class="text-dark pt-2 pb-3 ps-4 text-start">家族</p>
-            </div>
-          </a>
-          <a href="" class="col text-decoration-none text-center">
-            <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-              <img src="../../assets/images/quick_learn/food.png" width="200" height="200">
-              <p class="text-dark pt-2 pb-3 ps-4 text-start">食べ物</p>
-            </div>
-          </a>
-          <a href="" class="col text-decoration-none text-center">
-            <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-              <img src="../../assets/images/quick_learn/health.png" width="200" height="200">
-              <p class="text-dark pt-2 pb-3 ps-4 text-start">健康</p>
-            </div>
-          </a>
-        </div>
-        <div class="row">
-          <a href="" class="col text-decoration-none text-center">
-            <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-              <img src="../../assets/images/quick_learn/hobby.png" width="200" height="200">
-              <p class="text-dark pt-2 pb-3 ps-4 text-start">趣味</p>
-            </div>
-          </a>
-          <a href="" class="col text-decoration-none text-center">
-            <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-              <img src="../../assets/images/quick_learn/shopping.jpg" width="200" height="200">
-              <p class="text-dark pt-2 pb-3 ps-4 text-start">買い物</p>
-            </div>
-          </a>
-          <a href="" class="col text-decoration-none text-center">
-            <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-              <img src="../../assets/images/quick_learn/travel.png" width="200" height="200">
-              <p class="text-dark pt-2 pb-3 ps-4 text-start">旅行</p>
-            </div>
-          </a>
-          <a href="" class="col text-decoration-none text-center">
-            <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-              <img src="../../assets/images/quick_learn/work.png" width="200" height="200">
-              <p class="text-dark pt-2 pb-3 ps-4 text-start">仕事</p>
-            </div>
-          </a>
-        </div>
+      <div class="row">
+        <a href="quick_learn_content.php" class="col text-decoration-none text-center">
+          <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
+            <img src="../../assets/images/quick_learn/iconhiany.png" width="200" height="200">
+            <p class="text-dark pt-2 pb-3 ps-4 text-start">挨拶</p>
+          </div>
+        </a>
+        <a href="" class="col text-decoration-none text-center">
+          <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
+            <img src="../../assets/images/quick_learn/family.png" width="200" height="200">
+            <p class="text-dark pt-2 pb-3 ps-4 text-start">家族</p>
+          </div>
+        </a>
+        <a href="" class="col text-decoration-none text-center">
+          <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
+            <img src="../../assets/images/quick_learn/food.png" width="200" height="200">
+            <p class="text-dark pt-2 pb-3 ps-4 text-start">食べ物</p>
+          </div>
+        </a>
+        <a href="" class="col text-decoration-none text-center">
+          <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
+            <img src="../../assets/images/quick_learn/health.png" width="200" height="200">
+            <p class="text-dark pt-2 pb-3 ps-4 text-start">健康</p>
+          </div>
+        </a>
+      </div>
+      <div class="row">
+        <a href="" class="col text-decoration-none text-center">
+          <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
+            <img src="../../assets/images/quick_learn/hobby.png" width="200" height="200">
+            <p class="text-dark pt-2 pb-3 ps-4 text-start">趣味</p>
+          </div>
+        </a>
+        <a href="" class="col text-decoration-none text-center">
+          <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
+            <img src="../../assets/images/quick_learn/shopping.jpg" width="200" height="200">
+            <p class="text-dark pt-2 pb-3 ps-4 text-start">買い物</p>
+          </div>
+        </a>
+        <a href="" class="col text-decoration-none text-center">
+          <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
+            <img src="../../assets/images/quick_learn/travel.png" width="200" height="200">
+            <p class="text-dark pt-2 pb-3 ps-4 text-start">旅行</p>
+          </div>
+        </a>
+        <a href="" class="col text-decoration-none text-center">
+          <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
+            <img src="../../assets/images/quick_learn/work.png" width="200" height="200">
+            <p class="text-dark pt-2 pb-3 ps-4 text-start">仕事</p>
+          </div>
+        </a>
       </div>
     </main>
   </body>
