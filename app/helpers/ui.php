@@ -55,7 +55,7 @@ class UI {
 
   static function account_drop_down(): string {
     return self::dropdown(
-      '<img class="rounded-5" src=" . $user_pfp . " width=30, height=30>',
+      '<i class="fa-solid fa-user fs-4"></i>',
       '',
       [
         '<li class="px-3 py-2">' . $_COOKIE['username'] . '</li>',
@@ -72,7 +72,7 @@ class UI {
   }
 
   static function dropdown(string $title, string $dropdown_header = '', array $items, string $extra_dropdown_classes = '', string $extra_title_classes = ''): string {
-    $dropdown_items = implode(array_map(fn($item) => '<li>' . $item . '</li>', $items));
+    $dropdown_items = implode(array_map(fn($item) => "<li>{$item}</li>", $items));
     return <<<HTML
       <div class="dropdown $extra_dropdown_classes">
         <a class="dropdown-toggle text-decoration-none $extra_title_classes" data-bs-toggle="dropdown" role="button">

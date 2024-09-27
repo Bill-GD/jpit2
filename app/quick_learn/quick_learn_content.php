@@ -11,7 +11,7 @@ include '../helpers/ui.php';
     <?= Helper::import_styles() ?>
     <title>速習画面の内容 - Probeto</title>
   </head>
-  <body class="quick_learn_detail">
+  <body>
     <?= UI::navbar() ?>
 
     <div class="row flex align-items-center mt-7 mb-4 ms-5">
