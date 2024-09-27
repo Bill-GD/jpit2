@@ -32,8 +32,8 @@ include '../helpers/ui.php';
         <div class="border border-1 border-dark-subtle rounded-2 py-3 px-4">
           <div class="row flex justify-content-between">
             <div class="col-5">
-              <b>文の例 1: こんにちは！</b>
-              <div class="ms-5 col-auto">• Xin chào!</div>
+              <b class="fs-5">文の例 1: こんにちは！</b>
+              <div class="col-auto ms-5 fs-5">• Xin chào!</div>
             </div>
             <div class="col-6">
               <div class="col-auto h-50"></div>
@@ -47,8 +47,8 @@ include '../helpers/ui.php';
         <div class="border border-1 border-dark-subtle rounded-2 mt-4 py-3 px-4">
           <div class="row flex justify-content-between">
             <div class="col-5">
-              <b>文の例 2: お元気ですか?！</b>
-              <div class="ms-5 col-auto">• Bạn khỏe không?</div>
+              <b class="fs-5">文の例 2: お元気ですか?！</b>
+              <div class="col-auto ms-5 fs-5">• Bạn khỏe không?</div>
             </div>
             <div class="col-6">
               <div class="col-auto h-50"></div>
@@ -62,8 +62,8 @@ include '../helpers/ui.php';
         <div class="border border-1 border-dark-subtle rounded-2 mt-4 py-3 px-4">
           <div class="row flex justify-content-between">
             <div class="col-5">
-              <b>文の例 3: どこから来ましたか?</b>
-              <div class="ms-5 col-auto">• Bạn đến từ đâu??</div>
+              <b class="fs-5">文の例 3: どこから来ましたか?</b>
+              <div class="col-auto ms-5 fs-5">• Bạn đến từ đâu??</div>
             </div>
             <div class="col-6">
               <div class="col-auto h-50"></div>
@@ -77,8 +77,8 @@ include '../helpers/ui.php';
         <div class="border border-1 border-dark-subtle rounded-2 mt-4 py-3 px-4">
           <div class="row flex justify-content-between">
             <div class="col-5">
-              <b>文の例 4: 私は日本から来ました。</b>
-              <div class="ms-5 col-auto">• Tôi đến từ Nhật Bản</div>
+              <b class="fs-5">文の例 4: 私は日本から来ました。</b>
+              <div class="col-auto ms-5 fs-5">• Tôi đến từ Nhật Bản</div>
             </div>
             <div class="col-6">
               <div class="col-auto h-50"></div>
@@ -92,8 +92,8 @@ include '../helpers/ui.php';
         <div class="border border-1 border-dark-subtle rounded-2 mt-4 py-3 px-4">
           <div class="row flex justify-content-between">
             <div class="col-5">
-              <b>文の例 5: もありがとう!</b>
-              <div class="ms-5 col-auto">• Cảm ơn!</div>
+              <b class="fs-5">文の例 5: もありがとう!</b>
+              <div class="col-auto ms-5 fs-5">• Cảm ơn!</div>
             </div>
             <div class="col-6">
               <div class="col-auto h-50"></div>
