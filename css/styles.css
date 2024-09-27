@@ -1,10 +1,5 @@
 /* Please group the related CSS rules together */
 
-/* body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-} */
-
 /* margin */
 .mt-6 {
   margin-top: 4rem !important;
@@ -45,5 +40,3 @@
 .text-grey {
   color: #666;
 }
-
-
