@@ -13,8 +13,8 @@ if (Helper::is_user_logged_in()) {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Probeto - ベトナム語専門家</title>
     <?= Helper::import_styles() ?>
+    <title>Probeto - ベトナム語専門家</title>
   </head>
   <body>
     <?= UI::navbar() ?>
