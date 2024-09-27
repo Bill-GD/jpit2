@@ -33,8 +33,15 @@ class UI {
         <li class='nav-item'><a class='nav-link text-dark' href='#'>個人辞書</a></li>
         <li class='nav-item'><a class='nav-link text-dark' href='#'>オープン辞書</a></li>
         <li class='nav-item'><a class='nav-link text-dark' href='#'>専門用語</a></li>
+<<<<<<< Updated upstream
         <li class='nav-item'><a class='nav-link text-dark' href='../quick_learn/quick_learn_topic.php'>よく使われるフレーズ</a></li>
         <li class='nav-item'><a class='nav-link text-dark' href='#'>模擬試験</a></li>"
+=======
+        <li class='nav-item'><a class='nav-link text-dark' href='#'>よく使われるフレーズ</a></li>
+        <li class='nav-item'><a class='nav-link text-dark' href='#'>模擬試験</a></li>
+        <li class='nav-item'><a class='nav-link text-dark' href='../amghep/amghep.php'>amghep</a></li>
+        <li class='nav-item'><a class='nav-link text-dark' href='../bangchucai/abc.php'>アルファベット</a></li>"
+>>>>>>> Stashed changes
       . (Helper::is_user_logged_in()
         ? self::account_drop_down()
         : <<<HTML
