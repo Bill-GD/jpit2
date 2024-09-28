@@ -16,12 +16,7 @@ $chars = [
 $words = [
   '魚', '月', '曇り', '飛行機', 'キツネ', 'ヤギ', '時計', '赤ちゃん', 'カエル', 'パンダ', 'イルカ', 'テレビ', 'サル', '恐竜', '蚊', 'キノコ', '牛', 'くるま', 'アボカド', '宇宙飛行士', '紙扇風機', 'ヘビ', 'ライオン', '潜水艦', 'フクロウ', '羊', 'オウム', '自転車', '看護師',
 ];
-$sounds = [
-  'A.mp3', 'A_ngan.mp3', 'A_dai.mp3', 'B.mp3', 'C.mp3', 'D.mp3', 'Dac_biet_D.mp3',
-  'E.mp3', 'E_ngan.mp3', 'G.mp3', 'H.mp3', 'I.mp3', 'K.mp3', 'L.mp3', 'M.mp3',
-  'N.mp3', 'O.mp3', 'O1.mp3', 'O2.mp3', 'P.mp3', 'Q.mp3', 'R.mp3', 'S.mp3', 'T.mp3',
-  'U.mp3', 'U_dai.mp3', 'V.mp3', 'X.mp3', 'Y.mp3'
-];
+$sounds = array_map(fn($c): string => mb_convert_case($c, MB_CASE_LOWER) . '.mp3', $chars);
 if (isset($_GET['s'])) {
   $images = array_reverse($images);
   $chars = array_reverse($chars);
@@ -72,7 +67,7 @@ if (isset($_GET['s'])) {
               <div class="col-auto pt-4 ms-2">
                 <div class="fw-bold fs-3">' . $chars[$i] . '</div>
                 <div class="fs-4">' . $words[$i] . '</div>
-                <a class="text-decoration-none icon-link link-secondary fs-3 mt-5 fa-solid fa-volume-high play-sound" audio-path="alphabetsound/' . $sounds[$i] . '"></a>
+                <a class="text-decoration-none icon-link link-secondary fs-3 mt-5 fa-solid fa-volume-high play-sound" audio-path="alphabet/' . $sounds[$i] . '"></a>
               </div>
             </div>
           </div>';
