@@ -1,6 +1,6 @@
 <?php
-include '../helpers/helper.php';
-include '../helpers/ui.php';
+include_once '../helpers/helper.php';
+include_once '../helpers/ui.php';
 
 if (Helper::is_user_logged_in()) {
   header('Location: dashboard.php');
@@ -18,7 +18,7 @@ if (Helper::is_user_logged_in()) {
   </head>
   <body>
     <?= UI::navbar() ?>
-    
+
     <div class="container">
       <div class="fs-2">
         <h1>Probeto - よく学び、よく理解し、外国人のためのベトナム語のナンバーワン専門家。</h1>

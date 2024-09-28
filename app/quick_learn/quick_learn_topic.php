@@ -1,6 +1,6 @@
 <?php
-include '../helpers/helper.php';
-include '../helpers/ui.php';
+include_once '../helpers/helper.php';
+include_once '../helpers/ui.php';
 ?>
 
 <!DOCTYPE html>

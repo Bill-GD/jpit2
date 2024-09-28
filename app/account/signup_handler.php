@@ -13,7 +13,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
   exit();
 }
 
-include '../helpers/database_manager.php';
+include_once '../helpers/database_manager.php';
 $database_manager = DatabaseManager::instance();
 
 $existing_email_count = $database_manager->query(
@@ -46,7 +46,6 @@ $username = DatabaseManager::mysql_escape($username);
 $email = DatabaseManager::mysql_escape($email);
 $hashed_password = DatabaseManager::mysql_escape($hashed_password);
 
-
 // select coalesce(max(project_id), 0) + 1 from `project` into @next_id;
 // set @alter_statement = concat('alter table project auto_increment = ', @next_id);
 try {
@@ -54,8 +53,8 @@ try {
 
   // Insert the new user
   $database_manager->query(
-    'INSERT INTO `user` (username, email, `password`) VALUES (:username, :email, :password)',
-    ['username' => $username, 'email' => $email, 'password' => $hashed_password]
+    'INSERT INTO `user` (username, email, `password`, access_token) VALUES (:username, :email, :password, :access_token)',
+    ['username' => $username, 'email' => $email, 'password' => $hashed_password, 'access_token' => ''],
   );
 
   header('Location: signin.php?s=登録が完了しました');

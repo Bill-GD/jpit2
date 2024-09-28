@@ -1,5 +1,5 @@
 <?php
-include '../helpers/helper.php';
+include_once '../helpers/helper.php';
 
 Helper::set_cookies([
   'is_logged_in' => false,

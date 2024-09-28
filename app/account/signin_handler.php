@@ -7,7 +7,7 @@ if (empty($email) || empty($password)) {
   exit();
 }
 
-include '../helpers/database_manager.php';
+include_once '../helpers/database_manager.php';
 
 $database_manager = DatabaseManager::instance();
 
@@ -15,6 +15,7 @@ $user_data = $database_manager->query(
   'SELECT * FROM `user` WHERE email = :email',
   ['email' => DatabaseManager::mysql_escape($email)]
 )->fetch();
+
 if (!$user_data) {
   header('Location: signin.php?e=このメールアドレスは登録されていません');
   exit();

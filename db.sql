@@ -2,7 +2,8 @@ create table if not exists `user` (
 	user_id int not null primary key auto_increment,
     username nvarchar(100) not null,
     email nvarchar(100) not null unique,
-    `password` nvarchar(60) not null
+    `password` nvarchar(60) not null,
+    access_token text
 );
 
 create table if not exists lesson (

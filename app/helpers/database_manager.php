@@ -1,5 +1,5 @@
 <?php
-include 'globals.php';
+include_once 'globals.php';
 
 class DatabaseManager {
   private static DatabaseManager|null $instance = null;
@@ -10,9 +10,9 @@ class DatabaseManager {
   private array $allowed_query_types = ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'CALL', 'ALTER'];
 
   private function __construct() {
-    if (empty(Globals::$aiven_username)) {
-      Globals::init();
-    }
+    // if (empty(Globals::$aiven_username)) {
+    //   Globals::init('../../.env');
+    // }
 
     if (self::$instance != null) {
       throw new Exception("DatabaseManager instance already exists");

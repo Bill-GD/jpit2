@@ -1,6 +1,6 @@
 <?php
-include '../helpers/database_manager.php';
-include '../helpers/ui.php';
+include_once '../helpers/database_manager.php';
+include_once '../helpers/ui.php';
 ?>
 
 <!DOCTYPE html>
@@ -50,13 +50,13 @@ include '../helpers/ui.php';
         </div>
 
         <div class="d-flex justify-content-center">
-          <a href="" class="btn btn-light fs-4 mx-2">
+          <a href="google_oauth.php" class="btn btn-light fs-4 mx-2">
             <i class="fa-brands fa-google"></i>
           </a>
-          <a href="" onclick="alert('この機能はまだサポートされていません')" class="btn btn-light fs-4 mx-2">
+          <a onclick="alert('この機能はまだサポートされていません')" class="btn btn-light fs-4 mx-2">
             <i class="fa-brands fa-facebook"></i>
           </a>
-          <a href="" onclick="alert('この機能はまだサポートされていません')" class="btn btn-light fs-4 mx-2">
+          <a onclick="alert('この機能はまだサポートされていません')" class="btn btn-light fs-4 mx-2">
             <i class="fa-brands fa-x-twitter"></i>
           </a>
         </div>
