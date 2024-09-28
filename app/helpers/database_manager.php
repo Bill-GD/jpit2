@@ -10,9 +10,9 @@ class DatabaseManager {
   private array $allowed_query_types = ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'CALL', 'ALTER'];
 
   private function __construct() {
-    // if (empty(Globals::$aiven_username)) {
-    //   Globals::init('../../.env');
-    // }
+    if (empty(Globals::$aiven_username)) {
+      Globals::init('../../.env');
+    }
 
     if (self::$instance != null) {
       throw new Exception("DatabaseManager instance already exists");
