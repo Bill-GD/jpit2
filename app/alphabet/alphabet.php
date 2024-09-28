@@ -58,7 +58,7 @@ if (isset($_GET['s'])) {
       </div>
     </div>
 
-    <div class="container w-75 mb-5">
+    <div class="container w-75 px-5 mb-5">
       <?php
       for ($i = 0; $i < 29; $i++) {
         if ($i == 0 || ($i > 1 && $i % 2 == 0)) {
@@ -66,13 +66,13 @@ if (isset($_GET['s'])) {
         }
 
         echo '
-          <div class="col' . ($i == 28 ? '-6' : '') . ' text-decoration-none text-center">
+          <div class="col' . ($i == 28 ? '-6' : '') . ' text-decoration-none">
             <div class="row border border-dark-subtle rounded-1 my-2 px-3 py-2">
               <div class="col-auto"><img src="../../assets/images/alphabet/' . $images[$i] . '" width="200" height="200"></div>
-              <div class="col-2 pt-4 ms-2">
+              <div class="col-auto pt-4 ms-2">
                 <div class="fw-bold fs-3">' . $chars[$i] . '</div>
                 <div class="fs-4">' . $words[$i] . '</div>
-                <a class="text-decoration-none icon-link link-secondary fs-3 mt-5 fa-solid fa-volume-high" onclick="playSound(\'' . $sounds[$i] . '\')"></a>
+                <a class="text-decoration-none icon-link link-secondary fs-3 mt-5 fa-solid fa-volume-high play-sound" audio-path="alphabetsound/' . $sounds[$i] . '"></a>
               </div>
             </div>
           </div>';
@@ -83,15 +83,5 @@ if (isset($_GET['s'])) {
       }
       ?>
     </div>
-    <script>
-      function playSound(fileName) {
-        const audio = new Audio('../../assets/sounds/alphabetsound/' + fileName);
-        audio.play().then(() => {
-          console.log('Phát thành công');
-        }).catch(error => {
-          console.error('Có lỗi khi phát âm thanh:', error);
-        });
-      }
-    </script>
   </body>
 </html>

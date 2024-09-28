@@ -10,7 +10,7 @@ A project for JPIT2 at school.
 
 - Project structure: `app`, `assets`, root files
 - `app`: stores all the php folders/files
-- `css`, `js`: stores bootstrap and a custom css file, add any custom style in `css/styles.css`
+- `css`, `js`: stores bootstrap and a custom css file, add any custom style in `css/styles.css` or JS script in `js/global_js.js`
 - `assets`: stores 'built-in' images, audio files
 - `.env`: stores private keys, don't add to git, ask the lead dev for it
 - `index.php`: used for the run command, should be the starting point of the app, pointing to the main page

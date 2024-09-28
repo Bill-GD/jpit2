@@ -10,6 +10,7 @@ class Helper {
       <script src="../../js/bootstrap.bundle.js"></script>
       <link rel="stylesheet" href="../../css/bootstrap.css">
       <link rel="stylesheet" href="../../css/styles.css">
+      <script src="../../js/global_js.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     ';
   }

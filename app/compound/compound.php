@@ -37,22 +37,22 @@ if (!Helper::is_user_logged_in()) {
           <div class="col text-decoration-none text-center">
             <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
               <img src="../../assets/images/quick_learn/iconhiany.png" width="200" height="200">
-              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
-                id="play_sound"></a>
+              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
+                audio-path=""></a>
             </div>
           </div>
           <div class="col text-decoration-none text-center">
             <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
               <img src="../../assets/images/quick_learn/iconhiany.png" width="200" height="200">
-              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
-                id="play_sound"></a>
+              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
+                audio-path=""></a>
             </div>
           </div>
           <div class="col text-decoration-none text-center">
             <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
               <img src="../../assets/images/quick_learn/iconhiany.png" width="200" height="200">
-              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
-                id="play_sound"></a>
+              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
+                audio-path=""></a>
             </div>
           </div>
         </div>
@@ -62,31 +62,25 @@ if (!Helper::is_user_logged_in()) {
           <div class="col text-decoration-none text-center">
             <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
               <img src="../../assets/images/quick_learn/iconhiany.png" width="200" height="200">
-              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
-                id="play_sound"></a>
+              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
+                audio-path=""></a>
             </div>
           </div>
           <div class="col text-decoration-none text-center">
             <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
               <img src="../../assets/images/quick_learn/iconhiany.png" width="200" height="200">
-              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
-                id="play_sound"></a>
+              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
+                audio-path=""></a>
             </div>
           </div>
           <div class="col text-decoration-none text-center">
             <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
               <img src="../../assets/images/quick_learn/iconhiany.png" width="200" height="200">
-              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
-                id="play_sound"></a>
+              <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
+                audio-path=""></a>
             </div>
           </div>
         </div>
       </div>
-      <script>
-        document.getElementById('play_sound').addEventListener('click', function () {
-          const audio = new Audio('../../assets/sounds/subfortopic1/a chao.m4a');
-          audio.play();
-        });
-      </script>
   </body>
 </html>

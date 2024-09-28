@@ -39,8 +39,8 @@ include '../helpers/ui.php';
               <div class="col-auto h-50"></div>
               <div class="col-auto">• シンチャオ!</div>
             </div>
-            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
-              id="play_sound"></a>
+            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
+              audio-path="subfortopic1/a chao.m4a"></a>
           </div>
         </div>
 
@@ -54,8 +54,8 @@ include '../helpers/ui.php';
               <div class="col-auto h-50"></div>
               <div class="col-auto">• パンクエコン?</div>
             </div>
-            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
-              id="play_sound"></a>
+            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
+              audio-path="subfortopic1/a chao.m4a"></a>
           </div>
         </div>
 
@@ -69,8 +69,8 @@ include '../helpers/ui.php';
               <div class="col-auto h-50"></div>
               <div class="col-auto">• バンデントゥダ?</div>
             </div>
-            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
-              id="play_sound"></a>
+            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
+              audio-path="subfortopic1/a chao.m4a"></a>
           </div>
         </div>
 
@@ -84,8 +84,8 @@ include '../helpers/ui.php';
               <div class="col-auto h-50"></div>
               <div class="col-auto">• トイデントゥニャットパン</div>
             </div>
-            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
-              id="play_sound"></a>
+            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
+              audio-path="subfortopic1/a chao.m4a"></a>
           </div>
         </div>
 
@@ -99,17 +99,11 @@ include '../helpers/ui.php';
               <div class="col-auto h-50"></div>
               <div class="col-auto">• カームオン!</div>
             </div>
-            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high"
-              id="play_sound"></a>
+            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
+              audio-path="subfortopic1/a chao.m4a"></a>
           </div>
         </div>
       </section>
     </main>
   </body>
-  <script>
-    document.getElementById('play_sound').addEventListener('click', function () {
-      const audio = new Audio('../../assets/sounds/subfortopic1/a chao.m4a');
-      audio.play();
-    });
-  </script>
 </html>
