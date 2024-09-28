@@ -70,24 +70,26 @@ if (isset($_GET['code']) && !empty($_GET['code'])) {
   include_once '../helpers/database_manager.php';
   $database_manager = DatabaseManager::instance();
 
-  $name = DatabaseManager::mysql_escape($profile['name']);
   $email = DatabaseManager::mysql_escape($profile['email']);
-  $hashed_password = DatabaseManager::mysql_escape(password_hash($email, PASSWORD_BCRYPT));
-  $token = DatabaseManager::mysql_escape($token);
-
+  $name = DatabaseManager::mysql_escape($profile['name']);
+  
   $user_data = $database_manager->query(
     'SELECT * FROM `user` WHERE email = :email',
     ['email' => $email]
-  )->fetch();
-
-  if ($user_data) {
-    if (!password_verify($password, $user_data['password'])) {
-      header('Location: signin.php?e=パスワードが正しくありません。これは発生しないはずです。開発者に連絡してください。');
-      exit();
-    }
-  } else {
-    $database_manager->query('CALL reset_user_id()');
-    $database_manager->query(
+    )->fetch();
+    
+    if ($user_data) {
+      if (!password_verify($email, $user_data['password'])) {
+        header('Location: signin.php?e=パスワードが正しくありません。これは発生しないはずです。開発者に連絡してください。');
+        exit();
+      }
+    } else {
+      $hashed_password = password_hash($profile['email'], PASSWORD_BCRYPT);
+      $hashed_password = DatabaseManager::mysql_escape($hashed_password);
+      $token = DatabaseManager::mysql_escape($token);
+      
+      $database_manager->query('CALL reset_user_id()');
+      $database_manager->query(
       'INSERT INTO `user` (username, email, `password`, access_token) VALUES (:username, :email, :password, :access_token)',
       [
         'username' => $name,
