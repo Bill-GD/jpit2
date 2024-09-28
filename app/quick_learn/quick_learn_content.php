@@ -40,7 +40,7 @@ include '../helpers/ui.php';
               <div class="col-auto">• シンチャオ!</div>
             </div>
             <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path="subfortopic1/a chao.m4a"></a>
+              audio-path="quick_learn_1/hello.mp3"></a>
           </div>
         </div>
 
@@ -55,7 +55,7 @@ include '../helpers/ui.php';
               <div class="col-auto">• パンクエコン?</div>
             </div>
             <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path="subfortopic1/a chao.m4a"></a>
+              audio-path="quick_learn_1/how_are_you.mp3"></a>
           </div>
         </div>
 
@@ -70,7 +70,7 @@ include '../helpers/ui.php';
               <div class="col-auto">• バンデントゥダ?</div>
             </div>
             <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path="subfortopic1/a chao.m4a"></a>
+              audio-path="quick_learn_1/where_from.mp3"></a>
           </div>
         </div>
 
@@ -85,14 +85,14 @@ include '../helpers/ui.php';
               <div class="col-auto">• トイデントゥニャットパン</div>
             </div>
             <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path="subfortopic1/a chao.m4a"></a>
+              audio-path="quick_learn_1/from_japan.mp3"></a>
           </div>
         </div>
 
         <div class="border border-1 border-dark-subtle rounded-2 mt-4 py-3 px-4">
           <div class="row flex justify-content-between">
             <div class="col-5">
-              <b class="fs-5">文の例 5: もありがとう!</b>
+              <b class="fs-5">文の例 5: ありがとう!</b>
               <div class="col-auto ms-5 fs-5">• Cảm ơn!</div>
             </div>
             <div class="col-6">
@@ -100,7 +100,7 @@ include '../helpers/ui.php';
               <div class="col-auto">• カームオン!</div>
             </div>
             <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path="subfortopic1/a chao.m4a"></a>
+              audio-path="quick_learn_1/thanks.mp3"></a>
           </div>
         </div>
       </section>

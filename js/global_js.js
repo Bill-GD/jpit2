@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const soundPath = `../../assets/sounds/${i.getAttribute('audio-path')}`;
       const audio = new Audio(soundPath);
       audio.play().then(() => {
-        console.log(`Played audio file at ${soundPath.split('..')[2]}`);
+        console.log(`Played audio file at ${soundPath.substring(19)}`);
       }).catch(error => {
         console.error('Error playing audio file:', error);
       });
