@@ -1,0 +1,46 @@
+/* merge with othe css */
+
+body.personalize_study {
+    background-color: #f8f9fa; /* Light background for better contrast */
+    font-family: Arial, sans-serif; /* A clean font choice */
+}
+
+h1 {
+    color: #343a40; /* Dark color for the main title */
+    margin-bottom: 30px; /* Space below the title */
+}
+
+.row {
+    margin-left: 0; /* Remove extra margin from the left */
+    margin-right: 0; /* Remove extra margin from the right */
+}
+
+.border {
+    border-radius: 10px; /* Rounded corners for the boxes */
+}
+
+.border-dark-subtle {
+    border-color: #dee2e6; /* A subtle border color */
+}
+
+.p-3 {
+    padding: 20px; /* Padding inside the boxes */
+}
+
+.img-fluid {
+    max-width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded image corners */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Bootstrap primary color */
+    border-color: #007bff; /* Matching border color */
+    color: white; /* Button text color */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3; /* Matching border color on hover */
+}
