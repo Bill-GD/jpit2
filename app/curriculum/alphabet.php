@@ -46,13 +46,10 @@ if (isset($_GET['s'])) {
       </div>
 
       <?php
+      echo '<div class="row d-flex row-cols-3 column-gap-5 justify-content-center">';
       for ($i = 0; $i < 29; $i++) {
-        if ($i == 0 || ($i > 1 && $i % 2 == 0)) {
-          echo '<div class="row column-gap-5 ' . ($i == 28 ? 'justify-content-center' : '') . ' ">';
-        }
-
         echo '
-          <div class="col' . ($i == 28 ? '-6' : '') . ' text-decoration-none">
+          <div class="col-5 text-decoration-none">
             <div class="row border border-dark-subtle rounded-1 my-2 px-3 py-2">
               <div class="col-auto"><img src="../../assets/images/alphabet/' . $images[$i] . '" width="200" height="200"></div>
               <div class="col-auto pt-4 ms-2">
@@ -62,11 +59,8 @@ if (isset($_GET['s'])) {
               </div>
             </div>
           </div>';
-
-        if ($i % 2 != 0 && $i > 0) {
-          echo '</div>';
-        }
       }
+      echo '</div>';
       ?>
     </main>
   </body>

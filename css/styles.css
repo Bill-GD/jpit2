@@ -15,6 +15,9 @@
 .w-20 {
   width: 20%;
 }
+.w-60 {
+  width: 60%;
+}
 
 /* position */
 .bottom-5 {
@@ -45,7 +48,7 @@
 }
 .link-secondary:hover,
 .link-secondary:focus {
-  color: #111 !important;
+  color: #000 !important;
 }
 
 /* button */
