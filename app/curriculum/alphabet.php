@@ -36,7 +36,7 @@ if (isset($_GET['s'])) {
   <body>
     <?= UI::navbar() ?>
 
-    <div class="container w-75 px-5 mb-5">
+    <main class="container w-75 px-5 mb-5">
       <div class="row flex align-items-center justify-content-between mt-7 mb-4">
         <p class="col-4 fs-4">アルファベット</p>
         <div class="col-4 row flex justify-content-end">
@@ -68,6 +68,6 @@ if (isset($_GET['s'])) {
         }
       }
       ?>
-    </div>
+    </main>
   </body>
 </html>

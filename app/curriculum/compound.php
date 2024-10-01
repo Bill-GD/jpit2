@@ -11,7 +11,7 @@ $compounds = [
   'ch', 'gh', 'kh', 'ng', 'ngh', 'nh', 'ph', 'th', 'tr', 'gi', 'qu'
 ];
 
-$images = array_map(fn($c): string => "../../assets/images/compound/{$c}.png", $compounds);
+$images = array_map(fn($c): string => "../../assets/images/compound/{$c}.jpg", $compounds);
 natsort($images);
 
 $sounds = array_map(fn($c): string => "{$c}.mp3", $compounds);
@@ -34,21 +34,21 @@ if (isset($_GET['s'])) {
   <body>
     <?= UI::navbar() ?>
 
-    <div class="container w-75">
-      <p class="col-4 fs-4 mt-7">拗音</p>
+    <main class="container w-75">
+      <p class="col-4 fs-2 mt-7 mb-4">拗音</p>
 
       <?php
       $max = count($compounds);
       for ($i = 0; $i < $max; $i++) {
         if ($i % 3 == 0) {
-          echo '<div class="row mb-4 column-gap-5 ' . ($i == $max - 1 ? 'justify-content-center' : '') . ' ">';
+          echo '<div class="row mb-4 column-gap-5 justify-content-center' . ($i == $max - 1 ? 'justify-content-center' : '') . ' ">';
         }
 
         echo '
-          <div class="col d-flex justify-content-center position-relative border border-dark-subtle rounded-1 p-3">
-            <img src="' . $images[$i] . '" width="' . (220 + (strlen($compounds[$i]) - 2) * 75) . '" height="220">
+          <div class="col-3 d-flex justify-content-center position-relative border border-dark-subtle rounded-1 p-3">
+            <img src="' . $images[$i] . '" width="220" height="220">
             <div class="pt-4 ms-2 position-absolute end-5 bottom-5">
-              <a class="text-decoration-none icon-link link-secondary fs-3 mt-5 fa-solid fa-volume-high play-sound" audio-path="compound/' . $sounds[$i] . '"></a>
+              <div class="text-decoration-none icon-link link-secondary fs-3 mt-5 fa-solid fa-volume-high play-sound" audio-path="compound/' . $sounds[$i] . '"></div>
             </div>
           </div>';
 
@@ -57,6 +57,6 @@ if (isset($_GET['s'])) {
         }
       }
       ?>
-    </div>
+    </main>
   </body>
 </html>

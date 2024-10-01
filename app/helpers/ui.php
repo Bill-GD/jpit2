@@ -50,7 +50,6 @@ class UI {
           HTML) .
       "</ul>
     </header>
-    <div class='mb-6'></div>
     ";
   }
 
