@@ -14,19 +14,19 @@ include_once '../helpers/ui.php';
   <body>
     <?= UI::navbar() ?>
 
-    <div class="row flex align-items-center mt-7 mb-4 ms-5">
-      <p class="col-4 fs-5">よく使われるフレーズ > 挨拶</p>
-      <div class="col-3">
-        <div class="form-floating position-relative">
-          <input type="text" class="form-control rounded-4 border-dark-subtle" id="search" name="search" placeholder=""
-            required>
-          <label for="search">検索</label>
-          <i class="position-absolute end-5 bottom-35 fa-solid fa-search text-grey"></i>
+    <main class="container">
+      <div class="row mt-7 mb-4">
+        <p class="col-4 fs-5 mt-3">よく使われるフレーズ > 挨拶</p>
+        <div class="col-4">
+          <div class="form-floating position-relative">
+            <input type="text" class="form-control rounded-4 border-dark-subtle" id="search" name="search" placeholder=""
+              required>
+            <label for="search">検索</label>
+            <i class="position-absolute end-5 bottom-35 fa-solid fa-search text-grey"></i>
+          </div>
         </div>
       </div>
-    </div>
-
-    <main class="container">
+    
       <section>
         <!-- <div class="grid-item" onclick="playSound('path/to/audio1.mp3')"> -->
         <div class="border border-1 border-dark-subtle rounded-2 py-3 px-4">
