@@ -35,25 +35,16 @@ if (isset($_GET['s'])) {
   </head>
   <body>
     <?= UI::navbar() ?>
-    <div class="container">
+
+    <div class="container w-75 px-5 mb-5">
       <div class="row flex align-items-center justify-content-between mt-7 mb-4">
         <p class="col-4 fs-4">アルファベット</p>
-        <div class="col-4">
-          <div class="form-floating position-relative">
-            <input type="text" class="form-control rounded-4 border-dark-subtle" id="search" name="search"
-              placeholder="" required>
-            <label for="search">検索</label>
-            <i class="position-absolute end-5 bottom-35 fa-solid fa-search text-grey"></i>
-          </div>
-        </div>
         <div class="col-4 row flex justify-content-end">
           <a href="alphabet.php" class="col-auto btn btn-primary me-2">a->z</a>
           <a href="?s" class="col-auto btn btn-primary">z->a</a>
         </div>
       </div>
-    </div>
 
-    <div class="container w-75 px-5 mb-5">
       <?php
       for ($i = 0; $i < 29; $i++) {
         if ($i == 0 || ($i > 1 && $i % 2 == 0)) {
