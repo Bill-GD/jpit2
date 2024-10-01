@@ -17,6 +17,9 @@
 }
 
 /* position */
+.bottom-5 {
+  bottom: 5%;
+}
 .bottom-20 {
   bottom: 20%;
 }

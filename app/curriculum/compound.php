@@ -6,6 +6,21 @@ if (!Helper::is_user_logged_in()) {
   header('Location: ..\account\signin.php');
   exit();
 }
+
+$compounds = [
+  'ch', 'gh', 'kh', 'ng', 'ngh', 'nh', 'ph', 'th', 'tr', 'gi', 'qu'
+];
+
+$images = array_map(fn($c): string => "../../assets/images/compound/{$c}.png", $compounds);
+natsort($images);
+
+$sounds = array_map(fn($c): string => "{$c}.mp3", $compounds);
+if (isset($_GET['s'])) {
+  $images = array_reverse($images);
+  $compounds = array_reverse($compounds);
+  $words = array_reverse($words);
+  $sounds = array_reverse($sounds);
+}
 ?>
 
 <!DOCTYPE html>
@@ -22,54 +37,26 @@ if (!Helper::is_user_logged_in()) {
     <div class="container w-75">
       <p class="col-4 fs-4 mt-7">拗音</p>
 
-      <div class="row">
-        <div class="col text-decoration-none text-center">
-          <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-            <img src="../../assets/images/quick_learn/iconhiany.png" width="200" height="200">
-            <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path=""></a>
-          </div>
-        </div>
-        <div class="col text-decoration-none text-center">
-          <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-            <img src="../../assets/images/quick_learn/iconhiany.png" width="200" height="200">
-            <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path=""></a>
-          </div>
-        </div>
-        <div class="col text-decoration-none text-center">
-          <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-            <img src="../../assets/images/quick_learn/iconhiany.png" width="200" height="200">
-            <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path=""></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container w-75">
-      <div class="row">
-        <div class="col text-decoration-none text-center">
-          <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-            <img src="../../assets/images/quick_learn/iconhiany.png" width="200" height="200">
-            <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path=""></a>
-          </div>
-        </div>
-        <div class="col text-decoration-none text-center">
-          <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-            <img src="../../assets/images/quick_learn/iconhiany.png" width="200" height="200">
-            <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path=""></a>
-          </div>
-        </div>
-        <div class="col text-decoration-none text-center">
-          <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-            <img src="../../assets/images/quick_learn/iconhiany.png" width="200" height="200">
-            <a class="text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path=""></a>
-          </div>
-        </div>
-      </div>
+      <?php
+      $max = count($compounds);
+      for ($i = 0; $i < $max; $i++) {
+        if ($i % 3 == 0) {
+          echo '<div class="row mb-4 column-gap-5 ' . ($i == $max - 1 ? 'justify-content-center' : '') . ' ">';
+        }
+
+        echo '
+          <div class="col d-flex justify-content-center position-relative border border-dark-subtle rounded-1 p-3">
+            <img src="' . $images[$i] . '" width="' . (220 + (strlen($compounds[$i]) - 2) * 75) . '" height="220">
+            <div class="pt-4 ms-2 position-absolute end-5 bottom-5">
+              <a class="text-decoration-none icon-link link-secondary fs-3 mt-5 fa-solid fa-volume-high play-sound" audio-path="compound/' . $sounds[$i] . '"></a>
+            </div>
+          </div>';
+
+        if ($i % 3 == 2) {
+          echo '</div>';
+        }
+      }
+      ?>
     </div>
   </body>
 </html>
