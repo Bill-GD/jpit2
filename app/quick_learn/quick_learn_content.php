@@ -1,6 +1,23 @@
 <?php
 include_once '../helpers/helper.php';
 include_once '../helpers/ui.php';
+
+if (!isset($_GET['i'])) {
+  header('Location: quick_learn_topic.php?e=トピックが無効です。もう一度お試しください。');
+  exit;
+}
+
+include_once '../helpers/database_manager.php';
+$dm = DatabaseManager::instance();
+
+$topic_name = $dm->query(
+  'SELECT topic_name from quick_learn_topic where topic_id = :topic_id',
+  ['topic_id' => $_GET['i']]
+)->fetch()['topic_name'];
+$list = $dm->query(
+  'SELECT japanese_sentence, vietnamese_sentence, vietnamese_katakana, audio from quick_learn_content where topic_id = :topic_id',
+  ['topic_id' => $_GET['i']]
+)->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -16,108 +33,41 @@ include_once '../helpers/ui.php';
 
     <main class="container">
       <div class="row mt-7 mb-4">
-        <p class="col-4 fs-5 mt-3">よく使われるフレーズ > 挨拶</p>
+        <p class="col-4 fs-5 mt-3">よく使われるフレーズ > <?= $topic_name ?></p>
         <div class="col-4">
           <div class="form-floating position-relative">
-            <input type="text" class="form-control rounded-4 border-dark-subtle" id="search" name="search" placeholder=""
-              required>
+            <input type="text" class="form-control rounded-4 border-dark-subtle" id="search" name="search"
+              placeholder="" required>
             <label for="search">検索</label>
             <i class="position-absolute end-5 bottom-35 fa-solid fa-search text-grey"></i>
           </div>
         </div>
       </div>
-    
+
       <section>
+
         <!-- <div class="grid-item" onclick="playSound('path/to/audio1.mp3')"> -->
-        <div class="border border-1 border-dark-subtle rounded-2 py-3 px-4">
-          <div class="row flex justify-content-between">
-            <div class="col-5">
-              <b class="fs-5">文の例 1: こんにちは！</b>
-              <div class="col-auto ms-5 fs-5">• Xin chào!</div>
+        <?php
+        // print_r($list);
+        for ($i = 0; $i < count($list); $i++) {
+          echo '
+            <div class="border border-1 border-dark-subtle rounded-2 mb-4 py-3 px-4">
+              <div class="row flex justify-content-between">
+                <div class="col-5">
+                  <b class="fs-5">文の例 ' . ($i + 1) . ': ' . $list[$i]['japanese_sentence'] . '</b>
+                  <div class="col-auto ms-5 fs-5">• ' . $list[$i]['vietnamese_sentence'] . '</div>
+                </div>
+                <div class="col-6">
+                  <div class="col-auto h-50"></div>
+                  <div class="col-auto">• ' . $list[$i]['vietnamese_katakana'] . '</div>
+                </div>
+                <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
+                  audio-path="' . $list[$i]['audio'] . '"></a>
+              </div>
             </div>
-            <div class="col-6">
-              <div class="col-auto h-50"></div>
-              <div class="col-auto">• シンチャオ!</div>
-            </div>
-            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path="quick_learn_1/hello.mp3"></a>
-          </div>
-        </div>
-
-        <div class="border border-1 border-dark-subtle rounded-2 mt-4 py-3 px-4">
-          <div class="row flex justify-content-between">
-            <div class="col-5">
-              <b class="fs-5">文の例 2: お元気ですか?！</b>
-              <div class="col-auto ms-5 fs-5">• Bạn khỏe không?</div>
-            </div>
-            <div class="col-6">
-              <div class="col-auto h-50"></div>
-              <div class="col-auto">• パンクエコン?</div>
-            </div>
-            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path="quick_learn_1/how_are_you.mp3"></a>
-          </div>
-        </div>
-
-        <div class="border border-1 border-dark-subtle rounded-2 mt-4 py-3 px-4">
-          <div class="row flex justify-content-between">
-            <div class="col-5">
-              <b class="fs-5">文の例 3: 私の名前は...です。</b>
-              <div class="col-auto ms-5 fs-5">• Tôi tên là...</div>
-            </div>
-            <div class="col-6">
-              <div class="col-auto h-50"></div>
-              <div class="col-auto">• トイ テン ラ...</div>
-            </div>
-            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path="quick_learn_1/my_name.mp3"></a>
-          </div>
-        </div>
-
-        <div class="border border-1 border-dark-subtle rounded-2 mt-4 py-3 px-4">
-          <div class="row flex justify-content-between">
-            <div class="col-5">
-              <b class="fs-5">文の例 4: どこから来ましたか?</b>
-              <div class="col-auto ms-5 fs-5">• Bạn đến từ đâu?</div>
-            </div>
-            <div class="col-6">
-              <div class="col-auto h-50"></div>
-              <div class="col-auto">• バンデントゥダ?</div>
-            </div>
-            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path="quick_learn_1/where_from.mp3"></a>
-          </div>
-        </div>
-
-        <div class="border border-1 border-dark-subtle rounded-2 mt-4 py-3 px-4">
-          <div class="row flex justify-content-between">
-            <div class="col-5">
-              <b class="fs-5">文の例 5: 私は日本から来ました。</b>
-              <div class="col-auto ms-5 fs-5">• Tôi đến từ Nhật Bản.</div>
-            </div>
-            <div class="col-6">
-              <div class="col-auto h-50"></div>
-              <div class="col-auto">• トイデントゥニャットパン</div>
-            </div>
-            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path="quick_learn_1/from_japan.mp3"></a>
-          </div>
-        </div>
-
-        <div class="border border-1 border-dark-subtle rounded-2 mt-4 py-3 px-4">
-          <div class="row flex justify-content-between">
-            <div class="col-5">
-              <b class="fs-5">文の例 6: ありがとう!</b>
-              <div class="col-auto ms-5 fs-5">• Cảm ơn!</div>
-            </div>
-            <div class="col-6">
-              <div class="col-auto h-50"></div>
-              <div class="col-auto">• カームオン!</div>
-            </div>
-            <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
-              audio-path="quick_learn_1/thanks.mp3"></a>
-          </div>
-        </div>
+          ';
+        }
+        ?>
       </section>
     </main>
   </body>

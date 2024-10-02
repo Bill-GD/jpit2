@@ -81,6 +81,38 @@ create table if not exists quick_learn_content (
 );
 
 delimiter $$
+create procedure reset_quick_learn_topic_id ()
+begin
+  select coalesce(max(topic_id), -1) from quick_learn_topic into @next_id;
+  
+  if @next_id <= 0 then
+    set @next_id = 0;
+  end if;
+  
+  set @alter_statement = concat('alter table quick_learn_topic auto_increment = ', @next_id);
+  PREPARE stmt FROM @alter_statement;
+  EXECUTE stmt;
+  DEALLOCATE PREPARE stmt;
+end $$
+delimiter ;
+
+delimiter $$
+create procedure reset_quick_learn_content_id ()
+begin
+  select coalesce(max(ql_content_id), -1) from quick_learn_content into @next_id;
+  
+  if @next_id <= 0 then
+    set @next_id = 0;
+  end if;
+  
+  set @alter_statement = concat('alter table quick_learn_content auto_increment = ', @next_id);
+  PREPARE stmt FROM @alter_statement;
+  EXECUTE stmt;
+  DEALLOCATE PREPARE stmt;
+end $$
+delimiter ;
+
+delimiter $$
 create procedure reset_user_id ()
 begin
   select coalesce(max(user_id), -1) from `user` into @next_id;

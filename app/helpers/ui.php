@@ -9,8 +9,8 @@ class UI {
   static function alert_danger(string $error_message): string {
     return <<<HTML
       <div class="row alert alert-danger border-2 border-danger align-items-center py-3 m-0 mb-2" role="alert">
-        <i class="col-auto h-100 mt-1 col-2 text-danger fa-solid fa-triangle-exclamation fs-3"></i>
-        <div class="col align-content-center fs-6">$error_message</div>
+        <i class="col-auto h-100 mt-1 text-danger fa-solid fa-triangle-exclamation fs-3"></i>
+        <div class="col-auto fs-6">$error_message</div>
       </div>
     HTML;
   }
