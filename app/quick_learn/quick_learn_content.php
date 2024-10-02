@@ -33,7 +33,11 @@ $list = $dm->query(
 
     <main class="container">
       <div class="row mt-7 mb-4">
-        <p class="col-4 fs-5 mt-3">よく使われるフレーズ > <?= $topic_name ?></p>
+        <p class="col-4 fs-5 mt-3">
+          <a class="text-decoration-none link-secondary" href="quick_learn_topic.php">よく使われるフレーズ</a>
+          >
+          <?= $topic_name ?>
+        </p>
         <div class="col-4">
           <div class="form-floating position-relative">
             <input type="text" class="form-control rounded-4 border-dark-subtle" id="search" name="search"
@@ -45,12 +49,13 @@ $list = $dm->query(
       </div>
 
       <section>
-
-        <!-- <div class="grid-item" onclick="playSound('path/to/audio1.mp3')"> -->
         <?php
         // print_r($list);
-        for ($i = 0; $i < count($list); $i++) {
-          echo '
+        if (count($list) === 0) {
+          echo '<p class="fs-5">このトピックにはまだ文がありません。</p>';
+        } else {
+          for ($i = 0; $i < count($list); $i++) {
+            echo '
             <div class="border border-1 border-dark-subtle rounded-2 mb-4 py-3 px-4">
               <div class="row flex justify-content-between">
                 <div class="col-5">
@@ -61,11 +66,12 @@ $list = $dm->query(
                   <div class="col-auto h-50"></div>
                   <div class="col-auto">• ' . $list[$i]['vietnamese_katakana'] . '</div>
                 </div>
-                <a class="col-1 text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
+                <a class="col text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
                   audio-path="' . $list[$i]['audio'] . '"></a>
               </div>
             </div>
           ';
+          }
         }
         ?>
       </section>

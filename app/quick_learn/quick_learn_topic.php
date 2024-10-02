@@ -19,19 +19,19 @@ $topics = $dm->query('SELECT topic_name, image from quick_learn_topic')->fetchAl
   <body>
     <?= UI::navbar() ?>
 
-    <div class="row flex align-items-center mt-7 mb-4 ms-5">
-      <p class="col-4 fs-5">よく使われるフレーズ</p>
-      <div class="col-3">
-        <div class="form-floating position-relative">
-          <input type="text" class="form-control rounded-4 border-dark-subtle" id="search" name="search" placeholder=""
-            required>
-          <label for="search">検索</label>
-          <i class="position-absolute end-5 bottom-35 fa-solid fa-search text-grey"></i>
+    <main class="container">
+      <div class="row flex align-items-center mt-7 mb-4">
+        <p class="col-4 fs-5">よく使われるフレーズ</p>
+        <div class="col-4">
+          <div class="form-floating position-relative">
+            <input type="text" class="form-control rounded-4 border-dark-subtle" id="search" name="search" placeholder=""
+              required>
+            <label for="search">検索</label>
+            <i class="position-absolute end-5 bottom-35 fa-solid fa-search text-grey"></i>
+          </div>
         </div>
       </div>
-    </div>
 
-    <main class="container">
       <?php
       if (isset($_GET['e'])) {
         echo UI::alert_danger($_GET['e']);

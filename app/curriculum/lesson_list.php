@@ -45,11 +45,11 @@ $thumbnails = ['lesson_1/study_alphabet.png', 'lesson_1/greeting.png', 'lesson_1
             <div class="col d-flex flex-column justify-content-between border border-4 rounded-2 px-4 py-3">
               <p class="fs-4 fw-semibold mb-4">' . $titles[$i] . '</p>
               <div class="row justify-content-around">
-                <a class="col-2 btn btn-purple disabled rounded-5 px-3 py-2">学校に行く</a>
-                <a class="col-2 btn btn-purple disabled rounded-5 px-3 py-2">単語</a>
-                <a class="col-2 btn btn-purple disabled rounded-5 px-3 py-2">文法</a>
-                <a class="col-2 btn btn-purple disabled rounded-5 px-3 py-2">会話</a>
-                <a class="col-2 btn btn-purple disabled rounded-5 px-3 py-2">練習問題</a>
+                <a class="col-2 btn btn-purple rounded-5 px-3 py-2">学校に行く</a>
+                <a class="col-2 btn btn-purple rounded-5 px-3 py-2">単語</a>
+                <a class="col-2 btn btn-purple rounded-5 px-3 py-2">文法</a>
+                <a class="col-2 btn btn-purple rounded-5 px-3 py-2">会話</a>
+                <a class="col-2 btn btn-purple rounded-5 px-3 py-2">練習問題</a>
               </div>
             </div>
           </div>';
