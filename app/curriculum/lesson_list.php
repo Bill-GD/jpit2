@@ -7,8 +7,8 @@ if (!Helper::is_user_logged_in()) {
   exit();
 }
 
-$titles = ['第1課: Tên tôi là Yamada', '第2課: Tôi là giáo viên', '第3課: Anh bao nhiêu tuổi', '第4課: Nhà của anh rất đẹp!'];
-$thumbnails = ['personalized/grammar.png', 'login_signup_background.png', 'personalized/weird_a.jpg', 'personalized/practice-makes-perfect-cover.png'];
+$titles = ['第1課: Bảng chữ cái', '第3課: Tên tôi là Yamada', '第4課: Tôi là giáo viên', '第5課: Anh bao nhiêu tuổi'];
+$thumbnails = ['lesson_1/study_alphabet.png', 'lesson_1/greeting.png', 'lesson_1/jikosyoukai_man.png', 'personalized/weird_a.jpg'];
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ $thumbnails = ['personalized/grammar.png', 'login_signup_background.png', 'perso
     <?= UI::navbar() ?>
 
     <main class="container w-60 mt-7">
-      <div class="row d-flex justify-content-center mt-7 mb-2">
+      <div class="row d-flex justify-content-center mt-7 mb-5">
         <div class="col-5">
           <div class="form-floating position-relative">
             <input type="text" class="form-control rounded-4 border-dark-subtle" id="search" name="search"
@@ -34,22 +34,22 @@ $thumbnails = ['personalized/grammar.png', 'login_signup_background.png', 'perso
         </div>
       </div>
 
-      <p class="col-4 fs-5">&larr; コースー覧</p>
+      <!-- <p class="col-4 fs-5">&larr; コースー覧</p> -->
 
       <!-- .row>.thumbnail+.col>p.fs-4+.row>.col-auto*5 -->
       <?php
       for ($i = 0; $i < count($titles); $i++) {
         echo '
           <div class="row mb-4">
-            <img class="col-3 me-3" src="../../assets/images/' . $thumbnails[$i] . '">
+            <img class="col-3 me-3 object-fit-contain" height="150" src="../../assets/images/' . $thumbnails[$i] . '">
             <div class="col d-flex flex-column justify-content-between border border-4 rounded-2 px-4 py-3">
               <p class="fs-4 fw-semibold mb-4">' . $titles[$i] . '</p>
               <div class="row justify-content-around">
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2">学校に行く</a>
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2">単語</a>
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2">文法</a>
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2">会話</a>
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2">練習問題</a>
+                <a class="col-2 btn btn-purple disabled rounded-5 px-3 py-2">学校に行く</a>
+                <a class="col-2 btn btn-purple disabled rounded-5 px-3 py-2">単語</a>
+                <a class="col-2 btn btn-purple disabled rounded-5 px-3 py-2">文法</a>
+                <a class="col-2 btn btn-purple disabled rounded-5 px-3 py-2">会話</a>
+                <a class="col-2 btn btn-purple disabled rounded-5 px-3 py-2">練習問題</a>
               </div>
             </div>
           </div>';
