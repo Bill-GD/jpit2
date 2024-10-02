@@ -7,7 +7,7 @@ $dm = DatabaseManager::instance();
 
 $topics = $dm->query('SELECT topic_name from quick_learn_topic')->fetchAll(PDO::FETCH_COLUMN);
 $images = [
-  'quick_learn/iconhiany.png', 'quick_learn/family.png',
+  'quick_learn/greeting.png', 'quick_learn/family.png',
   'quick_learn/food.png', 'quick_learn/health.png',
   'quick_learn/hobby.png', 'quick_learn/shopping.jpg',
   'quick_learn/travel.png', 'quick_learn/work.jpg',
