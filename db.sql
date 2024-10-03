@@ -9,6 +9,7 @@ create table if not exists `user` (
 create table if not exists lesson (
 	lesson_id int not null primary key auto_increment,
     lesson_name varchar(50) not null,
+    thumbnail text not null,
     lesson_content text
 );
 
@@ -23,7 +24,7 @@ create table if not exists notification (
     message text not null,
     `type` nvarchar(32),
     `status` nvarchar(32),
-    sent_at date,
+    sent_at datetime,
     foreign key (user_id) references `user` (user_id) on delete cascade
 );
 
@@ -122,6 +123,102 @@ begin
   end if;
   
   set @alter_statement = concat('alter table `user` auto_increment = ', @next_id);
+  PREPARE stmt FROM @alter_statement;
+  EXECUTE stmt;
+  DEALLOCATE PREPARE stmt;
+end $$
+delimiter ;
+
+delimiter $$
+create procedure reset_lesson_id ()
+begin
+  select coalesce(max(lesson_id), -1) from lesson into @next_id;
+  
+  if @next_id <= 0 then
+    set @next_id = 0;
+  end if;
+  
+  set @alter_statement = concat('alter table lesson auto_increment = ', @next_id);
+  PREPARE stmt FROM @alter_statement;
+  EXECUTE stmt;
+  DEALLOCATE PREPARE stmt;
+end $$
+delimiter ;
+
+delimiter $$
+create procedure reset_test_id ()
+begin
+  select coalesce(max(test_id), -1) from test into @next_id;
+  
+  if @next_id <= 0 then
+    set @next_id = 0;
+  end if;
+  
+  set @alter_statement = concat('alter table test auto_increment = ', @next_id);
+  PREPARE stmt FROM @alter_statement;
+  EXECUTE stmt;
+  DEALLOCATE PREPARE stmt;
+end $$
+delimiter ;
+
+delimiter $$
+create procedure reset_notification_id ()
+begin
+  select coalesce(max(notification_id), -1) from notification into @next_id;
+  
+  if @next_id <= 0 then
+    set @next_id = 0;
+  end if;
+  
+  set @alter_statement = concat('alter table notification auto_increment = ', @next_id);
+  PREPARE stmt FROM @alter_statement;
+  EXECUTE stmt;
+  DEALLOCATE PREPARE stmt;
+end $$
+delimiter ;
+
+delimiter $$
+create procedure reset_listen_speak_practice_id ()
+begin
+  select coalesce(max(practice_id), -1) from listen_speak_practice into @next_id;
+  
+  if @next_id <= 0 then
+    set @next_id = 0;
+  end if;
+  
+  set @alter_statement = concat('alter table listen_speak_practice auto_increment = ', @next_id);
+  PREPARE stmt FROM @alter_statement;
+  EXECUTE stmt;
+  DEALLOCATE PREPARE stmt;
+end $$
+delimiter ;
+
+delimiter $$
+create procedure reset_vocab_id ()
+begin
+  select coalesce(max(vocab_id), -1) from vocab into @next_id;
+  
+  if @next_id <= 0 then
+    set @next_id = 0;
+  end if;
+  
+  set @alter_statement = concat('alter table vocab auto_increment = ', @next_id);
+  PREPARE stmt FROM @alter_statement;
+  EXECUTE stmt;
+  DEALLOCATE PREPARE stmt;
+end $$
+delimiter ;
+
+delimiter $$
+create procedure reset_learning_path_id ()
+begin
+  select coalesce(max(path_id), -1) from learning_path into @next_id;
+  
+  if @next_id <= 0 then
+    set @next_id = 0;
+  end if;
+  
+  set @alter_statement = concat('alter table learning_path auto_increment = ', @next_id);
   PREPARE stmt FROM @alter_statement;
   EXECUTE stmt;
   DEALLOCATE PREPARE stmt;

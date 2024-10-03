@@ -7,8 +7,12 @@ if (!Helper::is_user_logged_in()) {
   exit();
 }
 
-$titles = ['第1課: Bảng chữ cái', '第3課: Tên tôi là Yamada', '第4課: Tôi là giáo viên', '第5課: Anh bao nhiêu tuổi'];
-$thumbnails = ['lesson_1/study_alphabet.png', 'lesson_1/greeting.png', 'lesson_1/jikosyoukai_man.png', 'personalized/weird_a.jpg'];
+include_once '../helpers/database_manager.php';
+$dm = DatabaseManager::instance();
+
+$lessons = $dm->query(
+  'SELECT lesson_name, thumbnail from lesson'
+)->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -35,15 +39,17 @@ $thumbnails = ['lesson_1/study_alphabet.png', 'lesson_1/greeting.png', 'lesson_1
       </div>
 
       <!-- <p class="col-4 fs-5">&larr; コースー覧</p> -->
-
       <!-- .row>.thumbnail+.col>p.fs-4+.row>.col-auto*5 -->
       <?php
-      for ($i = 0; $i < count($titles); $i++) {
-        echo '
+      if (count($lessons) === 0) {
+        echo '<p class="fs-5">レッスンがまだありません。</p>';
+      } else {
+        for ($i = 0; $i < count($lessons); $i++) {
+          echo '
           <div class="row mb-4">
-            <img class="col-3 me-3 object-fit-contain" height="150" src="../../assets/images/' . $thumbnails[$i] . '">
+            <img class="col-3 me-3 object-fit-contain" height="150" src="../../assets/images/' . $lessons[$i]['thumbnail'] . '">
             <div class="col d-flex flex-column justify-content-between border border-4 rounded-2 px-4 py-3">
-              <p class="fs-4 fw-semibold mb-4">' . $titles[$i] . '</p>
+              <p class="fs-4 fw-semibold mb-4">第' . ($i + 1) . '課: ' . $lessons[$i]['lesson_name'] . '</p>
               <div class="row justify-content-around">
                 <a class="col-2 btn btn-purple rounded-5 px-3 py-2">学校に行く</a>
                 <a class="col-2 btn btn-purple rounded-5 px-3 py-2">単語</a>
@@ -53,6 +59,7 @@ $thumbnails = ['lesson_1/study_alphabet.png', 'lesson_1/greeting.png', 'lesson_1
               </div>
             </div>
           </div>';
+        }
       }
       ?>
     </main>
