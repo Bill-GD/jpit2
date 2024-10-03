@@ -68,28 +68,28 @@ if (isset($_GET['code']) && !empty($_GET['code'])) {
   }
 
   include_once '../helpers/database_manager.php';
-  $database_manager = DatabaseManager::instance();
+  $dm = DatabaseManager::instance();
 
   $email = DatabaseManager::mysql_escape($profile['email']);
   $name = DatabaseManager::mysql_escape($profile['name']);
-  
-  $user_data = $database_manager->query(
+
+  $user_data = $dm->query(
     'SELECT * FROM `user` WHERE email = :email',
     ['email' => $email]
-    )->fetch();
-    
-    if ($user_data) {
-      if (!password_verify($email, $user_data['password'])) {
-        header('Location: signin.php?e=パスワードが正しくありません。これは発生しないはずです。開発者に連絡してください。');
-        exit();
-      }
-    } else {
-      $hashed_password = password_hash($profile['email'], PASSWORD_BCRYPT);
-      $hashed_password = DatabaseManager::mysql_escape($hashed_password);
-      $token = DatabaseManager::mysql_escape($token);
-      
-      $database_manager->query('CALL reset_user_id()');
-      $database_manager->query(
+  )->fetch();
+
+  if ($user_data) {
+    if (!password_verify($email, $user_data['password'])) {
+      header('Location: signin.php?e=パスワードが正しくありません。これは発生しないはずです。開発者に連絡してください。');
+      exit();
+    }
+  } else {
+    $hashed_password = password_hash($profile['email'], PASSWORD_BCRYPT);
+    $hashed_password = DatabaseManager::mysql_escape($hashed_password);
+    $token = DatabaseManager::mysql_escape($token);
+
+    $dm->query('CALL reset_user_id()');
+    $dm->query(
       'INSERT INTO `user` (username, email, `password`, access_token) VALUES (:username, :email, :password, :access_token)',
       [
         'username' => $name,
@@ -100,9 +100,14 @@ if (isset($_GET['code']) && !empty($_GET['code'])) {
     );
   }
 
+  $user_data = $dm->query(
+    'SELECT user_id FROM `user` WHERE email = :email',
+    ['email' => $email]
+  )->fetch();
+
   Helper::set_cookies([
     'is_logged_in' => true,
-    'user_id' => DatabaseManager::instance()->get_last_id(),
+    'user_id' => $user_data['user_id'],
     'username' => $name,
     'email' => $email,
   ]);

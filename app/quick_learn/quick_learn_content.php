@@ -14,6 +14,7 @@ $topic_name = $dm->query(
   'SELECT topic_name from quick_learn_topic where topic_id = :topic_id',
   ['topic_id' => $_GET['i']]
 )->fetch()['topic_name'];
+
 $list = $dm->query(
   'SELECT japanese_sentence, vietnamese_sentence, vietnamese_katakana, audio from quick_learn_content where topic_id = :topic_id',
   ['topic_id' => $_GET['i']]

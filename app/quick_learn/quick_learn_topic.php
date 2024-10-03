@@ -36,8 +36,7 @@ $topics = $dm->query('SELECT topic_name, image from quick_learn_topic')->fetchAl
       if (isset($_GET['e'])) {
         echo UI::alert_danger($_GET['e']);
       }
-      ?>
-      <?php
+      
       echo '<div class="row d-flex row-cols-4 justify-content-center">';
       for ($i = 0; $i < count($topics); $i++) {
         echo '

@@ -13,9 +13,11 @@ create table if not exists lesson (
     lesson_content text
 );
 
-create table if not exists test (
-	test_id int not null primary key auto_increment,
-    test_results int
+create table if not exists test_result (
+	test_result_id int not null primary key auto_increment,
+    user_id int not null,
+    lesson_id int not null,
+    test_result int not null
 );
 
 create table if not exists notification (
@@ -146,15 +148,15 @@ end $$
 delimiter ;
 
 delimiter $$
-create procedure reset_test_id ()
+create procedure reset_test_result_id ()
 begin
-  select coalesce(max(test_id), -1) from test into @next_id;
+  select coalesce(max(test_result_id), -1) from test_result into @next_id;
   
   if @next_id <= 0 then
     set @next_id = 0;
   end if;
   
-  set @alter_statement = concat('alter table test auto_increment = ', @next_id);
+  set @alter_statement = concat('alter table test_result auto_increment = ', @next_id);
   PREPARE stmt FROM @alter_statement;
   EXECUTE stmt;
   DEALLOCATE PREPARE stmt;
