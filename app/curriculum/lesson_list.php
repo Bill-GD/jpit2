@@ -14,10 +14,25 @@ $lessons = $dm->query(
   'SELECT lesson_id, lesson_name, thumbnail from lesson'
 )->fetchAll();
 
+if (isset($_GET['search'])) {
+  $lessons = array_values(array_filter(
+    $lessons,
+    fn($l) => str_contains(
+      mb_strtolower($l['lesson_name']),
+      mb_strtolower($_GET['search'])
+    )
+  ));
+}
+
 $scores = $dm->query(
-  'SELECT test_result from test_result where user_id = :user_id order by lesson_id asc',
+  'SELECT lesson_id, test_result from test_result where user_id = :user_id order by lesson_id asc',
   ['user_id' => $_COOKIE['user_id']]
 )->fetchAll();
+
+$scores = array_values(array_filter(
+  $scores,
+  fn($score): bool => in_array($score['lesson_id'], array_column($lessons, 'lesson_id'))
+));
 ?>
 
 <!DOCTYPE html>
@@ -34,12 +49,14 @@ $scores = $dm->query(
     <main class="container w-60 mt-7">
       <div class="row d-flex justify-content-center mt-7 mb-5">
         <div class="col-5">
-          <div class="form-floating position-relative">
-            <input type="text" class="form-control rounded-4 border-dark-subtle" id="search" name="search"
-              placeholder="" required>
-            <label for="search">検索</label>
-            <i class="position-absolute end-5 bottom-35 fa-solid fa-search text-grey"></i>
-          </div>
+          <form action="" method="get">
+            <div class="form-floating position-relative">
+              <input type="text" class="form-control rounded-4 border-dark-subtle" id="search" name="search"
+                placeholder="" required>
+              <label for="search">検索</label>
+              <i class="position-absolute end-5 bottom-35 fa-solid fa-search text-grey"></i>
+            </div>
+          </form>
         </div>
       </div>
 
@@ -67,7 +84,9 @@ $scores = $dm->query(
             <img class="col-3 me-3 object-fit-contain" height="150" src="../../assets/images/' . $lessons[$i]['thumbnail'] . '">
             <div class="col d-flex flex-column justify-content-between border border-4 rounded-2 px-4 py-3">
               <div class="row justify-content-between align-items-center">
-                <p class="col fs-4 fw-semibold mb-4">第' . ($i + 1) . '課: ' . $lessons[$i]['lesson_name'] . '</p>
+                <p class="col fs-4 fw-semibold mb-4">
+                第' . $lessons[$i]['lesson_id'] . '課: ' . $lessons[$i]['lesson_name'] .
+            '</p>
                 <p class="col-auto fs-5">' . $s . '/100</p>
               </div>
               <div class="row justify-content-around">

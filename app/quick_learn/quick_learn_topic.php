@@ -6,6 +6,12 @@ include_once '../helpers/database_manager.php';
 $dm = DatabaseManager::instance();
 
 $topics = $dm->query('SELECT topic_name, image from quick_learn_topic')->fetchAll();
+if (isset($_GET['search'])) {
+  $topics = array_values(array_filter(
+    $topics,
+    fn($t): bool => str_contains($t['topic_name'], $_GET['search'])
+  ));
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,12 +29,14 @@ $topics = $dm->query('SELECT topic_name, image from quick_learn_topic')->fetchAl
       <div class="row flex align-items-center mt-7 mb-4">
         <p class="col-4 fs-5">よく使われるフレーズ</p>
         <div class="col-4">
-          <div class="form-floating position-relative">
-            <input type="text" class="form-control rounded-4 border-dark-subtle" id="search" name="search" placeholder=""
-              required>
-            <label for="search">検索</label>
-            <i class="position-absolute end-5 bottom-35 fa-solid fa-search text-grey"></i>
-          </div>
+          <form action="" method="get">
+            <div class="form-floating position-relative">
+              <input type="text" class="form-control rounded-4 border-dark-subtle" id="search" name="search"
+                placeholder="" required>
+              <label for="search">検索</label>
+              <i class="position-absolute end-5 bottom-35 fa-solid fa-search text-grey"></i>
+            </div>
+          </form>
         </div>
       </div>
 
@@ -36,7 +44,7 @@ $topics = $dm->query('SELECT topic_name, image from quick_learn_topic')->fetchAl
       if (isset($_GET['e'])) {
         echo UI::alert_danger($_GET['e']);
       }
-      
+
       echo '<div class="row d-flex row-cols-4 justify-content-center">';
       for ($i = 0; $i < count($topics); $i++) {
         echo '
