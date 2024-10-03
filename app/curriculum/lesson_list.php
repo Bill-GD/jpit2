@@ -72,10 +72,10 @@ $scores = $dm->query(
               </div>
               <div class="row justify-content-around">
                 <a href="lesson_overview.php?i=' . ($i + 1) . '" class="col-2 btn btn-purple rounded-5 px-3 py-2">概要</a>
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2">語彙</a>
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2">文法</a>
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2">会話</a>
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2">練習問題</a>
+                <a href="lesson_vocab.php?i=' . ($i + 1) . '" class="col-2 btn btn-purple rounded-5 px-3 py-2">語彙</a>
+                <a href="lesson_grammar.php?i=' . ($i + 1) . '" class="col-2 btn btn-purple rounded-5 px-3 py-2">文法</a>
+                <a href="lesson_convo.php?i=' . ($i + 1) . '" class="col-2 btn btn-purple rounded-5 px-3 py-2">会話</a>
+                <a href="lesson_test.php?i=' . ($i + 1) . '" class="col-2 btn btn-purple rounded-5 px-3 py-2">練習問題</a>
               </div>
             </div>
           </div>';
