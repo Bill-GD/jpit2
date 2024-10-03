@@ -11,6 +11,11 @@ if (!isset($_GET['i'])) {
   header('Location: lesson_list.php?e=選択したレッスンは無効でした');
   exit();
 }
+$lesson_id = $_GET['i'];
+if ($lesson_id < 3) {
+  header('Location: lesson_list.php');
+  exit();
+}
 
 include_once '../helpers/database_manager.php';
 $dm = DatabaseManager::instance();
@@ -22,7 +27,7 @@ $dm = DatabaseManager::instance();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?= Helper::import_styles() ?>
-    <title> - Probeto</title>
+    <title>第<?= $lesson_id ?>課: 語彙 - Probeto</title>
   </head>
   <body>
     <?= UI::navbar() ?>

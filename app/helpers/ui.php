@@ -27,7 +27,7 @@ class UI {
   static function navbar(): string {
     // <!-- <img src="logo.png" alt="Logo" class="logo"> -->
     return "
-    <header class='navbar border border-bottom-2 fixed-top bg-white p-2'>
+    <header class='navbar border border-bottom-2 fixed-top bg-secondary-subtle p-2'>
       <a href='../../index.php' class='nav-brand fs-4 text-decoration-none text-dark ms-3'>Probeto</a>
       <ul class='nav'>
         <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href='../curriculum/alphabet.php'>アルファベット</a></li>

@@ -71,13 +71,7 @@ $scores = array_values(array_filter(
         echo '<p class="fs-5">レッスンがまだありません。</p>';
       } else {
         for ($i = 0; $i < count($lessons); $i++) {
-          $s = 0;
-          if ($i < count($scores)) {
-            $raw_score = $scores[$i]['test_result'];
-            if ($raw_score !== null) {
-              $s = $raw_score;
-            }
-          }
+          $s = $scores[$i]['test_result'] ?? 0;
 
           echo '
           <div class="row mb-4">
@@ -91,9 +85,9 @@ $scores = array_values(array_filter(
               </div>
               <div class="row justify-content-around">
                 <a href="lesson_overview.php?i=' . ($i + 1) . '" class="col-2 btn btn-purple rounded-5 px-3 py-2">概要</a>
-                <a href="lesson_vocab.php?i=' . ($i + 1) . '" class="col-2 btn btn-purple rounded-5 px-3 py-2">語彙</a>
-                <a href="lesson_grammar.php?i=' . ($i + 1) . '" class="col-2 btn btn-purple rounded-5 px-3 py-2">文法</a>
-                <a href="lesson_convo.php?i=' . ($i + 1) . '" class="col-2 btn btn-purple rounded-5 px-3 py-2">会話</a>
+                <a class="col-2 btn btn-purple rounded-5 px-3 py-2' . ($i > 1 ? '" href="lesson_vocab.php?i=' . ($i + 1) : ' disabled') . '">語彙</a>
+                <a class="col-2 btn btn-purple rounded-5 px-3 py-2' . ($i > 1 ? '" href="lesson_grammar.php?i=' . ($i + 1) : ' disabled') . '">文法</a>
+                <a class="col-2 btn btn-purple rounded-5 px-3 py-2' . ($i > 1 ? '" href="lesson_convo.php?i=' . ($i + 1) : ' disabled') . '">会話</a>
                 <a href="lesson_test.php?i=' . ($i + 1) . '" class="col-2 btn btn-purple rounded-5 px-3 py-2">練習問題</a>
               </div>
             </div>
