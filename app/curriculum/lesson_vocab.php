@@ -20,6 +20,10 @@ if ($lesson_id < 3) {
 include_once '../helpers/database_manager.php';
 $dm = DatabaseManager::instance();
 
+$lesson_name = $dm->query(
+  'SELECT lesson_name from lesson where lesson_id = :lesson_id',
+  ['lesson_id' => $lesson_id]
+)->fetch(PDO::FETCH_COLUMN);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,5 +35,15 @@ $dm = DatabaseManager::instance();
   </head>
   <body>
     <?= UI::navbar() ?>
+
+    <main class="container">
+      <div class="row mt-7 mb-4">
+        <p class="col-4 fs-5 mt-3">
+          <a class="text-decoration-none link-secondary" href="lesson_list.php">&lArr;</a>
+          <?= "第{$lesson_id}課: {$lesson_name}" ?> > 語彙
+        </p>
+      </div>
+
+    </main>
   </body>
 </html>

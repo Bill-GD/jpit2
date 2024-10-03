@@ -20,6 +20,10 @@ if ($lesson_id < 3) {
 include_once '../helpers/database_manager.php';
 $dm = DatabaseManager::instance();
 
+$lesson_name = $dm->query(
+  'SELECT lesson_name from lesson where lesson_id = :lesson_id',
+  ['lesson_id' => $lesson_id]
+)->fetch(PDO::FETCH_COLUMN);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,9 +31,19 @@ $dm = DatabaseManager::instance();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?= Helper::import_styles() ?>
-    <title> - Probeto</title>
+    <title>第<?= $lesson_id ?>課: 会話 - Probeto</title>
   </head>
   <body>
     <?= UI::navbar() ?>
+
+    <main class="container">
+      <div class="row mt-7 mb-4">
+        <p class="col-4 fs-5 mt-3">
+          <a class="text-decoration-none link-secondary" href="lesson_list.php">&lArr;</a>
+          <?= "第{$lesson_id}課: {$lesson_name}" ?> > 会話
+        </p>
+      </div>
+
+    </main>
   </body>
 </html>
