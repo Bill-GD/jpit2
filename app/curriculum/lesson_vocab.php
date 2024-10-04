@@ -55,13 +55,13 @@ $vocabs = $dm->query(
           if ($i % 2 == 0) {
             echo '<div class="row justify-content-start mx-0 border-bottom">';
           }
-          $border = $i % 2 == 0 ? ' border-end' : ' m-0';
+          $border = $i % 2 == 0 ? ' border-end' : '';
           $rounded = $i == 0 ? ' rounded-start-top-3' : ($i == $total - 1 ? ' rounded-start-bottom-3' : '');
 
           echo '
-            <div class="row col-6' . $border . '">
+            <div class="row col-6">
               <p class="col-5 m-0 px-3 py-2 bg-yellow-subtle' . $rounded . '">' . $vocabs[$i]['word'] . '</p>
-              <div class="col row' . $border . ' px-3 py-2">
+              <div class="col row' . $border . ' border-start m-0 px-3 py-2">
                 <p class="col m-0">' . $vocabs[$i]['meaning'] . '</p>
                 <a class="col-auto align-self-center icon-link link-secondary text-decoration-none
                  fs-3 fa-solid fa-volume-high play-sound" audio-path="' . $vocabs[$i]['audio'] . '"></a>

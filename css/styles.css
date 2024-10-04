@@ -87,31 +87,20 @@
   --bs-btn-disabled-bg: #6f42c1;
   --bs-btn-disabled-border-color: #6f42c1;
 }
- 
- .card-hover {
+
+.card-hover {
   border-radius: 15px;
   border: 1px solid #ddd;
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
+}
 
 .card-hover:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      }
-
-.fixed-size {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 15px;
-  }
-  .custom-container {
-    max-width: 1600px; /* Tăng chiều rộng của container */
-    padding: 50px; /* Thêm khoảng cách padding để tạo không gian */
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
- 
+
 .card-hover:hover {
   animation: color-blink 1s infinite; /* Tạo animation */
   transform: translateY(-10px); /* Nâng khối lên khi hover */
@@ -119,18 +108,18 @@
 
 @keyframes color-blink {
   0% {
-      box-shadow: 0 0 10px 5px red;
+    box-shadow: 0 0 10px 5px red;
   }
   25% {
-      box-shadow: 0 0 10px 5px green;
+    box-shadow: 0 0 10px 5px green;
   }
   50% {
-      box-shadow: 0 0 10px 5px blue;
+    box-shadow: 0 0 10px 5px blue;
   }
   75% {
-      box-shadow: 0 0 10px 5px yellow;
+    box-shadow: 0 0 10px 5px yellow;
   }
   100% {
-      box-shadow: 0 0 10px 5px purple;
+    box-shadow: 0 0 10px 5px purple;
   }
 }
