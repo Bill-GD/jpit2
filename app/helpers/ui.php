@@ -30,12 +30,9 @@ class UI {
     <header class='navbar border border-bottom-2 fixed-top bg-secondary-subtle p-2'>
       <a href='../../index.php' class='nav-brand fs-4 text-decoration-none text-dark ms-3'>Probeto</a>
       <ul class='nav'>
-        <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href='../curriculum/alphabet.php'>アルファベット</a></li>
-        <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href='../curriculum/compound.php'>拗音</a></li>
-        <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href='../curriculum/lesson_list.php'>カリキュラム</a></li>
-        <!-- <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href=''>個人辞書</a></li> -->
-        <!-- <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href=''>オープン辞書</a></li> -->
-        <!-- <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href=''>専門用語</a></li> -->
+        <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href=''>個人辞書</a></li>
+        <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href=''>オープン辞書</a></li>
+        <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href=''>専門用語</a></li>
         <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href='../quick_learn/quick_learn_topic.php'>よく使われるフレーズ</a></li>
         <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href='#'>模擬試験</a></li>
         "
