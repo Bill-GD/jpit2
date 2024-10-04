@@ -44,9 +44,9 @@ create table if not exists vocab (
 	vocab_id int not null primary key auto_increment,
     lesson_id int not null,
     word nvarchar(32) not null,
-    pronunciation nvarchar(50),
+    -- pronunciation nvarchar(50),
     meaning nvarchar(50),
-    example_sentence text,
+    -- example_sentence text,
     created_at date,
     updated_at date,
     foreign key (lesson_id) references lesson (lesson_id)

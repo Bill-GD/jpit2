@@ -85,9 +85,9 @@ $scores = array_values(array_filter(
               </div>
               <div class="row justify-content-around">
                 <a class="col-2 btn btn-purple rounded-5 px-3 py-2" href="lesson_overview.php?i=' . ($i + 1) . '">概要</a>
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2' . ($i > 1 ? '" href="lesson_vocab.php?i=' . ($i + 1) : ' disabled') . '">語彙</a>
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2' . ($i > 1 ? '" href="lesson_grammar.php?i=' . ($i + 1) : ' disabled') . '">文法</a>
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2' . ($i > 1 ? '" href="lesson_convo.php?i=' . ($i + 1) : ' disabled') . '">会話</a>
+                <a class="col-2 btn btn-purple rounded-5 px-3 py-2" href="lesson_vocab.php?i=' . ($i + 1) . '">語彙</a>
+                <a class="col-2 btn btn-purple rounded-5 px-3 py-2" href="lesson_grammar.php?i=' . ($i + 1) . '">文法</a>
+                <a class="col-2 btn btn-purple rounded-5 px-3 py-2" href="lesson_convo.php?i=' . ($i + 1) . '">会話</a>
                 <a class="col-2 btn btn-purple rounded-5 px-3 py-2" href="lesson_test.php?i=' . ($i + 1) . '">練習問題</a>
               </div>
             </div>

@@ -13,11 +13,6 @@ if (!isset($_GET['i'])) {
 }
 $lesson_id = $_GET['i'];
 
-if ($lesson_id < 3) {
-  header('Location: ' . ($lesson_id == 1 ? 'alphabet.php' : 'compound.php'));
-  exit();
-}
-
 include_once '../helpers/database_manager.php';
 $dm = DatabaseManager::instance();
 

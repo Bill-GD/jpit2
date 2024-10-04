@@ -46,6 +46,10 @@
 .text-grey {
   color: #666;
 }
+.text-purple {
+  --bs-text-opacity: 1;
+  color: #825580 !important;
+}
 .link-secondary:hover,
 .link-secondary:focus {
   color: #000 !important;

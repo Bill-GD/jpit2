@@ -36,6 +36,7 @@ $lesson_name = $dm->query(
       <div class="row mt-7 mb-4">
         <p class="col-4 fs-5 mt-3">
           <a class="text-decoration-none link-secondary" href="lesson_list.php">&lArr;</a>
+          
           <?= "第{$lesson_id}課: {$lesson_name}" ?> > 練習問題
         </p>
       </div>
