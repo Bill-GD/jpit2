@@ -38,12 +38,12 @@ $vocabs = $dm->query(
     <?= UI::navbar() ?>
 
     <main class="container">
-      <div class="mt-7">
+      <div class="mt-7 mb-4">
         <p class="fs-5 mt-3">
           <a class="text-decoration-none link-secondary" href="lesson_list.php">&lArr;</a>
           <?= "第{$lesson_id}課: {$lesson_name}" ?> > 語彙
         </p>
-        <p class="fs-5 mb-4">関連する語彙</p>
+        <p class="fs-5">関連する語彙</p>
       </div>
 
       <div class="fs-3 text-purple fw-bold">Từ vựng - 言葉</div>

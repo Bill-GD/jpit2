@@ -13,6 +13,21 @@ create table if not exists lesson (
     lesson_content text
 );
 
+create table if not exists test_question (
+    question_id int auto_increment primary key,
+    lesson_id int not null,
+    content text not null,
+    foreign key (lesson_id) references lesson (lesson_id)
+);
+
+create table if not exists test_question_choice (
+    choice_id int auto_increment primary key,
+    question_id int not null,
+    content text not null,
+    is_correct boolean default false,
+    foreign key (question_id) references test_question (question_id) on delete cascade
+);
+
 create table if not exists test_result (
 	test_result_id int not null primary key auto_increment,
     user_id int not null,
@@ -93,9 +108,9 @@ begin
   end if;
   
   set @alter_statement = concat('alter table quick_learn_topic auto_increment = ', @next_id);
-  PREPARE stmt FROM @alter_statement;
-  EXECUTE stmt;
-  DEALLOCATE PREPARE stmt;
+  prepare stmt from @alter_statement;
+  execute stmt;
+  deallocate prepare stmt;
 end $$
 delimiter ;
 
@@ -109,9 +124,9 @@ begin
   end if;
   
   set @alter_statement = concat('alter table quick_learn_content auto_increment = ', @next_id);
-  PREPARE stmt FROM @alter_statement;
-  EXECUTE stmt;
-  DEALLOCATE PREPARE stmt;
+  prepare stmt from @alter_statement;
+  execute stmt;
+  deallocate prepare stmt;
 end $$
 delimiter ;
 
@@ -125,9 +140,9 @@ begin
   end if;
   
   set @alter_statement = concat('alter table `user` auto_increment = ', @next_id);
-  PREPARE stmt FROM @alter_statement;
-  EXECUTE stmt;
-  DEALLOCATE PREPARE stmt;
+  prepare stmt from @alter_statement;
+  execute stmt;
+  deallocate prepare stmt;
 end $$
 delimiter ;
 
@@ -141,9 +156,41 @@ begin
   end if;
   
   set @alter_statement = concat('alter table lesson auto_increment = ', @next_id);
-  PREPARE stmt FROM @alter_statement;
-  EXECUTE stmt;
-  DEALLOCATE PREPARE stmt;
+  prepare stmt from @alter_statement;
+  execute stmt;
+  deallocate prepare stmt;
+end $$
+delimiter ;
+
+delimiter $$
+create procedure reset_test_question_id ()
+begin
+  select coalesce(max(question_id), -1) from test into @next_id;
+  
+  if @next_id <= 0 then
+    set @next_id = 0;
+  end if;
+  
+  set @alter_statement = concat('alter table test_question auto_increment = ', @next_id);
+  prepare stmt from @alter_statement;
+  execute stmt;
+  deallocate prepare stmt;
+end $$
+delimiter ;
+
+delimiter $$
+create procedure reset_test_question_choice_id ()
+begin
+  select coalesce(max(choice_id), -1) from test into @next_id;
+  
+  if @next_id <= 0 then
+    set @next_id = 0;
+  end if;
+  
+  set @alter_statement = concat('alter table test_question_choice auto_increment = ', @next_id);
+  prepare stmt from @alter_statement;
+  execute stmt;
+  deallocate prepare stmt;
 end $$
 delimiter ;
 
@@ -157,9 +204,9 @@ begin
   end if;
   
   set @alter_statement = concat('alter table test_result auto_increment = ', @next_id);
-  PREPARE stmt FROM @alter_statement;
-  EXECUTE stmt;
-  DEALLOCATE PREPARE stmt;
+  prepare stmt from @alter_statement;
+  execute stmt;
+  deallocate prepare stmt;
 end $$
 delimiter ;
 
@@ -173,9 +220,9 @@ begin
   end if;
   
   set @alter_statement = concat('alter table notification auto_increment = ', @next_id);
-  PREPARE stmt FROM @alter_statement;
-  EXECUTE stmt;
-  DEALLOCATE PREPARE stmt;
+  prepare stmt from @alter_statement;
+  execute stmt;
+  deallocate prepare stmt;
 end $$
 delimiter ;
 
@@ -189,9 +236,9 @@ begin
   end if;
   
   set @alter_statement = concat('alter table listen_speak_practice auto_increment = ', @next_id);
-  PREPARE stmt FROM @alter_statement;
-  EXECUTE stmt;
-  DEALLOCATE PREPARE stmt;
+  prepare stmt from @alter_statement;
+  execute stmt;
+  deallocate prepare stmt;
 end $$
 delimiter ;
 
@@ -205,9 +252,9 @@ begin
   end if;
   
   set @alter_statement = concat('alter table vocab auto_increment = ', @next_id);
-  PREPARE stmt FROM @alter_statement;
-  EXECUTE stmt;
-  DEALLOCATE PREPARE stmt;
+  prepare stmt from @alter_statement;
+  execute stmt;
+  deallocate prepare stmt;
 end $$
 delimiter ;
 
@@ -221,8 +268,8 @@ begin
   end if;
   
   set @alter_statement = concat('alter table learning_path auto_increment = ', @next_id);
-  PREPARE stmt FROM @alter_statement;
-  EXECUTE stmt;
-  DEALLOCATE PREPARE stmt;
+  prepare stmt from @alter_statement;
+  execute stmt;
+  deallocate prepare stmt;
 end $$
 delimiter ;

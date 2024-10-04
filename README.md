@@ -22,4 +22,4 @@ A project for JPIT2 at school.
 ### Running the project
 
 - This project is currently not deployed (localhost)
-- Use `php -S localhost:8000` (or different port) in the Terminal inside the project root
+- Use `php -S localhost:8000` (port 8000 used for Google Sign In) in the Terminal inside the project root

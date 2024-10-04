@@ -20,6 +20,19 @@ $lesson_name = $dm->query(
   'SELECT lesson_name from lesson where lesson_id = :lesson_id',
   ['lesson_id' => $lesson_id]
 )->fetch(PDO::FETCH_COLUMN);
+
+$questions = $dm->query(
+  'SELECT * from test_question where lesson_id = :lesson_id',
+  ['lesson_id' => $lesson_id]
+)->fetchAll();
+
+$answers = [];
+foreach ($questions as $q) {
+  $answers = array_merge($answers, $dm->query(
+    'SELECT * from test_question_choice where question_id = :question_id',
+    ['question_id' => $q['question_id']]
+  )->fetchAll());
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,14 +46,50 @@ $lesson_name = $dm->query(
     <?= UI::navbar() ?>
 
     <main class="container">
-      <div class="row mt-7 mb-4">
-        <p class="col-4 fs-5 mt-3">
+      <div class="mt-7 mb-4">
+        <p class="fs-5 mt-3">
           <a class="text-decoration-none link-secondary" href="lesson_list.php">&lArr;</a>
-          
           <?= "第{$lesson_id}課: {$lesson_name}" ?> > 練習問題
         </p>
+        <p class="fs-5">勉強しましょう</p>
       </div>
 
+      <?php
+      for ($i = 0; $i < count($questions); $i++) {
+        $q = $questions[$i];
+        $choices = array_values(array_filter(
+          $answers,
+          fn($a): bool => $a['question_id'] == $q['question_id']
+        ));
+
+        echo '
+          <div class="border border-2 rounded-3 px-3 pt-2 mb-3">
+            <p class="fs-5 fw-bold">質問 ' . ($i + 1) . ':</p>
+            <p class="fs-5">' . $q['content'] . '</p>
+            </div>
+            ';
+
+        echo '<div class="row column-gap-4 m-0 mb-5">';
+        for ($j = 0; $j < count($choices); $j++) {
+          echo '
+            <div class="col border border-2 rounded-3 px-3">
+              <p class="pt-2 fs-5 fw-bold">答え ' . ($j + 1) . ':</p>
+              <p class="fs-5">' . $choices[$j]['content'] . '</p>
+            </div>
+          ';
+        }
+        echo '</div>';
+      }
+      ?>
     </main>
+
+    <div class="container bg-white fixed-bottom px-3 py-3">
+      <div class="row justify-content-around align-items-center">
+        <div class="col-6 progress rounded-4 bg-secondary-subtle p-0">
+          <div class="progress-bar rounded-4 bg-primary h-100" id="progress-bar" style="width: 0%"></div>
+        </div>
+        <a href="" class="col-auto btn btn-purple rounded-5 ms-5 px-3 py-2">提出</a>
+      </div>
+    </div>
   </body>
 </html>

@@ -12,3 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+window.onscroll = () => {
+  const winScroll = document.documentElement.scrollTop;
+  const maxScroll = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const ratio = (winScroll / maxScroll * 100).toFixed(2);
+  console.log(`User scroll: ${winScroll} / ${maxScroll} (${ratio}%)`);
+  document.getElementById('progress-bar').style.width = ratio + '%';
+};
