@@ -24,6 +24,14 @@ if (isset($_GET['search'])) {
   ));
 }
 
+$test_lesson_id = 0;
+$test_score = 0;
+if (isset($_GET['d'])) {
+  $data = explode('-', $_GET['d']);
+  $test_lesson_id = $data[0];
+  $test_score = $data[1];
+}
+
 $scores = $dm->query(
   'SELECT lesson_id, test_result from test_result where user_id = :user_id order by lesson_id asc',
   ['user_id' => $_COOKIE['user_id']]
@@ -45,6 +53,10 @@ $scores = array_values(array_filter(
   </head>
   <body>
     <?= UI::navbar() ?>
+    <?php
+    if (isset($_GET['s'])) {
+    }
+    ?>
 
     <main class="container w-60 mt-7">
       <div class="row d-flex justify-content-center mt-7 mb-5">
@@ -99,6 +111,32 @@ $scores = array_values(array_filter(
         }
       }
       ?>
+
+      <div class="modal fade" id="score-modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"><?= "第{$test_lesson_id}課" ?>のテスト結果</h5>
+              <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            </div>
+            <div class="modal-body text-center">
+              <h5>獲得ポイント</h5>
+              <h1 class="fw-bold"><?= $test_score ?></h1>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   </body>
+  <script>
+    const data = window.location.href.split('?').find(e => e.startsWith('d='));
+
+    if (data) {
+      const myModalAlternative = new bootstrap.Modal(document.getElementById('score-modal'), {});
+      myModalAlternative.show();
+    }
+  </script>
 </html>

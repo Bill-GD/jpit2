@@ -43,4 +43,4 @@ if (count($res) > 0) {
 }
 
 // header('Location: lesson_test.php?i=' . $_GET['i'] . '&s=' . $_GET['s']);
-header('Location: lesson_list.php');
+header('Location: lesson_list.php?d=' . $_GET['i'] . '-' . $_GET['s']);
