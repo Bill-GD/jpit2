@@ -91,19 +91,14 @@
 .card-hover {
   border-radius: 15px;
   border: 1px solid #ddd;
-  padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-hover:hover {
-  transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.card-hover:hover {
-  animation: color-blink 1s infinite; /* Tạo animation */
-  transform: translateY(-10px); /* Nâng khối lên khi hover */
+  /* animation: color-blink 1s infinite; */
+  transform: translateY(-10px);
 }
 
 @keyframes color-blink {

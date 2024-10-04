@@ -2,6 +2,9 @@
 
 A project for JPIT2 at school.
 
+![GitHub repo size](https://img.shields.io/github/repo-size/Bill-GD/jpit2?style=plastic)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Bill-GD/jpit2?style=plastic)
+
 ### Details
 
 - Spec [here](https://docs.google.com/spreadsheets/d/1zKF-ncEAsqOzxUUS-hna7WYB2SYGaonA3xstNhMjMds/edit?usp=sharing)
