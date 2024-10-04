@@ -71,7 +71,13 @@ $scores = array_values(array_filter(
         echo '<p class="fs-5">レッスンがまだありません。</p>';
       } else {
         for ($i = 0; $i < count($lessons); $i++) {
+          $prev = 100;
+          if ($i > 0) {
+            $prev = $scores[$i - 1]['test_result'] ?? 0;
+          }
           $s = $scores[$i]['test_result'] ?? 0;
+
+          $unlocked = $prev >= 50;
 
           echo '
           <div class="row mb-4">
@@ -81,14 +87,14 @@ $scores = array_values(array_filter(
                 <p class="col fs-4 fw-semibold mb-4">
                 第' . $lessons[$i]['lesson_id'] . '課: ' . $lessons[$i]['lesson_name'] .
             '</p>
-                <p class="col-auto fs-5">' . $s . '/100</p>
+                <p class="col-auto fs-5" ' . (!$unlocked ? 'title="50 or more to unlock"' : '') . '>' . $s . '/100</p>
               </div>
               <div class="row justify-content-around">
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2" href="lesson_overview.php?i=' . ($i + 1) . '">概要</a>
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2" href="lesson_vocab.php?i=' . ($i + 1) . '">語彙</a>
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2" href="lesson_grammar.php?i=' . ($i + 1) . '">文法</a>
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2" href="lesson_convo.php?i=' . ($i + 1) . '">会話</a>
-                <a class="col-2 btn btn-purple rounded-5 px-3 py-2" href="lesson_test.php?i=' . ($i + 1) . '">練習問題</a>
+                <a class="col-2 btn btn-purple rounded-5 px-3 py-2' . ($unlocked ? '" href="lesson_overview.php?i=' . ($i + 1) : ' disabled') . '">概要</a>
+                <a class="col-2 btn btn-purple rounded-5 px-3 py-2' . ($unlocked ? '" href="lesson_vocab.php?i=' . ($i + 1) : ' disabled') . '">語彙</a>
+                <a class="col-2 btn btn-purple rounded-5 px-3 py-2' . ($unlocked ? '" href="lesson_grammar.php?i=' . ($i + 1) : ' disabled') . '">文法</a>
+                <a class="col-2 btn btn-purple rounded-5 px-3 py-2' . ($unlocked ? '" href="lesson_convo.php?i=' . ($i + 1) : ' disabled') . '">会話</a>
+                <a class="col-2 btn btn-purple rounded-5 px-3 py-2' . ($unlocked ? '" href="lesson_test.php?i=' . ($i + 1) : ' disabled') . '">練習問題</a>
               </div>
             </div>
           </div>';

@@ -113,7 +113,8 @@ foreach ($questions as $q) {
       }
 
       const score = Math.round(correctCount / totalQuestionCount * 100);
-      alert(`あなたのスコアは ${score}/100 です。`);
+      // alert(`あなたのスコアは ${score}/100 です。`);
+      window.location.href = `test_result_handler.php?i=${<?= $lesson_id ?>}&s=${score}`;
     });
 
     for (let e of document.getElementsByClassName('answer-container')) {
