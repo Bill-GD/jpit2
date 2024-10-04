@@ -9,8 +9,7 @@ create table if not exists `user` (
 create table if not exists lesson (
 	lesson_id int not null primary key auto_increment,
     lesson_name varchar(50) not null,
-    thumbnail text not null,
-    lesson_content text
+    thumbnail text not null
 );
 
 create table if not exists test_question (
