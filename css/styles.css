@@ -112,3 +112,25 @@
     padding: 50px; /* Thêm khoảng cách padding để tạo không gian */
 }
  
+.card-hover:hover {
+  animation: color-blink 1s infinite; /* Tạo animation */
+  transform: translateY(-10px); /* Nâng khối lên khi hover */
+}
+
+@keyframes color-blink {
+  0% {
+      box-shadow: 0 0 10px 5px red;
+  }
+  25% {
+      box-shadow: 0 0 10px 5px green;
+  }
+  50% {
+      box-shadow: 0 0 10px 5px blue;
+  }
+  75% {
+      box-shadow: 0 0 10px 5px yellow;
+  }
+  100% {
+      box-shadow: 0 0 10px 5px purple;
+  }
+}
