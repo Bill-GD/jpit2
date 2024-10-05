@@ -36,7 +36,15 @@ insert into vocab (vocab_id, lesson_id, word, meaning, audio, created_at, update
 insert into test_question (question_id, lesson_id, content) values
 (1, 1, 'Bạn tên là gì?'),
 (2, 1, 'Bạn đến từ đâu?'),
-(3, 1, 'Câu nào dùng để chào hỏi ghi gặp ai đó lần đầu?');
+(3, 1, 'Câu nào dùng để chào hỏi ghi gặp ai đó lần đầu?'),
+(4, 1, 'Nghĩa của từ sau là gì: chào'),
+(5, 1, 'Xin lỗi, lớp bạn ở đâu vậy?'),
+(6, 1, 'Dịch câu sau: お元気ですか？'),
+(7, 2, ''),
+(8, 2, ''),
+(9, 2, ''),
+(10, 2, ''),
+(11, 2, '');
 
 insert into test_question_choice (choice_id, question_id, content, is_correct) values
 (1, 1, 'Tôi', false),
@@ -49,4 +57,33 @@ insert into test_question_choice (choice_id, question_id, content, is_correct) v
 (8, 2, 'Đồ tráng miệng', false),
 (9, 3, 'Bạn có khỏe không?', false),
 (10, 3, 'Xin chào, tôi là Minh. Rất vui được gặp bạn.', true),
-(11, 3, 'Bạn làm nghề gì?', false);
+(11, 3, 'Bạn làm nghề gì?', false),
+(12, 4, '嬉しい', false),
+(13, 4, '国', false),
+(14, 4, 'こんにちは', true),
+(15, 4, '会う', false),
+(16, 5, 'Tôi năm nay 22 tuổi.', false),
+(17, 5, 'Tôi chưa ăn sáng.', false),
+(18, 5, 'Lớp của tôi ở phòng 1, tầng 2, giảng đường B5.', true),
+(19, 6, 'Bạn có khỏe không?', true),
+(20, 6, 'Bạn muốn ăn gì?', false),
+(21, 6, 'Bạn tên là gì?', false),
+(22, 6, 'Bạn đang làm gì?', false);
+
+insert into mock_test_question (question_id, `level`, content) values
+(1, 1, 'Chó là ... tốt nhất của con người?'),
+(2, 1, 'Trái dứng là gì?'),
+(3, 1, 'Bảng chữ cái Tiếng Việt có bao nhiêu chữ cái?');
+
+insert into mock_test_choice (choice_id, question_id, content, is_correct) values
+(1, 1, 'đồ ăn', false),
+(2, 1, 'người bạn', true),
+(3, 1, 'thú nuôi', false),
+(4, 1, 'gác nhà', false),
+(5, 2, 'Hoa quả', true),
+(6, 2, 'Đồ chơi', false),
+(7, 2, 'Bộ phận con người', false),
+(8, 2, 'Công cụ', false),
+(9, 3, '27', false),
+(10, 3, '29', true),
+(11, 3, '31', false);

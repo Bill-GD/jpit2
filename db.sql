@@ -12,6 +12,20 @@ create table if not exists lesson (
     thumbnail text not null
 );
 
+create table if not exists mock_test_question (
+    question_id int auto_increment primary key,
+    `level` int not null,
+    content text not null
+);
+
+create table if not exists mock_test_choice (
+    choice_id int auto_increment primary key,
+    question_id int not null,
+    content text not null,
+    is_correct boolean default false,
+    foreign key (question_id) references mock_test_question (question_id) on delete cascade
+);
+
 create table if not exists test_question (
     question_id int auto_increment primary key,
     lesson_id int not null,
@@ -162,9 +176,41 @@ end $$
 delimiter ;
 
 delimiter $$
+create procedure reset_mock_test_question_id ()
+begin
+  select coalesce(max(question_id), -1) from mock_test_question into @next_id;
+  
+  if @next_id <= 0 then
+    set @next_id = 0;
+  end if;
+  
+  set @alter_statement = concat('alter table mock_test_question auto_increment = ', @next_id);
+  prepare stmt from @alter_statement;
+  execute stmt;
+  deallocate prepare stmt;
+end $$
+delimiter ;
+
+delimiter $$
+create procedure reset_mock_test_choice_id ()
+begin
+  select coalesce(max(choice_id), -1) from mock_test_choice into @next_id;
+  
+  if @next_id <= 0 then
+    set @next_id = 0;
+  end if;
+  
+  set @alter_statement = concat('alter table mock_test_choice auto_increment = ', @next_id);
+  prepare stmt from @alter_statement;
+  execute stmt;
+  deallocate prepare stmt;
+end $$
+delimiter ;
+
+delimiter $$
 create procedure reset_test_question_id ()
 begin
-  select coalesce(max(question_id), -1) from test into @next_id;
+  select coalesce(max(question_id), -1) from test_question into @next_id;
   
   if @next_id <= 0 then
     set @next_id = 0;
@@ -180,7 +226,7 @@ delimiter ;
 delimiter $$
 create procedure reset_test_question_choice_id ()
 begin
-  select coalesce(max(choice_id), -1) from test into @next_id;
+  select coalesce(max(choice_id), -1) from test_question_choice into @next_id;
   
   if @next_id <= 0 then
     set @next_id = 0;
