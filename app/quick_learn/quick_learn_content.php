@@ -39,7 +39,7 @@ if (isset($_GET['search'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?= Helper::import_styles() ?>
-    <title>速習画面の内容 - Probeto</title>
+    <title>速習の内容 - Probeto</title>
   </head>
   <body>
     <?= UI::navbar() ?>

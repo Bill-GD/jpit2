@@ -39,7 +39,7 @@ $scores = $dm->query(
 
 $scores = array_values(array_filter(
   $scores,
-  fn($score): bool => in_array($score['lesson_id'], array_column($lessons, 'lesson_id'))
+  fn($s): bool => in_array($s['lesson_id'], array_column($lessons, 'lesson_id'))
 ));
 ?>
 
@@ -53,10 +53,6 @@ $scores = array_values(array_filter(
   </head>
   <body>
     <?= UI::navbar() ?>
-    <?php
-    if (isset($_GET['s'])) {
-    }
-    ?>
 
     <main class="container w-60 mt-7">
       <div class="row d-flex justify-content-center mt-7 mb-5">
