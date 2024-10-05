@@ -42,7 +42,7 @@ if (!Helper::is_user_logged_in()) {
       <div class="row flex justify-content-around mt-6 mb-6">
         <a href="../quick_learn/quick_learn_topic.php" class="btn btn-dark px-5 py-3 col-2">早く学ぶ</a>
         <a href="../curriculum/select.php" class="btn btn-success px-5 py-3 col-2">勉強を続ける</a>
-        <a href="../personalized/personalized_plan.php" class="btn btn-dark px-5 py-3 col-2">個性化</a>
+        <a href="../personalized/mock_exam.php" class="btn btn-dark px-5 py-3 col-2">個性化</a>
       </div>
 
       <div class="row flex justify-content-center align-items-center mt-6 pt-5">

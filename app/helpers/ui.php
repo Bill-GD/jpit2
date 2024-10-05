@@ -34,7 +34,7 @@ class UI {
         <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href=''>オープン辞書</a></li>
         <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href=''>専門用語</a></li>
         <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href='../quick_learn/quick_learn_topic.php'>よく使われるフレーズ</a></li>
-        <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href='#'>模擬試験</a></li>
+        <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href='../personalized/mock_exam.php'>模擬試験</a></li>
         "
       . (Helper::is_user_logged_in()
         ? self::account_drop_down()
