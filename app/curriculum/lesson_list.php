@@ -86,13 +86,14 @@ $scores = array_values(array_filter(
           $s = $scores[$i]['test_result'] ?? 0;
 
           $unlocked = $prev >= 50;
+          $id = $lessons[$i]['lesson_id'];
 
           echo '
-          <div class="row mb-4"' . (!$unlocked ? ' title="前のレッスンで50点以上を取得してロックを解除"' : '') . '>
+          <div class="row mb-4"' . (!$unlocked ? ' title="前のレッスンで50点以上を取得してロックを解除"' : '') . ' id="' . $id . '">
             <img class="col-3 me-3 object-fit-contain" height="150" src="../../assets/images/' . $lessons[$i]['thumbnail'] . '">
             <div class="col d-flex flex-column justify-content-between border border-4 rounded-2 px-4 py-3">
               <div class="row justify-content-between align-items-center">
-                <p class="col fs-4 fw-semibold mb-4">第' . $lessons[$i]['lesson_id'] . '課: ' . $lessons[$i]['lesson_name'] . '</p>
+                <p class="col fs-4 fw-semibold mb-4">第' . $id . '課: ' . $lessons[$i]['lesson_name'] . '</p>
                 <p class="col-auto fs-5">' . $s . '/100</p>
               </div>
               <div class="row justify-content-around">

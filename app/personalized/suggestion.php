@@ -15,6 +15,26 @@ if (isset($_GET['l'])) {
 if (isset($_GET['s'])) {
   $test_score = $_GET['s'];
 }
+
+$score_thresholds = [0, 20, 30, 50, 70, 90, 101];
+$titles = [
+  'アルファベットと発音に慣れる',
+  '複合音とその発音を学ぶ',
+  'ベトナム語会話の基本を再学習する',
+  '様々なトピックの簡単なベトナム語会話を学ぶ',
+  '上級語彙と会話を学ぶ',
+  'ベトナム語基礎コースの復習'
+];
+$desc = [
+  'ベトナム語のアルファベットを理解し、各文字の発音を確実に把握する。',
+  '一般的に使用されるベトナム語の複合音を理解する。',
+  'ベトナム語の挨拶や簡単な会話に関連する語彙と文を学ぶ。',
+  '日常生活の様々なトピックに関する基本情報と質問を理解する。',
+  '上級の語彙と特定のトピックに関する会話を学ぶ。',
+  'ベトナム語の基礎知識を復習し、練習問題を通じて学んだ内容を強化する。'
+];
+$images = ['personalized/weird_a.jpg', 'compound/ch.jpg', 'lesson/greeting.png', '', '', ''];
+$urls = ['alphabet.php', 'compound.php', 'lesson_list.php#1', 'lesson_list.php#5', 'lesson_list.php#20', 'lesson_list.php#40'];
 ?>
 
 <!DOCTYPE html>
@@ -34,44 +54,26 @@ if (isset($_GET['s'])) {
         <p class="fs-2">テストの結果に基づいて、私たちはあなたの学習プランを以下のように提案します</p>
       </div>
 
-      <div class="row mb-4 gap-5">
-        <div class="col d-flex flex-column justify-content-start bg-secondary-subtle rounded-2 ps-4 py-3">
-          <p class="fs-3 fw-bold">アルファベットと発音に慣れる</p>
-          <div class="row d-flex mb-3">
-            <p class="col-lg-8 fs-4">ベトナム語のアルファベットを理解し、各文字の発音を確実に把握する。</p>
-            <img class="col-lg-4 rounded-4" src="../../assets/images/personalized/weird_a.jpg">
-          </div>
-          <a href="../curriculum/alphabet.php" class="btn btn-purple align-self-end mt-auto text-white px-4 py-2 rounded-5">詳細</a>
-        </div>
-
-        <div class="col d-flex flex-column justify-content-start bg-secondary-subtle rounded-2 ps-4 py-3">
-          <p class="fs-3 fw-bold">基本的な語彙と日常会話のフレーズを学 ぶ</p>
-          <div class="row d-flex mb-3">
-            <p class="col-lg-8 fs-4">基本的な語彙や日常生活でよく使われる会話表現を学ぶ</p>
-            <div class="col-lg-4 rounded-4"></div>
-          </div>
-          <a href="../quick_learn/quick_learn_topic.php" class="btn btn-purple align-self-end mt-auto text-white px-4 py-2 rounded-5">詳細</a>
-        </div>
-      </div>
-
-      <div class="row mb-4 gap-5">
-        <div class="col d-flex flex-column justify-content-start bg-secondary-subtle rounded-2 ps-4 py-3">
-          <p class="fs-3 fw-bold">基本的な文法を学ぶ</p>
-          <div class="row d-flex mb-3">
-            <p class="col-lg-8 fs-4">ベトナム語の基本的な文法構造を理解して適用する</p>
-            <img class="col-lg-4 rounded-4" src="../../assets/images/personalized/grammar.png">
-          </div>
-          <a href="../curriculum/lesson_list.php" class="btn btn-purple align-self-end mt-auto text-white px-4 py-2 rounded-5">詳細</a>
-        </div>
-
-        <div class="col d-flex flex-column justify-content-start bg-secondary-subtle rounded-2 ps-4 py-3">
-          <p class="fs-3 fw-bold">会話や具体的な状況での実践練習を行う</p>
-          <div class="row d-flex mb-3">
-            <p class="col-lg-8 fs-4">学んだ語彙と文法を具体的な会話の状況に応用する</p>
-            <img class="col-lg-4 rounded-4" src="../../assets/images/personalized/practice-makes-perfect-cover.png">
-          </div>
-          <a href="../curriculum/lesson_list.php" class="btn btn-purple align-self-end mt-auto text-white px-4 py-2 rounded-5">詳細</a>
-        </div>
+      <div class="d-flex flex-row justify-content-center mt-5">
+        <?php
+        for ($i = 0; $i < count($score_thresholds) - 1; $i++) {
+          $image = empty($images[$i])
+            ? ''
+            : '<img class="col-lg-4 rounded-4" src="../../assets/images/' . $images[$i] . '">';
+          if ($test_score >= $score_thresholds[$i] && $test_score < $score_thresholds[$i + 1]) {
+            echo '
+              <div class="d-flex flex-column justify-content-start bg-secondary-subtle rounded-2 w-50 px-4 py-3">
+                <p class="fs-3 fw-bold">' . $titles[$i] . '</p>
+                <div class="row d-flex mb-3">
+                  <p class="col fs-4">' . $desc[$i] . '</p>
+                  ' . $image . '
+                </div>
+                <a href="../curriculum/' . $urls[$i] . '"
+                  class="btn btn-purple align-self-end text-white px-4 py-2 rounded-5">詳細</a>
+              </div>';
+          }
+        }
+        ?>
       </div>
     </main>
 
@@ -80,7 +82,6 @@ if (isset($_GET['s'])) {
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title"><?= "Level {$level} の模擬試験" ?>の結果</h5>
-            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
           </div>
           <div class="modal-body text-center">
             <h5>獲得ポイント</h5>
