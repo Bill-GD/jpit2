@@ -26,7 +26,7 @@ if (!Helper::is_user_logged_in()) {
       }
       ?>
 
-      <div class="row gap-5 justify-content-start m-0 mt-3">
+      <div class="row gap-5 m-0 mt-3">
         <a href="mock_test.php?l=1" class="col-auto d-flex flex-column justify-content-between border rounded-3 text-decoration-none">
           <img src="../../assets/images/personalized/certified-stamp.png" width="250" class="p-4">
           <div class="text-dark fs-5 pb-4 ps-3">

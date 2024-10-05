@@ -25,6 +25,7 @@ $questions = $dm->query(
   'SELECT * from test_question where lesson_id = :lesson_id',
   ['lesson_id' => $lesson_id]
 )->fetchAll();
+shuffle($questions);
 
 $answers = [];
 foreach ($questions as $q) {

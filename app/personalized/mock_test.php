@@ -20,6 +20,7 @@ $questions = $dm->query(
   'SELECT * from mock_test_question where level = :level',
   ['level' => $level]
 )->fetchAll();
+shuffle($questions);
 
 $answers = [];
 foreach ($questions as $q) {
@@ -44,7 +45,7 @@ foreach ($questions as $q) {
       <div class="mt-7 mb-4">
         <p class="fs-5 mt-3">
           <a class="text-decoration-none link-secondary" href="mock_exam.php">&lArr;</a>
-          <?= "Level {$level} >> 試験" ?> > 練習問題
+          <?= "Level {$level} > 試験" ?>
         </p>
       </div>
 
@@ -107,8 +108,9 @@ foreach ($questions as $q) {
       }
 
       const score = Math.round(correctCount / totalQuestionCount * 100);
-      alert(`あなたのスコアは ${score}/100 です。`);
+      // alert(`あなたのスコアは ${score}/100 です。`);
       // window.location.href = `test_result_handler.php?i=${<?= $level ?>}&s=${score}`;
+      window.location.href = `suggestion.php?l=<?= $level ?>&s=${score}`;
     });
 
     for (let e of document.getElementsByClassName('answer-container')) {
