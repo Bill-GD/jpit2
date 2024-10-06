@@ -43,7 +43,7 @@ $vocabs = $dm->query(
           <a class="text-decoration-none link-secondary" href="lesson_list.php">&lArr;</a>
           <?= "第{$lesson_id}課: {$lesson_name}" ?> > 語彙
         </p>
-        <p class="fs-5">関連する語彙</p>
+        <h5>関連する語彙</h5>
       </div>
 
       <div class="fs-3 text-purple fw-bold">Từ vựng - 言葉</div>
