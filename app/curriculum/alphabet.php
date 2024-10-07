@@ -40,8 +40,12 @@ if (isset($_GET['s'])) {
       <div class="row flex align-items-center justify-content-between mt-7 mb-4">
         <p class="col-4 fs-4">アルファベット</p>
         <div class="col-4 row flex justify-content-end">
-          <a href="alphabet.php" class="col-auto btn btn-primary me-2">a->z</a>
-          <a href="?s" class="col-auto btn btn-primary">z->a</a>
+          <a href="alphabet.php" class="col-auto btn btn<?= isset($_GET['s']) ? '-outline' : '' ?>-purple me-2">
+            A-Zで並べ替え
+          </a>
+          <a href="?s" class="col-auto btn btn<?= isset($_GET['s']) ? '' : '-outline' ?>-purple">
+            Z-Aで並べ替え
+          </a>
         </div>
       </div>
 

@@ -94,15 +94,15 @@ $vocabs = $dm->query(
       </div>
 
       <div class="border border-3 rounded-4 text-center">
-        <table class="table overflow-hidden rounded-4 align-middle">
+        <table class="table overflow-hidden rounded-4 align-middle mb-0">
           <thead>
             <tr>
-              <th class="bg-yellow-subtle">
+              <th class="bg-yellow-subtle w-25 border-end">
                 <span class="fs-4">Ngôi thứ 1</span>
                 <br>
                 <span class="fw-normal">1人称代名詞</span>
               </th>
-              <th class="bg-yellow-subtle">
+              <th class="bg-yellow-subtle" colspan="2">
                 <span class="fs-4">Ngôi thứ 2</span>
                 <br>
                 <span class="fw-normal">2人称代名詞</span>
@@ -111,14 +111,57 @@ $vocabs = $dm->query(
           </thead>
           <tbody>
             <tr>
-              <th rowspan="6">1</th>
-              <td>Mark</td>
+              <th class="border-end" rowspan="6">
+                <span class="fs-4">Tôi</span>
+                <br>
+                <span class="text-info-emphasis fs-5 fw-normal">私</span>
+              </th>
+              <td class="border-end">
+                <span class="fs-4">Ông</span>
+                <span class="text-info-emphasis fs-5">(相手は年上の男性)</span>
+              </td>
+              <td>
+                <span class="fs-4">Bà</span>
+                <span class="text-info-emphasis fs-5">(相手は年上の女性)</span>
+              </td>
             </tr>
             <tr>
-              <td>Jacob</td>
+              <td colspan="2">
+                <span class="fs-4">Bác</span>
+                <span class="text-info-emphasis fs-5">(相手は年配の人、自分の両親より年上の人)</span>
+              </td>
             </tr>
             <tr>
-              <td>@twitter</td>
+              <td class="border-end">
+                <span class="fs-4">Chú</span>
+                <span class="text-info-emphasis fs-5">(相手は自分の両親の兄弟と同じ年代の男性)</span>
+              </td>
+              <td>
+                <span class="fs-4">Cô</span>
+                <span class="text-info-emphasis fs-5">(相手は自分の両親の兄弟と同じ年代の女性)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="border-end">
+                <span class="fs-4">Anh</span>
+                <span class="text-info-emphasis fs-5">(相手は若い男性で、 自分兄弟と同じ年代)</span>
+              </td>
+              <td>
+                <span class="fs-4">Chị</span>
+                <span class="text-info-emphasis fs-5">(相手は若い女性で自分の姉妹と同じ年代)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="fs-4" colspan="2">
+                Bạn
+                <span class="text-info-emphasis fs-5">(「あなた」、自分と同じ年の人)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="fs-4" colspan="2">
+                Em
+                <span class="text-info-emphasis fs-5">(「きみ」、相手は自分より年下の人)</span>
+              </td>
             </tr>
           </tbody>
         </table>

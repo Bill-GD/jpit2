@@ -24,6 +24,8 @@ if (isset($_GET['search'])) {
   ));
 }
 
+$bg_colors = ['bg-danger', 'bg-orange', 'bg-warning', 'bg-success'];
+
 $test_lesson_id = 0;
 $test_score = 0;
 if (isset($_GET['d'])) {
@@ -83,7 +85,11 @@ $scores = array_values(array_filter(
           if ($i > 0) {
             $prev = $scores[$i - 1]['test_result'] ?? 0;
           }
+          
           $s = $scores[$i]['test_result'] ?? 0;
+          $bg_color =
+          in_array($lessons[$i]['lesson_id'], array_column($scores, 'lesson_id')) ?
+          $bg_colors[max(1, $s - 10) / 20 - 1] : '';
 
           $unlocked = $prev >= 50;
           $id = $lessons[$i]['lesson_id'];
@@ -91,7 +97,7 @@ $scores = array_values(array_filter(
           echo '
           <div class="row mb-4"' . (!$unlocked ? ' title="前のレッスンで50点以上を取得してロックを解除"' : '') . ' id="' . $id . '">
             <img class="col-3 me-3 object-fit-contain" height="150" src="../../assets/images/' . $lessons[$i]['thumbnail'] . '">
-            <div class="col d-flex flex-column justify-content-between border border-4 rounded-2 px-4 py-3">
+            <div class="col d-flex flex-column justify-content-between' . (!$unlocked ? ' bg-dark-subtle' : " {$bg_color}") . ' border border-4 rounded-4 px-4 py-3">
               <div class="row justify-content-between align-items-center">
                 <p class="col fs-4 fw-semibold mb-4">第' . $id . '課: ' . $lessons[$i]['lesson_name'] . '</p>
                 <p class="col-auto fs-5">' . $s . '/100</p>
