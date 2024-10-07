@@ -64,14 +64,13 @@ if (isset($_GET['search'])) {
         </div>
       </div>
 
-      <section>
-        <?php
-        // print_r($list);
-        if (!isset($_GET['search']) && count($list) === 0) {
-          echo '<p class="fs-5">このトピックにはまだ文がありません。</p>';
-        } else {
-          for ($i = 0; $i < count($list); $i++) {
-            echo '
+      <?php
+      // print_r($list);
+      if (!isset($_GET['search']) && count($list) === 0) {
+        echo '<p class="fs-5">このトピックにはまだ文がありません。</p>';
+      } else {
+        for ($i = 0; $i < count($list); $i++) {
+          echo '
             <div class="border border-1 border-dark-subtle rounded-2 mb-4 py-3 px-4">
               <div class="row flex justify-content-between">
                 <div class="col-5">
@@ -87,10 +86,9 @@ if (isset($_GET['search'])) {
               </div>
             </div>
           ';
-          }
         }
-        ?>
-      </section>
+      }
+      ?>
     </main>
   </body>
 </html>
