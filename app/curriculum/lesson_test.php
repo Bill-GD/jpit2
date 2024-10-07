@@ -115,7 +115,24 @@ foreach ($questions as $q) {
 
       const score = Math.round(correctCount / totalQuestionCount * 100);
       // alert(`あなたのスコアは ${score}/100 です。`);
-      window.location.href = `test_result_handler.php?i=${<?= $lesson_id ?>}&s=${score}`;
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'test_result_handler.php';
+
+      const lessonInput = document.createElement('input');
+      lessonInput.type = 'hidden';
+      lessonInput.name = 'i';
+      lessonInput.value = <?= $lesson_id ?>;
+      form.appendChild(lessonInput);
+
+      const scoreInput = document.createElement('input');
+      scoreInput.type = 'hidden';
+      scoreInput.name = 's';
+      scoreInput.value = score;
+      form.appendChild(scoreInput);
+
+      document.body.appendChild(form);
+      form.submit();
     });
 
     for (let e of document.getElementsByClassName('answer-container')) {
