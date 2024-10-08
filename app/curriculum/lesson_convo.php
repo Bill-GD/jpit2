@@ -56,6 +56,20 @@ $lesson_name = $dm->query(
         </div>
       </div>
 
+      <div class="border border-1 border-dark-subtle rounded-2 mb-4 py-3 px-4">
+        <div class="row flex justify-content-between">
+          <div class="col-5">
+            <b class="fs-5">例 2: 私の名前は...です。</b>
+            <div class="col-auto ms-5 fs-5">• Tôi tên là...</div>
+          </div>
+          <div class="col-6">
+            <div class="col-auto h-50"></div>
+            <div class="col-auto">• トイ テン ラ...</div>
+          </div>
+          <a class="col text-decoration-none icon-link link-secondary fs-3 mt-3 fa-solid fa-volume-high play-sound"
+            audio-path="quick_learn_1/my_name.mp3"></a>
+        </div>
+      </div>
     </main>
   </body>
 </html>

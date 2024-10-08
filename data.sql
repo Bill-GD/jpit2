@@ -21,28 +21,30 @@ INSERT INTO lesson (`lesson_id`, `lesson_name`, `thumbnail`) VALUES
 (2, 'Tôi là giáo viên', 'lesson_1/jikosyoukai_man.png');
 
 insert into vocab (vocab_id, lesson_id, word, meaning, audio) values
-(1, 1, 'chào', 'こんにちは', 'lesson_3/hi.mp3'),
-(2, 1, 'xin lỗi', 'すみません', 'lesson_3/sorry.mp3'),
-(3, 1, 'tên', '名前', 'lesson_3/name.mp3'),
-(4, 1, 'người', '人、～人', 'lesson_3/people.mp3'),
-(5, 1, 'nước', '国', 'lesson_3/country.mp3'),
-(6, 1, 'nào', 'どの', 'lesson_3/which.mp3'),
-(7, 1, 'là', '～です', 'lesson_3/is.mp3'),
-(8, 1, 'rất', 'とても', 'lesson_3/very.mp3'),
-(9, 1, 'vui', '嬉しい', 'lesson_3/happy.mp3'),
-(10, 1, 'gặp', '会う', 'lesson_3/meet.mp3'),
-(11, 1, 'rất vui được gặp', 'お会いできて嬉しい', 'lesson_3/happy_to_meet.mp3');
+(1, 1, 'chào', 'こんにちは', 'lesson_1/hi.mp3'),
+(2, 1, 'xin lỗi', 'すみません', 'lesson_1/sorry.mp3'),
+(3, 1, 'tên', '名前', 'lesson_1/name.mp3'),
+(4, 1, 'người', '人、～人', 'lesson_1/people.mp3'),
+(5, 1, 'nước', '国', 'lesson_1/country.mp3'),
+(6, 1, 'nào', 'どの', 'lesson_1/which.mp3'),
+(7, 1, 'là', '～です', 'lesson_1/is.mp3'),
+(8, 1, 'rất', 'とても', 'lesson_1/very.mp3'),
+(9, 1, 'vui', '嬉しい', 'lesson_1/happy.mp3'),
+(10, 1, 'gặp', '会う', 'lesson_1/meet.mp3'),
+(11, 1, 'rất vui được gặp', 'お会いできて嬉しい', 'lesson_1/happy_to_meet.mp3'),
+(12, 2, 'trường', '学校', 'lesson_2/school.mp3'),
+(13, 2, 'công ty', '会社', 'lesson_2/company.mp3');
 
-insert into test_question (question_id, lesson_id, content) values
+insert into test_question (question_id, lesson_id, content) value
 (1, 1, 'Bạn tên là gì?'),
 (2, 1, 'Bạn đến từ đâu?'),
 (3, 1, 'Câu nào dùng để chào hỏi ghi gặp ai đó lần đầu?'),
 (4, 1, 'Nghĩa của từ sau là gì: chào'),
 (5, 1, 'Xin lỗi, lớp bạn ở đâu vậy?'),
 (6, 1, 'Dịch câu sau: お元気ですか？'),
-(7, 2, ''),
-(8, 2, ''),
-(9, 2, ''),
+(7, 2, 'Dịch câu sau: 私はA社で働いています。'),
+(8, 2, 'Nhà bạn có bao nhiêu người?'),
+(9, 2, 'Bạn học trường nào?'),
 (10, 2, ''),
 (11, 2, '');
 
@@ -68,7 +70,17 @@ insert into test_question_choice (choice_id, question_id, content, is_correct) v
 (19, 6, 'Bạn có khỏe không?', true),
 (20, 6, 'Bạn muốn ăn gì?', false),
 (21, 6, 'Bạn tên là gì?', false),
-(22, 6, 'Bạn đang làm gì?', false);
+(22, 6, 'Bạn đang làm gì?', false),
+(23, 7, 'Tôi đang làm việc tại công ty A.', true),
+(24, 7, 'Tôi đã kết hôn.', false),
+(25, 7, 'Cảm ơn bạn.', false),
+(26, 8, 'Nhà tôi bao gồm 4 thành viên.', true),
+(27, 8, 'Nhà tôi ở quận Hà Đông.', false),
+(28, 8, 'Nhà bạn đẹp quá!', false),
+(29, 9, 'Tôi học ở đại học Phenikaa.', true),
+(30, 9, 'Tôi chưa có việc làm.', false),
+(31, 9, 'Bạn học ở lớp nào?', false),
+(32, 9, 'Tôi có 2 người con.', false);
 
 insert into mock_test_question (question_id, `level`, content) values
 (1, 1, 'Chó là ... tốt nhất của con người?'),
