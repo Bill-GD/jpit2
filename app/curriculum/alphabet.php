@@ -16,7 +16,7 @@ $chars = [
 $words = [
   '魚', '月', '曇り', '飛行機', 'キツネ', 'ヤギ', '時計', '赤ちゃん', 'カエル', 'パンダ', 'イルカ', 'テレビ', 'サル', '恐竜', '蚊', 'キノコ', '牛', 'くるま', 'アボカド', '宇宙飛行士', '紙扇風機', 'ヘビ', 'ライオン', '潜水艦', 'フクロウ', '羊', 'オウム', '自転車', '看護師',
 ];
-$sounds = array_map(fn($c): string => mb_convert_case($c, MB_CASE_LOWER) . '.mp3', $chars);
+$sounds = array_map(fn($c): string => mb_strtolower($c) . '.mp3', $chars);
 if (isset($_GET['s'])) {
   $images = array_reverse($images);
   $chars = array_reverse($chars);

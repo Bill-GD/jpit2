@@ -22,7 +22,7 @@ class Globals {
   }
 
   public static function init(string $env_path): void {
-    if (getenv('ENVIROMENT') === false) {
+    if (getenv('ENVIROMENT') === false || getenv('ENVIROMENT') === 'development') {
       self::load_env($env_path);
     }
     self::$is_dev = getenv('ENVIROMENT') === 'development';
