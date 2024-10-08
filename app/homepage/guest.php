@@ -19,7 +19,7 @@ if (Helper::is_user_logged_in()) {
   <body>
     <?= UI::navbar() ?>
 
-    <div class="container">
+    <div class="container mt-7">
       <div class="fs-2">
         <h1>Probeto - よく学び、よく理解し、外国人のためのベトナム語のナンバーワン専門家。</h1>
         <!-- https://depositphotos.com/model/112377272.html -->

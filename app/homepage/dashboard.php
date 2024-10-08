@@ -19,7 +19,7 @@ if (!Helper::is_user_logged_in()) {
   <body>
     <?= UI::navbar() ?>
 
-    <div class="container">
+    <div class="container mt-7">
       <p class="fs-3">学習の進捗状況:</p>
 
       <div class="px-5 mx-5 mt-6">

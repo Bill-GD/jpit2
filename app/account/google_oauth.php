@@ -3,12 +3,15 @@ echo 'Hey there :)';
 
 include_once '../helpers/globals.php';
 
-$google_oauth_redirect_uri = 'http://localhost:8000/app/account/google_oauth.php';
-$google_oauth_version = 'v3';
-
 if (empty(Globals::$google_client_id) || empty(Globals::$google_client_secret)) {
   Globals::init('../../.env');
 }
+
+$google_oauth_redirect_uri = Globals::$is_dev
+  ? 'http://localhost:8000/app/account/google_oauth.php'
+  : 'https://bill-gd-probeto.koyeb.app/app/account/google_oauth.php';
+$google_oauth_version = 'v3';
+
 assert(Globals::$aiven_username !== '', 'Aiven username is empty');
 assert(Globals::$google_client_id !== '', 'Google client id is empty');
 
