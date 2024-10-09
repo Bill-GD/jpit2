@@ -1,0 +1,36 @@
+name: Deploy on Commit
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**'
+
+jobs:
+  deploy:
+    if: ${{ startsWith(github.event.head_commit.message, 'deploy:') }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install and configure the Koyeb CLI
+        uses: koyeb-community/koyeb-actions@v2
+        with:
+          api_token: '${{ secrets.KOYEB_TOKEN }}'
+          github_token: '${{ secrets.API_GITHUB_TOKEN }}'
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+
+      - name: Install dependencies
+        run: composer install --no-progress --no-suggest --prefer-dist
+
+      - name: Install Koyeb CLI
+        run: curl -sSL https://get.koyeb.com | sh
+
+      - name: Deploy to Koyeb
+        run: koyeb service redeploy probeto/jpit2
