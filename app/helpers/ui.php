@@ -26,16 +26,16 @@ class UI {
 
   static function navbar(): string {
     // <!-- <img src="logo.png" alt="Logo" class="logo"> -->
-    return "
-    <header class='navbar border border-bottom-2 fixed-top bg-secondary-subtle p-2'>
-      <a href='../../index.php' class='nav-brand fs-4 text-decoration-none text-dark ms-3'>Probeto</a>
-      <ul class='nav'>
-        <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href=''>個人辞書</a></li>
-        <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href=''>オープン辞書</a></li>
-        <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href=''>専門用語</a></li>
-        <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href='../quick_learn/quick_learn_topic.php'>よく使われるフレーズ</a></li>
-        <li class='nav-item'><a class='nav-link link-secondary fw-semibold' href='../personalized/mock_exam.php'>模擬試験</a></li>
-        "
+    return '
+    <header class="navbar border border-bottom-2 fixed-top bg-secondary-subtle p-2">
+      <a href="../../index.php" class="nav-brand fs-4 text-decoration-none text-dark ms-3">Probeto</a>
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link link-secondary fw-semibold" href="javascript:void(0);" onclick="alert(\'この機能はまだサポートされていません\')">個人辞書</a></li>
+        <li class="nav-item"><a class="nav-link link-secondary fw-semibold" href="javascript:void(0);" onclick="alert(\'この機能はまだサポートされていません\')">オープン辞書</a></li>
+        <li class="nav-item"><a class="nav-link link-secondary fw-semibold" href="javascript:void(0);" onclick="alert(\'この機能はまだサポートされていません\')">専門用語</a></li>
+        <li class="nav-item"><a class="nav-link link-secondary fw-semibold" href="../quick_learn/quick_learn_topic.php">よく使われるフレーズ</a></li>
+        <li class="nav-item"><a class="nav-link link-secondary fw-semibold" href="../personalized/mock_exam.php">模擬試験</a></li>
+        '
       . (Helper::is_user_logged_in()
         ? self::account_drop_down()
         : <<<HTML
