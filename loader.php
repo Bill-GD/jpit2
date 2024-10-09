@@ -5,7 +5,7 @@ if (empty(Globals::$aiven_username)) {
   assert(Globals::$aiven_username !== '', 'Aiven username is empty');
 }
 
-if ($_COOKIE['is_logged_in'])
+if (isset($_COOKIE['is_logged_in']) && $_COOKIE['is_logged_in'])
   header('Location: app/homepage/dashboard.php');
 else
   header('Location: app/homepage/guest.php');

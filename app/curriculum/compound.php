@@ -39,15 +39,15 @@ if (isset($_GET['s'])) {
 
       <?php
       echo '<div class="row mb-4 row-cols-4 column-gap-5 justify-content-center">';
-      for ($i = 0; $i < count($compounds); $i++) {
-        echo '
-          <div class="col d-flex justify-content-center position-relative border border-dark-subtle rounded-1 p-3 mb-4">
-            <img src="' . $images[$i] . '" width="220" height="220">
-            <div class="pt-4 ms-2 position-absolute end-5 bottom-5">
-              <div class="text-decoration-none icon-link link-secondary fs-3 mt-5 fa-solid fa-volume-high play-sound" audio-path="compound/' . $sounds[$i] . '"></div>
-            </div>
-          </div>';
-      }
+      for ($i = 0; $i < count($compounds); $i++): ?>
+        <div class="col d-flex justify-content-center position-relative border border-dark-subtle rounded-1 p-3 mb-4">
+          <img src="<?= $images[$i] ?>" width="220" height="220">
+          <div class="pt-4 ms-2 position-absolute end-5 bottom-5">
+            <div class="text-decoration-none icon-link link-secondary fs-3 mt-5 fa-solid fa-volume-high play-sound"
+              audio-path="compound/<?= $sounds[$i] ?>"></div>
+          </div>
+        </div>
+      <?php endfor;
       echo '</div>';
       ?>
     </main>

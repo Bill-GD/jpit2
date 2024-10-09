@@ -66,15 +66,13 @@ foreach ($questions as $q) {
           ';
 
         echo '<div class="row column-gap-4 m-0 mb-5">';
-        for ($j = 0; $j < count($choices); $j++) {
-          echo '
-            <div class="answer-container q-' . $i . ' a-' . $j . ($choices[$j]['is_correct'] == 1 ? ' correct' : '') .
-            ' col border border-2 rounded-3">
-              <p class="pt-2 fs-5 fw-bold">答え ' . ($j + 1) . ':' . '</p>
-              <p class="fs-5">' . $choices[$j]['content'] . '</p>
-            </div>
-          ';
-        }
+        for ($j = 0; $j < count($choices); $j++): ?>
+          <div
+            class="answer-container q-<?= $i ?> a-<?= $j . ($choices[$j]['is_correct'] == 1 ? ' correct' : '') ?> col border border-2 rounded-3">
+            <p class="pt-2 fs-5 fw-bold">答え <?= $j + 1 ?>:</p>
+            <p class="fs-5"><?= $choices[$j]['content'] ?></p>
+          </div>
+        <?php endfor;
         echo '</div>';
       }
       ?>

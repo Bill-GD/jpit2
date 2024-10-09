@@ -51,19 +51,20 @@ if (isset($_GET['s'])) {
 
       <?php
       echo '<div class="row d-flex row-cols-3 column-gap-5 justify-content-center">';
-      for ($i = 0; $i < 29; $i++) {
-        echo '
-          <div class="col-5 text-decoration-none">
-            <div class="row border border-dark-subtle rounded-1 my-2 px-3 py-2">
-              <div class="col-auto"><img src="../../assets/images/alphabet/' . $images[$i] . '" width="200" height="200"></div>
-              <div class="col-auto pt-4 ms-2">
-                <div class="fw-bold fs-3">' . $chars[$i] . '</div>
-                <div class="fs-4">' . $words[$i] . '</div>
-                <a class="text-decoration-none icon-link link-secondary fs-3 mt-5 fa-solid fa-volume-high play-sound" audio-path="alphabet/' . $sounds[$i] . '"></a>
-              </div>
+      for ($i = 0; $i < 29; $i++): ?>
+        <div class="col-5 text-decoration-none">
+          <div class="row border border-dark-subtle rounded-1 my-2 px-3 py-2">
+            <div class="col-auto"><img src="../../assets/images/alphabet/<?= $images[$i] ?>" width="200" height="200">
             </div>
-          </div>';
-      }
+            <div class="col-auto pt-4 ms-2">
+              <div class="fw-bold fs-3"><?= $chars[$i] ?></div>
+              <div class="fs-4"><?= $words[$i] ?></div>
+              <a class="text-decoration-none icon-link link-secondary fs-3 mt-5 fa-solid fa-volume-high play-sound"
+                audio-path="alphabet/<?= $sounds[$i] ?>"></a>
+            </div>
+          </div>
+        </div>
+      <?php endfor;
       echo '</div>';
       ?>
     </main>

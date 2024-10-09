@@ -46,15 +46,14 @@ if (isset($_GET['search'])) {
       }
 
       echo '<div class="row d-flex row-cols-4 justify-content-center">';
-      for ($i = 0; $i < count($topics); $i++) {
-        echo '
-          <a href="quick_learn_content.php?i=' . $i + 1 . '" class="col text-decoration-none text-center">
-            <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
-              <img src="../../assets/images/' . $topics[$i]['image'] . '" width="200" height="200">
-              <p class="text-dark text-start pt-2 pb-3 ps-4 fs-4">' . $topics[$i]['topic_name'] . '</p>
-            </div>
-          </a>';
-      }
+      for ($i = 0; $i < count($topics); $i++): ?>
+        <a href="quick_learn_content.php?i=<?= $i + 1 ?>" class="col text-decoration-none text-center">
+          <div class="border border-dark-subtle rounded-1 mx-1 my-2 pt-4 px-3">
+            <img src="../../assets/images/<?= $topics[$i]['image'] ?>" width="200" height="200">
+            <p class="text-dark text-start pt-2 pb-3 ps-4 fs-4"><?= $topics[$i]['topic_name'] ?></p>
+          </div>
+        </a>
+      <?php endfor;
       echo '</div>';
       ?>
     </main>
