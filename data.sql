@@ -33,9 +33,18 @@ insert into vocab (vocab_id, lesson_id, word, meaning, audio) values
 (10, 1, 'gặp', '会う', 'lesson_1/meet.mp3'),
 (11, 1, 'rất vui được gặp', 'お会いできて嬉しい', 'lesson_1/happy_to_meet.mp3'),
 (12, 2, 'trường', '学校', 'lesson_2/school.mp3'),
-(13, 2, 'công ty', '会社', 'lesson_2/company.mp3');
+(13, 2, 'công ty', '会社', 'lesson_2/company.mp3'),
+(14, 3, 'sở thích', '趣味', 'lesson_3/hobby.mp3'),
+(15, 3, 'bóng đá', 'サッカー', 'lesson_3/soccer.mp3'),
+(16, 3, 'sách', '本', 'lesson_3/book.mp3');
 
-insert into test_question (question_id, lesson_id, content) value
+insert into lesson_convo (convo_id, lesson_id, japanese_sentence, vietnamese_sentence, vietnamese_katakana, audio) values
+(1, 1, 'こんにちは！', 'Xin chào!', 'シンチャオ!', 'quick_learn_1/hello.mp3'),
+(2, 1, 'お元気ですか?！', 'Bạn khỏe không?', 'パンクエコン?', 'quick_learn_1/how_are_you.mp3'),
+(3, 2, 'あなたの趣味は何ですか。', 'Sở thích của bạn là gì?', 'ソティック　クア　バン　ラ　ジ?', 'lesson_2/hobby.mp3'),
+(4, 2, 'サッカーが好きです。', 'Tôi thích đá bóng.', 'トイ　ティック　ダ　ボン。', 'lesson_2/like_soccer.mp3');
+
+insert into test_question (question_id, lesson_id, content) values
 (1, 1, 'Bạn tên là gì?'),
 (2, 1, 'Bạn đến từ đâu?'),
 (3, 1, 'Câu nào dùng để chào hỏi ghi gặp ai đó lần đầu?'),

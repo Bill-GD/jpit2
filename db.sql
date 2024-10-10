@@ -48,16 +48,6 @@ create table if not exists test_result (
   test_result int not null
 );
 
-create table if not exists notification (
-  notification_id int not null primary key auto_increment,
-  user_id int not null,
-  message text not null,
-  `type` nvarchar (32),
-  `status` nvarchar (32),
-  sent_at datetime,
-  foreign key (user_id) references `user` (user_id) on delete cascade
-);
-
 create table if not exists lesson_convo (
   convo_id int not null primary key auto_increment,
   lesson_id int not null,

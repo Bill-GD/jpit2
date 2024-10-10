@@ -48,32 +48,36 @@ $vocabs = $dm->query(
 
       <h3 class="text-purple mb-4">文法 (Ngữ pháp)</h3>
 
-      <div class="d-flex mb-5">
-        <img src="../../assets/images/lesson/1.png" class="me-3" width="50" height="50">
-        <div class="bg-secondary-subtle fs-4 fw-medium rounded px-3 py-2 w-100">
-          <span class="fw-bold">Chào</span>
-          - ～さん、こんにちは
+      <?php if ($lesson_id == 1): ?>
+        <div class="d-flex mb-5">
+          <img src="../../assets/images/lesson/1.png" class="me-3" width="50" height="50">
+          <div class="bg-secondary-subtle fs-4 fw-medium rounded px-3 py-2 w-100">
+            <span class="fw-bold">Chào</span>
+            - ～さん、こんにちは
+          </div>
         </div>
-      </div>
 
-      <span class="fs-4">
-        Khi bạn muốn chào một người nào đó, bạn dùng từ "chào" và một đại từ nhân xưng ngôi thứ 2 hoặc tên người đó.
-      </span>
-      <br>
-      <span class="fs-5 text-info-emphasis">誰かに挨拶したいときは、「Chào」という言葉と二人称代名詞またはその人の名前を使います。</span>
+        <span class="fs-4">
+          Khi bạn muốn chào một người nào đó, bạn dùng từ "chào" và một đại từ nhân xưng ngôi thứ 2 hoặc tên người đó.
+        </span>
+        <br>
+        <span class="fs-5 text-info-emphasis">誰かに挨拶したいときは、「Chào」という言葉と二人称代名詞またはその人の名前を使います。</span>
 
-      <div class="d-flex flex-column align-items-center">
-        <div class="text-center border border-3 rounded mt-4 w-75 px-3 py-2">
-          <h3 class="text-purple">Chào + đại từ nhân xưng ngôi thứ 2</h3>
-          <span>Chào + 二人称代名詞</span>
+        <div class="d-flex flex-column align-items-center">
+          <div class="text-center border border-3 rounded mt-4 w-75 px-3 py-2">
+            <h3 class="text-purple">Chào + đại từ nhân xưng ngôi thứ 2</h3>
+            <span>Chào + 二人称代名詞</span>
+          </div>
+          <span class="fs-4">Ví dụ: Chào anh</span>
+          <div class="text-center border border-3 rounded mt-4 w-75 px-3 py-2">
+            <h3 class="text-purple">Chào + tên</h3>
+            <span>Chào + 名前</span>
+          </div>
+          <span class="fs-4">Ví dụ: Chào Mai</span>
         </div>
-        <span class="fs-4">Ví dụ: Chào anh</span>
-        <div class="text-center border border-3 rounded mt-4 w-75 px-3 py-2">
-          <h3 class="text-purple">Chào + tên</h3>
-          <span>Chào + 名前</span>
-        </div>
-        <span class="fs-4">Ví dụ: Chào Mai</span>
-      </div>
+      <?php else: ?>
+        <h4 class="text-center">現在コンテンはありません</h4>
+      <?php endif; ?>
 
       <h3 class="text-purple mt-5">語彙 (Từ vựng)</h3>
 

@@ -26,6 +26,7 @@ $questions = $dm->query(
   ['lesson_id' => $lesson_id]
 )->fetchAll();
 shuffle($questions);
+$total = count($questions);
 
 $answers = [];
 foreach ($questions as $q) {
@@ -56,30 +57,34 @@ foreach ($questions as $q) {
       </div>
 
       <?php
-      for ($i = 0; $i < count($questions); $i++) {
-        $q = $questions[$i];
-        $choices = array_values(array_filter(
-          $answers,
-          fn($a): bool => $a['question_id'] == $q['question_id']
-        ));
-        shuffle($choices);
+      if ($total <= 0) {
+        echo '<h4 class="text-center">現在コンテンはありません</h4>';
+      } else {
+        for ($i = 0; $i < $total; $i++) {
+          $q = $questions[$i];
+          $choices = array_values(array_filter(
+            $answers,
+            fn($a): bool => $a['question_id'] == $q['question_id']
+          ));
+          shuffle($choices);
 
-        echo '
+          echo '
           <div class="border border-2 rounded-3 px-3 pt-2 mb-3 question-content">
             <p class="fs-5 fw-bold">質問 ' . ($i + 1) . ':</p>
             <p class="fs-5">' . $q['content'] . '</p>
           </div>
           ';
 
-        echo '<div class="row column-gap-4 m-0 mb-5">';
-        for ($j = 0; $j < count($choices); $j++): ?>
-          <div
-            class="answer-container q-<?= $i ?> a-<?= $j . ($choices[$j]['is_correct'] == 1 ? ' correct' : '') ?> col border border-2 rounded-3">
-            <p class="pt-2 fs-5 fw-bold">答え <?= $j + 1 ?>:</p>
-            <p class="fs-5"><?= $choices[$j]['content'] ?></p>
-          </div>
-        <?php endfor;
-        echo '</div>';
+          echo '<div class="row column-gap-4 m-0 mb-5">';
+          for ($j = 0; $j < count($choices); $j++): ?>
+            <div
+              class="answer-container q-<?= $i ?> a-<?= $j . ($choices[$j]['is_correct'] == 1 ? ' correct' : '') ?> col border border-2 rounded-3">
+              <p class="pt-2 fs-5 fw-bold">答え <?= $j + 1 ?>:</p>
+              <p class="fs-5"><?= $choices[$j]['content'] ?></p>
+            </div>
+          <?php endfor;
+          echo '</div>';
+        }
       }
       ?>
     </main>

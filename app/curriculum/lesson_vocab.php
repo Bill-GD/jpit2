@@ -25,6 +25,7 @@ $vocabs = $dm->query(
   'SELECT * from vocab where lesson_id = :lesson_id',
   ['lesson_id' => $lesson_id]
 )->fetchAll();
+$total = count($vocabs);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,17 +49,19 @@ $vocabs = $dm->query(
 
       <div class="fs-3 text-purple fw-bold">Từ vựng - 言葉</div>
 
-      <div class="border border-2 rounded-3 fs-4 mt-4">
-        <?php
-        $total = count($vocabs);
-        for ($i = 0; $i < $total; $i++) {
-          if ($i % 2 == 0) {
-            echo '<div class="row justify-content-start mx-0 border-bottom">';
-          }
-          $border = $i % 2 == 0 ? ' border-end' : '';
-          $rounded = $i == 0 ? ' rounded-start-top-3' : ($i == $total - 1 ? ' rounded-start-bottom-3' : '');
+      <?php if ($total == 0): ?>
+        <h4 class="text-center">現在コンテンはありません</h4>
+      <?php else: ?>
+        <div class="border border-2 rounded-3 fs-4 mt-4">
+          <?php
+          for ($i = 0; $i < $total; $i++) {
+            if ($i % 2 == 0) {
+              echo '<div class="row justify-content-start mx-0 border-bottom">';
+            }
+            $border = $i % 2 == 0 ? ' border-end' : '';
+            $rounded = $i == 0 ? ' rounded-start-top-3' : ($i == $total - 1 ? ' rounded-start-bottom-3' : '');
 
-          echo '
+            echo '
             <div class="row col-6">
               <p class="col-5 m-0 px-3 py-2 bg-yellow-subtle' . $rounded . '">' . $vocabs[$i]['word'] . '</p>
               <div class="col row' . $border . ' border-start m-0 px-3 py-2">
@@ -67,12 +70,13 @@ $vocabs = $dm->query(
                  fs-3 fa-solid fa-volume-high play-sound" audio-path="' . $vocabs[$i]['audio'] . '"></a>
               </div>
             </div>';
-          if ($i % 2 == 1) {
-            echo '</div>';
+            if ($i % 2 == 1) {
+              echo '</div>';
+            }
           }
-        }
-        ?>
-      </div>
+          ?>
+        </div>
+      <?php endif; ?>
     </main>
   </body>
 </html>
