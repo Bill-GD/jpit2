@@ -48,7 +48,7 @@ $vocabs = $dm->query(
 
       <h3 class="text-purple mb-4">文法 (Ngữ pháp)</h3>
 
-      <?php if ($lesson_id == 1): ?>
+      <?php if (intval($lesson_id) == 1): ?>
         <div class="d-flex mb-5">
           <img src="../../assets/images/lesson/1.png" class="me-3" width="50" height="50">
           <div class="bg-secondary-subtle fs-4 fw-medium rounded px-3 py-2 w-100">
